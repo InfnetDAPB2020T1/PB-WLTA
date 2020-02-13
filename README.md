@@ -11,7 +11,6 @@
 
 
 ## Cenário
-> Um cenário que provém interação interpessoal, como sugestões de novos estilos musicais.
 
 O projeto "Nas ondas da Rádio" nasce de um único sentimento: Nostalgia. Para quem nasceu antes do boom da internet no Brasil tem lembranças de como era ter que esperar tocar sua música favorita na rádio, ficar um tempo na linha telefônica só para pedir aquela faixa especial e quem sabe, dando sorte, dedicá-la a alguém. Indiretas, romances, declarações ou apenas curtição... Não importa o motivo, essa época certamente está na memória de muita gente!
 
