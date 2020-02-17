@@ -3,7 +3,7 @@
 ## Integrantes
 - Willian Nascimento
 - Leondro Pinto
-- Thamyres Abal
+- Thamyres Abal 
 - Andressa Fernandes
 
 ## Assunto
@@ -18,20 +18,97 @@ O projeto "Nas ondas da Rádio" nasce de um único sentimento: Nostalgia. Para q
 
 Nossa intenção ao fazer este app é resgatar a dinâmica de uma década super musical - Os anos 90! 
 
-## Funcionalidades
-- Player de música com votação de melhores e piores através de pontuação.
-- O usuário precisa estar logado para receber pontos por minutos.
-- Os usuários podem trocar seus pontos por uma funcionalidade(com o nome a se definir),
-para escolher a hora que sua música será tocada.
-- Notificação do usuário sobre a hora marcada
-- O sistema contará com usuários Free e VIP, com vantagens para usuários VIPs.
-- Cada usuário poderá enviar até 2 músicas por dia. Sendo usuário VIP até 5 envios.
-- Opção de seguir playlist do colega(Em discussão).
-- Cada usuário pode montar sua própria rádio e programar a hora para "transmissão"(Em discussão).
-- Notificação da hora em que a música tocará para pessoa que foi destinada - mesmo que não seja cadastrada.(ver player externo- web talvez)
-- Cada usuário comum ganha 1x de pontos, VIP 2x a cada 10 min de música cumulativos.
-- Propagandas curtas de 5~8 segundos a cada 30 min.
-- Esses comerciais são falando dos benefícios do VIP, da hora "patrocinada".
-- O usuário não gastará internet pra ouvir os anúncios já que eles estarão dentro do app
-- Anúncios  não aparecem para usuários VIP.
-Sistema de créditos por tempo de uso podendo ser trocado por números da sorte. O sorteiro será feito pela Loteria Federal(Em discussão).
+## Funcionalidades/ Product Backlog
+- Player de música
+- Design (telas)
+- Cadastro de usuário
+- Perfil(configurações, mudar senha, foto, descrição)
+- Busca de músicas e usuários 
+- Histórico(log)- podendo ser visualizado por outros usuários após seguir
+- Avaliação de música
+- Músicas favoritas
+- Favoritar músicas do colega 
+- Música dedicada
+- Sistema de crédito
+- Notificação(e-mail, sms, whatsapp)
+- Amizade?(Seguir)
+- Notificação de amizade
+- Boquear usuário
+- Feed (músicas mais tocadas de acordo com gênero)
+
+----------------------------------------------
+
+## Histórias de Usuário
+
+**Como um** [usuario/adm]
+**Eu quero** [funcionalidade]
+**Para que** [motivo]
+Teste de Aceitação?
+
+**Como um** [usuário]
+**Eu quero** [cadastrar]
+**Para que** [ter funcionalidades de logado]
+TA?
+
+**Como um** [usuario]
+**Eu quero** [buscar musicas]
+**Para que** [eu adicione na playlist]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [ouvir musica]
+**Para que** [ter acessoa playlist pública]
+TA?
+
+**Como um** [usuário logado]
+**Eu quero** [avaliar a musica que esteja tocando]
+**Para que** [para melhorar a seleção da playlist pública]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [Músicas favoritas]
+**Para que** [facilitar a utililização das musicas de acordo com o gosto]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [Perfil(configurações, mudar senha, foto, descrição)]
+**Para que** [Para garantir a utilização correta do programa e facilitar a identificação do usuário e sua personalização]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [Sistema de crédito]
+**Para que** [Uma forma de recompensar os usuários pela utilização do projeto e liberar algumas funcionalidaes extras para o mesmo desde que esteja dentro das condições descritas]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [Música dedicada]
+**Para que** [Selecionar uma música e dedica-la à alguém como uma forma de juntar as pessoas por meio desta dedicação. *Não nos resposabilizamos pelo mal uso]
+TA?
+
+**Como um** [usuario não logado]
+**Eu quero** [musica dedicada]
+**Para que** [consumir o produto sem a necessidade de cadastro. Apenas ouvir a música através de um link externo ]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [Histórico(log)]
+**Para que** [facilitar a favoritação e a busca de músicas, lista de preferências]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [Amizade?(Seguir)]
+**Para que** [Estimular a integração entre usuarios e facilitar o compartilhamento de playlists]
+TA?
+
+**Como um** [usuario logado/ nao logado]
+**Eu quero** [Notificação(e-mail, sms, whatsapp]
+**Para que** [notificar usuarios cadastrados e usuarios potenciais para utilização do app. ]
+TA?
+
+**Como um** [usuario logado]
+**Eu quero** [Histórico(log)]
+**Para que** [facilitar a favoritação e a busca de músicas, lista de preferências]
+TA?
+
+
+
