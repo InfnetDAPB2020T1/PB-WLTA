@@ -3,7 +3,7 @@
 ## Integrantes
 - Willian Nascimento
 - Leondro Pinto
-- Thamyres Abal 
+- Thamyres Abal PO
 - Andressa Fernandes
 
 ## Assunto
