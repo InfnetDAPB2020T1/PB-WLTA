@@ -68,6 +68,11 @@ Teste de Aceitação?
 TA?
 
 **Como um** [usuário logado]
+**Eu quero** [ouvir musica]
+**Para que** [o usuário possa ter acesso a uma rádio pela playlist pública]
+TA?
+
+**Como um** [usuário logado]
 **Eu quero** [gerenciar perfil]
 **Para que** [mudar senha, mudar foto, configurações...Para garantir a utilização correta do programa e facilitar a identificação do usuário e sua personalização]
 TA?
