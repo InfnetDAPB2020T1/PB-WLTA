@@ -20,6 +20,7 @@ Nossa intenção ao fazer este app é resgatar a dinâmica de uma década super 
 ## Funcionalidades/ Product Backlog
 - Player de música.
 - Design (telas).
+- Login
 - Cadastro de usuário.
 - Perfil(configurações, mudar senha, foto, descrição).
 - Feed (músicas mais tocadas de acordo com gênero). Home do app.
@@ -110,11 +111,6 @@ TA?
 **Como um** [usuário logado]
 **Eu quero** [privacidade das playlist ]
 **Para que** [o usuário possa ter opção de escolha sobre a privacidade das playlist criadas pelo usuário e para ele. ]
-TA?
-
-**Como um** [usuário logado]
-**Eu quero** [histórico]
-**Para que** [o usuário tenha acesso ao histórico de músicas, para que outros usuários visualizem o histórico das mais escutadas do colega, de busca]
 TA?
 
 **Como um** [usuário logado]
