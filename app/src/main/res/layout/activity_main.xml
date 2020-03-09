@@ -10,10 +10,17 @@
     <fragment
         android:id="@+id/fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="413dp"
+        android:layout_height="658dp"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_host_principal"
-        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteX="-3dp"
         tools:layout_editor_absoluteY="1dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="409dp"
+        android:layout_height="70dp"
+        app:menu="@menu/botton_nav_principal"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="660dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
