@@ -3,5 +3,5 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="boxTextLogin">#FFFFFF</color>
+    <color name="boxTextLogin">#D3D3D3</color>
 </resources>
