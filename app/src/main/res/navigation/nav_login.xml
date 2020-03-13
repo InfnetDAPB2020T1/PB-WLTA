@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_login"
-    app:startDestination="@id/cadastroFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/cadastroFragment"
         android:name="com.example.pb_android_radion.Fragment.CadastroFragment"
         android:label="fragment_cadastro"
         tools:layout="@layout/fragment_cadastro" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.pb_android_radion.Fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

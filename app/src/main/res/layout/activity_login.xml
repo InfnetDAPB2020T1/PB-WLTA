@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degrade_login"
     tools:context=".LoginActivity">
 
     <fragment
@@ -16,112 +15,5 @@
         app:navGraph="@navigation/nav_login"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="30dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="30dp" />
-
-    <TextView
-        android:id="@+id/textoEmailCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:text="@string/textoEmail"
-        android:textColor="@color/boxTextLogin"
-        app:layout_constraintBottom_toTopOf="@+id/boxEmail"
-        app:layout_constraintStart_toStartOf="@+id/boxEmail"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <EditText
-        android:id="@+id/boxEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/boxEmail"
-        android:inputType=""
-        android:textColor="@color/boxTextLogin"
-        android:textColorLink="@color/boxTextLogin"
-        app:layout_constraintBottom_toTopOf="@+id/textoSenha"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textoEmailCadastro" />
-
-    <TextView
-        android:id="@+id/textoSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/textoSenha"
-        android:textColor="@color/boxTextLogin"
-        app:layout_constraintBottom_toTopOf="@+id/boxSenha"
-        app:layout_constraintStart_toStartOf="@+id/boxSenha"
-        app:layout_constraintTop_toBottomOf="@+id/boxEmail" />
-
-    <EditText
-        android:id="@+id/boxSenha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/boxSenha"
-        android:inputType="textPassword"
-        android:textColor="@color/boxTextLogin"
-        android:textColorLink="@color/boxTextLogin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textoSenha" />
-
-    <TextView
-        android:id="@+id/textoCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:autoLink="all|web|phone|none|map|email"
-        android:clickable="true"
-        android:text="@string/textoCadastrar"
-        android:textColor="@color/boxTextLogin"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/boxSenha"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="108dp"
-        android:layout_height="238dp"
-        app:layout_constraintBottom_toTopOf="@+id/textoEmailCadastro"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FF5F17D3"
-        android:text="@string/btnLogin"
-        android:textColor="@color/boxTextLogin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
