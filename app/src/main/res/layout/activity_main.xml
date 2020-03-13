@@ -13,14 +13,20 @@
         android:layout_width="413dp"
         android:layout_height="658dp"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_host_principal"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="1dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:navGraph="@navigation/nav_host_principal" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="409dp"
-        android:layout_height="70dp"
-        app:menu="@menu/botton_nav_principal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="660dp" />
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/botton_nav_principal" />
 </androidx.constraintlayout.widget.ConstraintLayout>

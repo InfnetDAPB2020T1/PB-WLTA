@@ -1,15 +1,9 @@
 <resources>
     <string name="app_name">RadiON</string>
-
     <string name="boxEmail">E-mail</string>
     <string name="textoEmail">Email</string>
-
     <string name="boxSenha">Senha</string>
     <string name="textoSenha">Senha</string>
-
     <string name="textoCadastrar">Novo por aqui? Cadastre-se!</string>
-
-
-
-
+    <string name="btnLogin">Login</string>
 </resources>
