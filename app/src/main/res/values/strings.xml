@@ -5,6 +5,8 @@
     <string name="boxSenha">Senha</string>
     <string name="textoSenha">Senha</string>
     <string name="textoCadastrar">Novo por aqui? Cadastre-se!</string>
+    <string name="textoEsqueciSenha">Esqueceu a senha?</string>
+    <string name="descricaoImagem">Logotipo do app</string>
     <string name="btnLogin">Login</string>
 
     <!-- TODO: Remove or change this placeholder text -->

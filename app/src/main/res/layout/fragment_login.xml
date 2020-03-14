@@ -26,19 +26,19 @@
             app:layout_constraintGuide_end="30dp" />
 
         <TextView
-            android:id="@+id/textoEmail"
+            android:id="@+id/textoEmailCadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:text="@string/textoEmail"
             android:textColor="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxEmail"
-            app:layout_constraintStart_toStartOf="@+id/boxEmail"
+            app:layout_constraintBottom_toTopOf="@+id/boxEmailLogin"
+            app:layout_constraintStart_toStartOf="@+id/boxEmailLogin"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/boxEmail"
+            android:id="@+id/boxEmailLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -46,26 +46,26 @@
             android:inputType=""
             android:textColor="@color/boxTextLogin"
             android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/textoSenha"
+            app:layout_constraintBottom_toTopOf="@+id/textoSenhaLogin"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textoEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/textoEmailCadastro" />
 
         <TextView
-            android:id="@+id/textoSenha"
+            android:id="@+id/textoSenhaLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="40dp"
             android:text="@string/textoSenha"
             android:textColor="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxSenha"
-            app:layout_constraintStart_toStartOf="@+id/boxSenha"
-            app:layout_constraintTop_toBottomOf="@+id/boxEmail" />
+            app:layout_constraintBottom_toTopOf="@+id/boxSenhaLogin"
+            app:layout_constraintStart_toStartOf="@+id/boxSenhaLogin"
+            app:layout_constraintTop_toBottomOf="@+id/boxEmailLogin" />
 
         <EditText
-            android:id="@+id/boxSenha"
+            android:id="@+id/boxSenhaLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -77,10 +77,10 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textoSenha" />
+            app:layout_constraintTop_toBottomOf="@+id/textoSenhaLogin" />
 
         <TextView
-            android:id="@+id/textoCadastro"
+            android:id="@+id/textoCadastroLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -92,21 +92,38 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/boxSenha"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/boxSenhaLogin"
+            app:layout_constraintVertical_bias="0.16000003" />
+
+        <TextView
+            android:id="@+id/textoEsqueciSenhaLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all|web|phone|none|map|email"
+            android:clickable="true"
+            android:text="@string/textoEsqueciSenha"
+            android:textColor="@color/boxTextLogin"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.952"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/boxSenhaLogin"
+            app:layout_constraintVertical_bias="0.03" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/lodotipoLogin"
             android:layout_width="108dp"
             android:layout_height="238dp"
-            app:layout_constraintBottom_toTopOf="@+id/textoEmail"
+            android:contentDescription="@string/descricaoImagem"
+            app:layout_constraintBottom_toTopOf="@+id/textoEmailCadastro"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/icon" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnLogarLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FF5F17D3"
@@ -116,7 +133,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.82" />
+            app:layout_constraintVertical_bias="0.9" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
