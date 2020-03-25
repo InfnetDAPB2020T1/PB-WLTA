@@ -40,241 +40,193 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/textoEmailCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textoEmail"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxEmailCadastro"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <EditText
-            android:id="@+id/boxEmailCadastro"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Insira seu e-mail"
-            android:inputType=""
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/textoSenhaCadastro"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textoEmailCadastro" />
-
-        <TextView
-            android:id="@+id/textoSenhaCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/textoSenha"
-            android:textColor="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxSenhaCadastro"
-            app:layout_constraintStart_toStartOf="@+id/boxSenhaCadastro"
-            app:layout_constraintTop_toBottomOf="@+id/boxEmailCadastro" />
-
-        <EditText
-            android:id="@+id/boxSenhaCadastro"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Insira sua senha"
-            android:inputType="textPassword"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/textNomeCadastro"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textoSenhaCadastro" />
-
-        <Button
-            android:id="@+id/btnCadastrar"
+        <ScrollView
+            android:id="@+id/ScrollView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="#FF5F17D3"
-            android:text="Cadastrar "
-            android:textColor="@color/boxTextLogin"
+            android:layout_height="0dp"
+            android:layout_marginTop="45dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/boxSenhaCadastro"
-            app:layout_constraintVertical_bias="0.95" />
+            app:layout_constraintTop_toBottomOf="@+id/textTituloCadastro">
 
-        <EditText
-            android:id="@+id/boxNomeCadastro"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nome"
-            android:inputType="textPersonName"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/textSobrenomeCadastro"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textNomeCadastro" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textNomeCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Nome"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxNomeCadastro"
-            app:layout_constraintStart_toStartOf="@+id/boxNomeCadastro"
-            app:layout_constraintTop_toBottomOf="@+id/boxSenhaCadastro" />
+                <TextView
+                    android:id="@+id/textoEmailCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textoEmail"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <EditText
-            android:id="@+id/boxSobrenomeCadastro"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Sobrenome"
-            android:inputType="textPersonName"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/textApelidoCadastro"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textSobrenomeCadastro" />
+                <EditText
+                    android:id="@+id/boxEmailCadastro"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Insira seu e-mail"
+                    android:inputType=""
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <TextView
-            android:id="@+id/textSobrenomeCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Sobrenoime"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxSobrenomeCadastro"
-            app:layout_constraintStart_toStartOf="@+id/boxSobrenomeCadastro"
-            app:layout_constraintTop_toBottomOf="@+id/boxNomeCadastro" />
+                <TextView
+                    android:id="@+id/textoSenhaCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/textoSenha"
+                    android:textColor="@color/boxTextLogin" />
 
-        <EditText
-            android:id="@+id/boxCpf"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="CPF"
-            android:inputType="textPersonName"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/textDDDCadastro"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textCPFCadastro" />
+                <EditText
+                    android:id="@+id/boxSenhaCadastro"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Insira sua senha"
+                    android:inputType="textPassword"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <TextView
-            android:id="@+id/textCPFCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="CPF"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxCpf"
-            app:layout_constraintStart_toStartOf="@+id/boxCpf"
-            app:layout_constraintTop_toBottomOf="@+id/boxEstadoCadastro" />
+                <TextView
+                    android:id="@+id/textNomeCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Nome"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <EditText
-            android:id="@+id/boxApelidoCadastro"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Apelido"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/textEstadoCadastro"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textApelidoCadastro" />
+                <EditText
+                    android:id="@+id/boxNomeCadastro"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nome"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <TextView
-            android:id="@+id/textApelidoCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Apelido"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxApelidoCadastro"
-            app:layout_constraintStart_toStartOf="@+id/boxApelidoCadastro"
-            app:layout_constraintTop_toBottomOf="@+id/boxSobrenomeCadastro" />
+                <TextView
+                    android:id="@+id/textSobrenomeCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Sobrenoime"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <EditText
-            android:id="@+id/boxEstadoCadastro"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Estado"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/textCPFCadastro"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textEstadoCadastro" />
+                <EditText
+                    android:id="@+id/boxSobrenomeCadastro"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Sobrenome"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <TextView
-            android:id="@+id/textEstadoCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Estado"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxEstadoCadastro"
-            app:layout_constraintStart_toStartOf="@+id/boxEstadoCadastro"
-            app:layout_constraintTop_toBottomOf="@+id/boxApelidoCadastro" />
+                <TextView
+                    android:id="@+id/textApelidoCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Apelido"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <EditText
-            android:id="@+id/boxDDDCadastro"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:hint="DDD"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/btnCadastrar"
-            app:layout_constraintEnd_toStartOf="@+id/boxTelefoneCadastro"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline" />
+                <EditText
+                    android:id="@+id/boxApelidoCadastro"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Apelido"
+                    android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textDDDCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DDD"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxDDDCadastro"
-            app:layout_constraintStart_toStartOf="@+id/boxDDDCadastro" />
+                <TextView
+                    android:id="@+id/textEstadoCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Estado"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
 
-        <EditText
-            android:id="@+id/boxTelefoneCadastro"
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:hint="Telefone"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/btnCadastrar"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline" />
+                <EditText
+                    android:id="@+id/boxEstadoCadastro"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Estado"
+                    android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textTelefoneCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:textColor="@color/boxTextLogin"
-            android:textColorLink="@color/boxTextLogin"
-            app:layout_constraintBottom_toTopOf="@+id/boxTelefoneCadastro"
-            app:layout_constraintStart_toStartOf="@+id/boxTelefoneCadastro" />
+                <TextView
+                    android:id="@+id/textCPFCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="CPF"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
+
+                <EditText
+                    android:id="@+id/boxCpf"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="CPF"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
+
+                <TextView
+                    android:id="@+id/textDDDCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DDD"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
+
+                <EditText
+                    android:id="@+id/boxDDDCadastro"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="DDD"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textTelefoneCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telefone"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
+
+                <EditText
+                    android:id="@+id/boxTelefoneCadastro"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="Telefone"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/btnCadastrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="60dp"
+                    android:background="#FF5F17D3"
+                    android:text="Cadastrar "
+                    android:textColor="@color/boxTextLogin" />
+
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
