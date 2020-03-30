@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.example.pb_android_radion.Model.Usuario
 
 import com.example.pb_android_radion.R
@@ -14,6 +16,8 @@ import kotlinx.android.synthetic.main.fragment_cadastro.*
 
 
 class CadastroFragment : Fragment() {
+
+    private lateinit var usuarioViewModel: UsuarioViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,25 +29,23 @@ class CadastroFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lateinit var usuarioViewModel: UsuarioViewModel
         activity?.let {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
+        }
 
 
-            var Usuario = Usuario(boxEmailCadastro.text.toString(),
-                boxSenhaCadastro.text.toString(),
-                boxNomeCadastro.text.toString(),
-                boxSobrenomeCadastro.text.toString(),
-                boxApelidoCadastro.text.toString(),
-                boxEstadoCadastro.text.toString(),
-                boxCpf.text.toString(),
-                boxDDDCadastro.text.toString(),
-                boxTelefoneCadastro.text.toString())
+        btnContinuar.setOnClickListener{
+            //Verifico se algum campo está nulo ou vazio
+            if(boxApelidoCadastro.text.isNullOrEmpty() || boxEmailCadastro.text.isNullOrEmpty() || boxSenhaCadastro.text.isNullOrEmpty()){
+                Toast.makeText(activity, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
+            }else{
+                //Começo a implementar na viewModel as informações
+                usuarioViewModel.apelido = boxApelidoCadastro.text.toString()
+                usuarioViewModel.email = boxEmailCadastro.text.toString()
+                usuarioViewModel.senha = boxSenhaCadastro.text.toString()
 
-            usuarioViewModel.addUsuario(Usuario)
-
+                findNavController().navigate(R.id.cadastroToComplementoCadastro)
+            }
         }
     }
-
-
 }

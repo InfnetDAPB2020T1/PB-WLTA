@@ -44,7 +44,7 @@
             android:ems="10"
             android:hint="@string/boxEmail"
             android:inputType=""
-            android:textColor="@color/boxTextLogin"
+            android:textColor="@color/textos"
             android:textColorLink="@color/boxTextLogin"
             app:layout_constraintBottom_toTopOf="@+id/textoSenhaLogin"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"

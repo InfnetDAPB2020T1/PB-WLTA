@@ -25,35 +25,49 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="30dp" />
 
-        <TextView
-            android:id="@+id/textTituloCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Novo Cadastro"
-            android:textColor="@color/boxTextLogin"
-            android:textSize="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
         <ScrollView
             android:id="@+id/ScrollView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="45dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textTituloCadastro">
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textTituloCadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cadastro"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/boxTextLogin"
+                    android:textSize="25dp"
+                    android:gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textApelidoCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="Apelido"
+                    android:textColor="@color/boxTextLogin"
+                    android:textColorLink="@color/boxTextLogin" />
+
+                <EditText
+                    android:id="@+id/boxApelidoCadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Insira seu Nickname"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/textos"
+                    android:textColorLink="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/textoEmailCadastro"
@@ -65,13 +79,13 @@
 
                 <EditText
                     android:id="@+id/boxEmailCadastro"
-                    android:layout_width="352dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Insira seu e-mail"
                     android:inputType=""
                     android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:textColorLink="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/textoSenhaCadastro"
@@ -83,146 +97,21 @@
 
                 <EditText
                     android:id="@+id/boxSenhaCadastro"
-                    android:layout_width="352dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Insira sua senha"
                     android:inputType="textPassword"
                     android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <TextView
-                    android:id="@+id/textNomeCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Nome"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <EditText
-                    android:id="@+id/boxNomeCadastro"
-                    android:layout_width="352dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Nome"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <TextView
-                    android:id="@+id/textSobrenomeCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Sobrenoime"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <EditText
-                    android:id="@+id/boxSobrenomeCadastro"
-                    android:layout_width="352dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Sobrenome"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <TextView
-                    android:id="@+id/textApelidoCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Apelido"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <EditText
-                    android:id="@+id/boxApelidoCadastro"
-                    android:layout_width="352dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Apelido"
-                    android:inputType="textPersonName" />
-
-                <TextView
-                    android:id="@+id/textEstadoCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Estado"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <EditText
-                    android:id="@+id/boxEstadoCadastro"
-                    android:layout_width="352dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Estado"
-                    android:inputType="textPersonName" />
-
-                <TextView
-                    android:id="@+id/textCPFCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="CPF"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <EditText
-                    android:id="@+id/boxCpf"
-                    android:layout_width="352dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="CPF"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <TextView
-                    android:id="@+id/textDDDCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DDD"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <EditText
-                    android:id="@+id/boxDDDCadastro"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:hint="DDD"
-                    android:inputType="textPersonName" />
-
-                <TextView
-                    android:id="@+id/textTelefoneCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Telefone"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
-
-                <EditText
-                    android:id="@+id/boxTelefoneCadastro"
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:hint="Telefone"
-                    android:inputType="textPersonName" />
+                    android:textColorLink="@color/colorAccent" />
 
                 <Button
-                    android:id="@+id/btnCadastrar"
+                    android:id="@+id/btnContinuar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="60dp"
-                    android:background="#FF5F17D3"
-                    android:text="Cadastrar "
+                    android:layout_marginTop="175dp"
+                    android:background="@color/botao"
+                    android:text="continuar"
                     android:textColor="@color/boxTextLogin" />
 
             </LinearLayout>

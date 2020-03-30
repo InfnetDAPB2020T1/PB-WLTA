@@ -9,10 +9,27 @@
         android:id="@+id/cadastroFragment"
         android:name="com.example.pb_android_radion.Fragment.CadastroFragment"
         android:label="fragment_cadastro"
-        tools:layout="@layout/fragment_cadastro" />
+        tools:layout="@layout/fragment_cadastro" >
+        <action
+            android:id="@+id/cadastroToComplementoCadastro"
+            app:destination="@id/complementoCadastroFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.pb_android_radion.Fragment.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/LoginToCadastrar"
+            app:destination="@id/cadastroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/complementoCadastroFragment"
+        android:name="com.example.pb_android_radion.Fragment.ComplementoCadastroFragment"
+        android:label="fragment_complemento_cadastro"
+        tools:layout="@layout/fragment_complemento_cadastro" >
+        <action
+            android:id="@+id/returnToLogin"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
