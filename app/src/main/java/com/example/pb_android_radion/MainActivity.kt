@@ -13,10 +13,15 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.ViewModelProviders
+import com.example.pb_android_radion.Model.Usuario
+import com.example.pb_android_radion.ViewModel.UsuarioViewModel
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var usuarioViewModel: UsuarioViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +56,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
+
+        usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
+        val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
+        val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
+
+        txtVwNomeCompleto.text = nomeCompleto
+        txtVwEmail.text = usuarioLogado.email
+
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

@@ -170,7 +170,6 @@
                         android:id="@+id/boxTelefoneCadastro"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
                         android:ems="10"
                         android:hint="Telefone"
                         android:inputType="textPersonName"
@@ -182,6 +181,7 @@
                     android:id="@+id/btnFinalizarCadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
                     android:background="@color/botao"
                     android:text="Finalizar cadastro"
                     android:textColor="@color/textos" />

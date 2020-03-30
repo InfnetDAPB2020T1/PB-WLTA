@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.pb_android_radion.MainActivity
+import com.example.pb_android_radion.Model.Usuario
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.ViewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -39,7 +40,17 @@ class LoginFragment : Fragment() {
 
         val listaUsuarios = usuarioViewModel.listaUsuariosSeriazable
         btnLogarLogin.setOnClickListener {
+            //Aqui é pra testar sem precisar criar login toda hora
+            //Para user este comente a linha 53 até a 66
+//            var userTeste = Usuario("ApelidoAdmin","Admin@email.com","aaaa",
+//            "NomeAdmin","SobrenomeAdmin","1111111111","XX",
+//            "XX","XXXXXXXXXX")
+//            val intent = Intent(context, MainActivity::class.java)
+//            intent.putExtra("usuario", userTeste)
+//            startActivity(intent)
+
             //Variavel para ver se o usuário digitado na tela existe ao percorrer a lista de Usuários
+            //Para usar aqui comente da linha 45 até 50
             var existe: Boolean = false
             listaUsuarios!!.lista.forEach{
                 if(boxEmailLogin.text.toString().compareTo(it.email) ==0 && boxSenhaLogin.text.toString() == it.senha){
@@ -48,7 +59,6 @@ class LoginFragment : Fragment() {
                     intent.putExtra("usuario", it)
                     intent.putExtra("listaUsuarios", listaUsuarios)
                     startActivity(intent)
-
                 }
             }
             if(!existe){
