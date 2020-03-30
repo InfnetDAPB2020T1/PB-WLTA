@@ -54,6 +54,7 @@
                     android:id="@+id/textApelidoCadastro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginTop="25dp"
                     android:text="Apelido"
                     android:textColor="@color/boxTextLogin"
@@ -73,6 +74,8 @@
                     android:id="@+id/textoEmailCadastro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="15dp"
                     android:text="@string/textoEmail"
                     android:textColor="@color/boxTextLogin"
                     android:textColorLink="@color/boxTextLogin" />
@@ -91,7 +94,8 @@
                     android:id="@+id/textoSenhaCadastro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="15dp"
                     android:text="@string/textoSenha"
                     android:textColor="@color/boxTextLogin" />
 

@@ -49,6 +49,7 @@
                     android:id="@+id/textNomeCadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginTop="25dp"
                     android:text="Nome"
                     android:textColor="@color/boxTextLogin"
@@ -68,7 +69,8 @@
                     android:id="@+id/textSobrenomeCadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="15dp"
                     android:text="Sobrenoime"
                     android:textColor="@color/boxTextLogin"
                     android:textColorLink="@color/boxTextLogin" />
@@ -87,7 +89,8 @@
                     android:id="@+id/textEstadoCadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="15dp"
                     android:text="Estado"
                     android:textColor="@color/boxTextLogin"
                     android:textColorLink="@color/boxTextLogin" />
@@ -106,7 +109,8 @@
                     android:id="@+id/textCPFCadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="15dp"
                     android:text="CPF"
                     android:textColor="@color/boxTextLogin"
                     android:textColorLink="@color/boxTextLogin" />
@@ -121,43 +125,58 @@
                     android:textColor="@color/textos"
                     android:textColorLink="@color/colorAccent" />
 
-                <TextView
-                    android:id="@+id/textDDDCadastro"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="DDD"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/boxDDDCadastro"
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:hint="DDD"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/textos"
-                    android:textColorLink="@color/colorAccent" />
+                    <TextView
+                        android:id="@+id/textDDDCadastro"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="15dp"
+                        android:text="DDD"
+                        android:textColor="@color/boxTextLogin"
+                        android:textColorLink="@color/boxTextLogin" />
 
-                <TextView
-                    android:id="@+id/textTelefoneCadastro"
+                    <TextView
+                        android:id="@+id/textTelefoneCadastro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Telefone"
+                        android:textColor="@color/boxTextLogin"
+                        android:textColorLink="@color/boxTextLogin" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Telefone"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/boxTelefoneCadastro"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:hint="Telefone"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/textos"
-                    android:textColorLink="@color/colorAccent" />
+                    <EditText
+                        android:id="@+id/boxDDDCadastro"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="DDD"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/textos"
+                        android:textColorLink="@color/colorAccent" />
+
+                    <EditText
+                        android:id="@+id/boxTelefoneCadastro"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:ems="10"
+                        android:hint="Telefone"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/textos"
+                        android:textColorLink="@color/colorAccent" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btnFinalizarCadastro"

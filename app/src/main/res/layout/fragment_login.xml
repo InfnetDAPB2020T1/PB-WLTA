@@ -50,6 +50,7 @@
                     android:id="@+id/textoEmailCadastro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/textoEmail"
                     android:textColor="@color/boxTextLogin" />
@@ -68,6 +69,7 @@
                     android:id="@+id/textoSenhaLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/textoSenha"
                     android:textColor="@color/boxTextLogin" />
