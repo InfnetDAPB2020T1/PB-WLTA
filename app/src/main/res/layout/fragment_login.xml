@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/boxEmail"
-            android:inputType=""
+            android:inputType="textEmailAddress"
             android:textColor="@color/textos"
             android:textColorLink="@color/boxTextLogin"
             app:layout_constraintBottom_toTopOf="@+id/textoSenhaLogin"

@@ -15,10 +15,5 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        var usuarioViewModel = ViewModelProviders.of(this) [UsuarioViewModel::class.java]
-
-
-
     }
 }

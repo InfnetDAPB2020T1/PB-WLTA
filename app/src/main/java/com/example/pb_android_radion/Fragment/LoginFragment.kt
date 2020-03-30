@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
             listaUsuarios!!.lista.forEach{
                 if(boxEmailLogin.text.toString().compareTo(it.email) ==0 && boxSenhaLogin.text.toString() == it.senha){
                     existe = true
-                    val intent = Intent(this.context, MainActivity::class.java)
+                    val intent = Intent(context, MainActivity::class.java)
                     intent.putExtra("usuario", it)
                     intent.putExtra("listaUsuarios", listaUsuarios)
                     startActivity(intent)

@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Insira seu e-mail"
-                    android:inputType=""
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/boxTextLogin"
                     android:textColorLink="@color/colorAccent" />
 
