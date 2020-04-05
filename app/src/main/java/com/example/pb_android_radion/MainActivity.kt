@@ -1,6 +1,7 @@
 package com.example.pb_android_radion
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -16,6 +17,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.Model.Usuario
 import com.example.pb_android_radion.ViewModel.UsuarioViewModel
+import kotlinx.android.synthetic.main.fragment_perfil.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +48,13 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        //colocando as informacoes na tela de perfil
+        usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
+        val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
+        val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
+        usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
+        usuarioViewModel.usuarioLogadoNome = nomeCompleto
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
