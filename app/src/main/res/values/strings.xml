@@ -8,6 +8,7 @@
     <string name="textoEsqueciSenha">Esqueceu a senha?</string>
     <string name="descricaoImagem">Logotipo do app</string>
     <string name="btnLogin">Login</string>
+    <string name="menu_settings">Perfil</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

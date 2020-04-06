@@ -30,10 +30,5 @@ class HomeFragment : Fragment() {
         })
         return root
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        btnPerfil.setOnClickListener {
-            findNavController().navigate(R.id.perfilFragment)
-        }
-    }
+
 }

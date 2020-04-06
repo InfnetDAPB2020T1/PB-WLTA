@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
         btnLogarLogin.setOnClickListener {
             //Aqui é pra testar sem precisar criar login toda hora
             //Para user este comente a linha 53 até a 66
-            var userTeste = Usuario("ApelidoAdmin","a","a",
+            var userTeste = Usuario("ApelidoAdmin","admin@email.com","a",
             "NomeAdmin","SobrenomeAdmin","1111111111","XX",
             "XX","XXXXXXXXXX")
 
