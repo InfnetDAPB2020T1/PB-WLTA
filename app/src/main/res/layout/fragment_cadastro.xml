@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degrade_login"
+    android:background="@color/fundoLogin"
     tools:context=".Fragment.CadastroFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +46,8 @@
                     android:text="Cadastro"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/boxTextLogin"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText"
                     android:textSize="25dp"
                     android:gravity="center_horizontal" />
 
@@ -57,8 +58,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="25dp"
                     android:text="Apelido"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText"/>
 
                 <EditText
                     android:id="@+id/boxApelidoCadastro"
@@ -67,8 +68,11 @@
                     android:ems="10"
                     android:hint="Insira seu Nickname"
                     android:inputType="textPersonName"
-                    android:textColor="@color/textos"
-                    android:textColorLink="@color/colorAccent" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco" />
 
                 <TextView
                     android:id="@+id/textoEmailCadastro"
@@ -77,8 +81,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/textoEmail"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText"/>
 
                 <EditText
                     android:id="@+id/boxEmailCadastro"
@@ -87,8 +91,11 @@
                     android:ems="10"
                     android:hint="Insira seu e-mail"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/colorAccent" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco" />
 
                 <TextView
                     android:id="@+id/textoSenhaCadastro"
@@ -97,7 +104,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/textoSenha"
-                    android:textColor="@color/boxTextLogin" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText" />
 
                 <EditText
                     android:id="@+id/boxSenhaCadastro"
@@ -106,17 +114,19 @@
                     android:ems="10"
                     android:hint="Insira sua senha"
                     android:inputType="textPassword"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/colorAccent" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco" />
 
                 <Button
                     android:id="@+id/btnContinuar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="175dp"
-                    android:background="@color/botao"
-                    android:text="continuar"
-                    android:textColor="@color/boxTextLogin" />
+                    android:background="@drawable/button"
+                    android:text="continuar"/>
 
             </LinearLayout>
         </ScrollView>

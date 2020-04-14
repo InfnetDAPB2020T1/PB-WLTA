@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degrade_login"
+    android:background="@color/fundoLogin"
     tools:context=".Fragment.ComplementoCadastroFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +42,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Só mais alguns passos..."
-                    android:textColor="@color/textos"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText"
                     android:textSize="18sp" />
 
                 <TextView
@@ -52,8 +53,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="25dp"
                     android:text="Nome"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText"/>
 
                 <EditText
                     android:id="@+id/boxNomeCadastro"
@@ -62,8 +63,11 @@
                     android:ems="10"
                     android:hint="Nome"
                     android:inputType="textPersonName"
-                    android:textColor="@color/textos"
-                    android:textColorLink="@color/colorAccent" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco" />
 
                 <TextView
                     android:id="@+id/textSobrenomeCadastro"
@@ -72,8 +76,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="Sobrenoime"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText" />
 
                 <EditText
                     android:id="@+id/boxSobrenomeCadastro"
@@ -82,8 +86,11 @@
                     android:ems="10"
                     android:hint="Sobrenome"
                     android:inputType="textPersonName"
-                    android:textColor="@color/textos"
-                    android:textColorLink="@color/colorAccent" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco" />
 
                 <TextView
                     android:id="@+id/textEstadoCadastro"
@@ -91,19 +98,22 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
+                    android:fontFamily="@font/bold"
                     android:text="Estado"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:textColor="@color/boxText" />
 
                 <EditText
                     android:id="@+id/boxEstadoCadastro"
+                    android:fontFamily="@font/bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Estado"
                     android:inputType="textPersonName"
-                    android:textColor="@color/textos"
-                    android:textColorLink="@color/colorAccent" />
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco" />
 
                 <TextView
                     android:id="@+id/textCPFCadastro"
@@ -112,8 +122,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="CPF"
-                    android:textColor="@color/boxTextLogin"
-                    android:textColorLink="@color/boxTextLogin" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/boxText" />
 
                 <EditText
                     android:id="@+id/boxCpf"
@@ -122,8 +132,11 @@
                     android:ems="10"
                     android:hint="CPF"
                     android:inputType="textPersonName"
-                    android:textColor="@color/textos"
-                    android:textColorLink="@color/colorAccent" />
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -137,8 +150,8 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginTop="15dp"
                         android:text="DDD"
-                        android:textColor="@color/boxTextLogin"
-                        android:textColorLink="@color/boxTextLogin" />
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/boxText" />
 
                     <TextView
                         android:id="@+id/textTelefoneCadastro"
@@ -147,8 +160,8 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginTop="15dp"
                         android:text="Telefone"
-                        android:textColor="@color/boxTextLogin"
-                        android:textColorLink="@color/boxTextLogin" />
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/boxText" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -163,8 +176,11 @@
                         android:ems="10"
                         android:hint="DDD"
                         android:inputType="textPersonName"
-                        android:textColor="@color/textos"
-                        android:textColorLink="@color/colorAccent" />
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/branco"
+                        android:textColorHighlight="#FFFFFF"
+                        android:textColorHint="#FFFFFF"
+                        android:textColorLink="@color/branco" />
 
                     <EditText
                         android:id="@+id/boxTelefoneCadastro"
@@ -173,8 +189,11 @@
                         android:ems="10"
                         android:hint="Telefone"
                         android:inputType="textPersonName"
-                        android:textColor="@color/textos"
-                        android:textColorLink="@color/colorAccent" />
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/branco"
+                        android:textColorHighlight="#FFFFFF"
+                        android:textColorHint="#FFFFFF"
+                        android:textColorLink="@color/branco" />
                 </LinearLayout>
 
                 <Button
@@ -182,9 +201,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="45dp"
-                    android:background="@color/botao"
-                    android:text="Finalizar cadastro"
-                    android:textColor="@color/textos" />
+                    android:background="@drawable/button"
+                    android:text="Finalizar cadastro"/>
 
             </LinearLayout>
         </ScrollView>

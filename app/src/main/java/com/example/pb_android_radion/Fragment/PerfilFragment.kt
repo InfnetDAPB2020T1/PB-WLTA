@@ -32,6 +32,5 @@ class PerfilFragment : Fragment() {
 
         textViewApelidoPerfil.text = usuarioViewModel.usuarioLogadoApelido
         textViewNomePerfil.text = usuarioViewModel.usuarioLogadoNome
-
     }
 }

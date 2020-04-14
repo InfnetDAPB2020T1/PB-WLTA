@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimary">#673161</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="boxTextLogin">#D3D3D3</color>
+    <color name="boxText">#FFFFFF</color>
     <color name="textos">#D3D3D3</color>
+    <color name="branco">#FFFFFF</color>
     <color name="botao">#054A93</color>
+    <color name="fundoLogin">#341931</color>
+    <color name="rosaEscuro">#DA2976</color>
+    <color name="rosaClaro">#C80C51</color>
 </resources>
