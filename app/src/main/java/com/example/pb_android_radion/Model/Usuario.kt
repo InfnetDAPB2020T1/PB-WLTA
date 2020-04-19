@@ -1,5 +1,8 @@
 package com.example.pb_android_radion.Model
 
+import com.example.pb_android_radion.Throws.UsuarioCPFException
+import com.example.pb_android_radion.Throws.UsuarioDDDException
+import com.example.pb_android_radion.Throws.UsuarioTelefoneException
 import java.io.Serializable
 
 class Usuario(
@@ -14,4 +17,14 @@ class Usuario(
     var telefone: String
 
 ) : Serializable {
+
+    init {
+        if(ddd.length != 2)
+            throw UsuarioDDDException()
+        if(telefone.length != 9)
+            throw UsuarioTelefoneException()
+        if(cpf.length != 11)
+            throw UsuarioCPFException()
+
+    }
 }

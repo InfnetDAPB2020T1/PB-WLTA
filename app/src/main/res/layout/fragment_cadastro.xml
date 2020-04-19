@@ -43,13 +43,13 @@
                     android:id="@+id/textTituloCadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="Cadastro"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:fontFamily="@font/bold"
                     android:textColor="@color/boxText"
                     android:textSize="25dp"
-                    android:gravity="center_horizontal" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textApelidoCadastro"
@@ -58,8 +58,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="25dp"
                     android:text="Apelido"
-                    android:fontFamily="@font/bold"
-                    android:textColor="@color/boxText"/>
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/boxApelidoCadastro"
@@ -68,11 +68,11 @@
                     android:ems="10"
                     android:hint="Insira seu Nickname"
                     android:inputType="textPersonName"
-                    android:fontFamily="@font/bold"
                     android:textColor="@color/branco"
                     android:textColorHighlight="#FFFFFF"
                     android:textColorHint="#FFFFFF"
-                    android:textColorLink="@color/branco" />
+                    android:textColorLink="@color/branco"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textoEmailCadastro"
@@ -81,8 +81,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/textoEmail"
-                    android:fontFamily="@font/bold"
-                    android:textColor="@color/boxText"/>
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/boxEmailCadastro"
@@ -91,11 +91,11 @@
                     android:ems="10"
                     android:hint="Insira seu e-mail"
                     android:inputType="textEmailAddress"
-                    android:fontFamily="@font/bold"
                     android:textColor="@color/branco"
                     android:textColorHighlight="#FFFFFF"
                     android:textColorHint="#FFFFFF"
-                    android:textColorLink="@color/branco" />
+                    android:textColorLink="@color/branco"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textoSenhaCadastro"
@@ -104,8 +104,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/textoSenha"
-                    android:fontFamily="@font/bold"
-                    android:textColor="@color/boxText" />
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/boxSenhaCadastro"
@@ -114,11 +114,11 @@
                     android:ems="10"
                     android:hint="Insira sua senha"
                     android:inputType="textPassword"
-                    android:fontFamily="@font/bold"
                     android:textColor="@color/branco"
                     android:textColorHighlight="#FFFFFF"
                     android:textColorHint="#FFFFFF"
-                    android:textColorLink="@color/branco" />
+                    android:textColorLink="@color/branco"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnContinuar"
@@ -126,7 +126,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="175dp"
                     android:background="@drawable/button"
-                    android:text="continuar"/>
+                    android:text="continuar"
+                    android:textColor="@color/branco"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </ScrollView>

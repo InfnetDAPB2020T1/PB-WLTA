@@ -41,29 +41,29 @@ class LoginFragment : Fragment() {
         val listaUsuarios = usuarioViewModel.listaUsuariosSeriazable
         btnLogarLogin.setOnClickListener {
             //Aqui é pra testar sem precisar criar login toda hora
-            //Para user este comente a linha 53 até a 66
-            var userTeste = Usuario("ApelidoAdmin","admin@email.com","a",
-            "NomeAdmin","SobrenomeAdmin","1111111111","XX",
-            "XX","XXXXXXXXXX")
-
-            val intent = Intent(context, MainActivity::class.java)
-            intent.putExtra("usuario", userTeste)
-            startActivity(intent)
+            //Para user este comente a linha 54 até a 66
+//            val userTeste = Usuario("ApelidoAdmin","admin@email.com","a",
+//            "NomeAdmin","SobrenomeAdmin","1111111111","XX",
+//            "XX","XXXXXXXXXX")
+//
+//            val intent = Intent(context, MainActivity::class.java)
+//            intent.putExtra("usuario", userTeste)
+//            startActivity(intent)
             //Variavel para ver se o usuário digitado na tela existe ao percorrer a lista de Usuários
-            //Para usar aqui comente da linha 45 até 50
-//            var existe: Boolean = false
-//            listaUsuarios!!.lista.forEach{
-//                if(boxEmailLogin.text.toString().compareTo(it.email) ==0 && boxSenhaLogin.text.toString() == it.senha){
-//                    existe = true
-//                    val intent = Intent(context, MainActivity::class.java)
-//                    intent.putExtra("usuario", it)
-//                    intent.putExtra("listaUsuarios", listaUsuarios)
-//                    startActivity(intent)
-//                }
-//            }
-//            if(!existe){
-//                Toast.makeText(this.context, "Usuário inválido", Toast.LENGTH_SHORT).show()
-//            }
+            //Para usar aqui comente da linha 45 até 51
+            var existe: Boolean = false
+            listaUsuarios!!.lista.forEach{
+                if(boxEmailLogin.text.toString().compareTo(it.email) ==0 && boxSenhaLogin.text.toString() == it.senha){
+                    existe = true
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("usuario", it)
+                    intent.putExtra("listaUsuarios", listaUsuarios)
+                    startActivity(intent)
+                }
+            }
+            if(!existe){
+                Toast.makeText(this.context, "Usuário inválido", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

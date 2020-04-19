@@ -30,8 +30,10 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,11 +52,11 @@
                     android:id="@+id/textoEmailCadastro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="15dp"
                     android:text="@string/textoEmail"
-                    android:fontFamily="@font/bold"
-                    android:textColor="@color/boxText"/>
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="33dp"
+                    tools:layout_editor_absoluteY="253dp" />
 
                 <EditText
                     android:id="@+id/boxEmailLogin"
@@ -62,22 +64,24 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/boxEmail"
-                    android:fontFamily="@font/bold"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/branco"
                     android:textColorHighlight="#FFFFFF"
                     android:textColorHint="#FFFFFF"
-                    android:textColorLink="@color/branco" />
+                    android:textColorLink="@color/branco"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="29dp"
+                    tools:layout_editor_absoluteY="272dp" />
 
                 <TextView
                     android:id="@+id/textoSenhaLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="15dp"
                     android:text="@string/boxSenha"
-                    android:fontFamily="@font/bold"
-                    android:textColor="@color/boxText" />
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="33dp"
+                    tools:layout_editor_absoluteY="306dp" />
 
                 <EditText
                     android:id="@+id/boxSenhaLogin"
@@ -86,11 +90,14 @@
                     android:ems="10"
                     android:hint="@string/boxSenha"
                     android:inputType="textPassword"
-                    android:fontFamily="@font/bold"
                     android:textColor="@color/branco"
                     android:textColorHighlight="#FFFFFF"
                     android:textColorHint="#FFFFFF"
-                    android:textColorLink="@color/branco"/> />
+                    android:textColorLink="@color/branco"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="29dp"
+                    tools:layout_editor_absoluteY="325dp" />
+                />
 
                 <TextView
                     android:id="@+id/textoEsqueciSenhaLogin"
@@ -99,9 +106,9 @@
                     android:layout_gravity="right"
                     android:autoLink="all|web|phone|none|map|email"
                     android:clickable="true"
-                    android:fontFamily="@font/bold"
                     android:text="@string/textoEsqueciSenha"
                     android:textColor="@color/boxText"
+                    android:textStyle="bold"
                     android:visibility="visible" />
 
                 <TextView
@@ -112,10 +119,10 @@
                     android:layout_marginTop="25dp"
                     android:autoLink="all|web|phone|none|map|email"
                     android:clickable="true"
-                    android:fontFamily="@font/bold"
                     android:text="@string/textoCadastrar"
                     android:textColor="@color/rosaClaro"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnLogarLogin"
@@ -124,7 +131,8 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/button"
                     android:text="@string/btnLogin"
-                    android:textColor="@color/boxText" />
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </ScrollView>
