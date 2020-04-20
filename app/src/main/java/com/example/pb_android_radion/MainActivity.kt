@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
         usuarioViewModel.usuarioLogadoNome = nomeCompleto
 
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
