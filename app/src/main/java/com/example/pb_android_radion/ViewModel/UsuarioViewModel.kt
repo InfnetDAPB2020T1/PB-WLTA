@@ -1,6 +1,7 @@
 package com.example.pb_android_radion.ViewModel
 
 import androidx.lifecycle.ViewModel
+import com.example.pb_android_radion.Model.Musica
 import com.example.pb_android_radion.Model.Usuario
 import com.example.pb_android_radion.Model.Usuarios
 import java.util.*
@@ -22,6 +23,8 @@ class UsuarioViewModel: ViewModel() {
     var listaUsuariosSeriazable: Usuarios? = Usuarios()
     var usuarioLogadoApelido: String = ""
     var usuarioLogadoNome: String = ""
+
+    var musica: Musica? = null
 
 //    private val Usuarios = ArrayList<Usuario>()
 //
