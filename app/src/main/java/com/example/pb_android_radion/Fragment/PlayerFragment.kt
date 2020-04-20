@@ -6,18 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
-import com.example.pb_android_radion.Model.Musica
-
 import com.example.pb_android_radion.R
-import com.example.pb_android_radion.ViewModel.UsuarioViewModel
-import kotlinx.android.synthetic.main.fragment_player.*
+import com.example.pb_android_radion.ViewModel.MusicaViewModel
 
-/**
- * A simple [Fragment] subclass.
- */
 class PlayerFragment : Fragment() {
 
-    private lateinit var usuarioViewModel: UsuarioViewModel
+    private lateinit var musicaViewModel: MusicaViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,11 +25,20 @@ class PlayerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.let {
-            usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
+            musicaViewModel = ViewModelProviders.of(it).get(MusicaViewModel::class.java)
         }
 
-        if(txtNomeMusica == usuarioViewModel.musica!!.nome){
-            usuarioViewModel.musica!!.classificacao = ratingClassificacao.numStars
-        }
+        // Adiciona a quantidade de estrelas na classificação da musica de acordo com o nome da musica
+        /*if(txtVwNomeMusica.text == musicaViewModel.musica!!.nomeMusica){
+            musicaViewModel.musica!!.classificacao = ratingClassificacao.numStars
+        }*/
     }
+
+    // Método para que o componente de classificação recebe o número de estrelas de acordo
+    // com o nome da musica
+    /*private fun verificarClassificacao(){
+        if(txtVwNomeMusica.text == musicaViewModel.musica!!.nomeMusica){
+            ratingClassificacao.numStars = musicaViewModel.musica!!.classificacao
+        }
+    }*/
 }

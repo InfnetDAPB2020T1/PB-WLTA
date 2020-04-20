@@ -24,8 +24,6 @@ class UsuarioViewModel: ViewModel() {
     var usuarioLogadoApelido: String = ""
     var usuarioLogadoNome: String = ""
 
-    var musica: Musica? = null
-
 //    private val Usuarios = ArrayList<Usuario>()
 //
 //    fun addUsuario(usuario: Usuario) {
