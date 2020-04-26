@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.example.pb_android_radion.Database.AppDatabase
 import com.example.pb_android_radion.Model.Usuario
 
 import com.example.pb_android_radion.R
@@ -43,35 +46,49 @@ class ComplementoCadastroFragment : Fragment() {
                 Toast.makeText(activity, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
             }else{
                 //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
-                usuarioViewModel.nome = boxNomeCadastro.text.toString()
-                usuarioViewModel.sobrenome = boxSobrenomeCadastro.text.toString()
-                usuarioViewModel.estado = boxEstadoCadastro.text.toString()
-                usuarioViewModel.cpf = boxCpf.text.toString()
-                usuarioViewModel.nome = boxNomeCadastro.text.toString()
-                usuarioViewModel.nome = boxNomeCadastro.text.toString()
+                complementarCadastro()
 
                 //Cria novo Usuário
-                val novoUsuario = Usuario(
-                    usuarioViewModel.apelido.toString(),
-                    usuarioViewModel.email.toString(),
-                    usuarioViewModel.senha.toString(),
-                    usuarioViewModel.nome.toString(),
-                    usuarioViewModel.sobrenome.toString(),
-                    usuarioViewModel.cpf.toString(),
-                    usuarioViewModel.estado.toString(),
-                    usuarioViewModel.ddd.toString(),
-                    usuarioViewModel.telefone.toString()
-                )
+                salvarNoBanco()
 
-                usuarioViewModel.usuario == novoUsuario
+                /*usuarioViewModel.usuario == novoUsuario
                 //add usuário na lista de Usuarios
                 usuarioViewModel.listaUsuariosSeriazable?.lista?.add(novoUsuario)
-                usuarioViewModel.usuarios.add(novoUsuario)
+                usuarioViewModel.usuarios.add(novoUsuario)*/
 
                 findNavController().navigate(R.id.returnToLogin)
             }
 
         }
+    }
+
+    private fun complementarCadastro(){
+        usuarioViewModel.nome = boxNomeCadastro.text.toString()
+        usuarioViewModel.sobrenome = boxSobrenomeCadastro.text.toString()
+        usuarioViewModel.estado = boxEstadoCadastro.text.toString()
+        usuarioViewModel.cpf = boxCpf.text.toString()
+        usuarioViewModel.nome = boxNomeCadastro.text.toString()
+        usuarioViewModel.nome = boxNomeCadastro.text.toString()
+    }
+
+    private fun salvarNoBanco(){
+        val novoUsuario = Usuario(
+            usuarioViewModel.apelido.toString(),
+            usuarioViewModel.email.toString(),
+            usuarioViewModel.senha.toString(),
+            usuarioViewModel.nome.toString(),
+            usuarioViewModel.sobrenome.toString(),
+            usuarioViewModel.cpf.toString(),
+            usuarioViewModel.estado.toString(),
+            usuarioViewModel.ddd.toString(),
+            usuarioViewModel.telefone.toString()
+        )
+
+        /*var db = Room.databaseBuilder(
+            requireContext(),
+            AppDatabase::class.java,
+            "não_sei_ainda.sql"
+        )*/
     }
 
 }

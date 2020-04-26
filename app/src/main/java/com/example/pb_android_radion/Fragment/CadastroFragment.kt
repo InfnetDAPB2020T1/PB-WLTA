@@ -40,12 +40,17 @@ class CadastroFragment : Fragment() {
                 Toast.makeText(activity, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
             }else{
                 //Começo a implementar na viewModel as informações
-                usuarioViewModel.apelido = boxApelidoCadastro.text.toString()
-                usuarioViewModel.email = boxEmailCadastro.text.toString()
-                usuarioViewModel.senha = boxSenhaCadastro.text.toString()
+                criarCadastro(boxApelidoCadastro.text.toString(), boxEmailCadastro.text.toString(),
+                    boxSenhaCadastro.text.toString())
 
                 findNavController().navigate(R.id.cadastroToComplementoCadastro)
             }
         }
+    }
+
+    private fun criarCadastro(apelido: String, email:String, senha: String){
+        usuarioViewModel.apelido = apelido
+        usuarioViewModel.email = email
+        usuarioViewModel.senha = senha
     }
 }
