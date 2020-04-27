@@ -34,19 +34,19 @@ class CadastroFragment : Fragment() {
             //Verifico se algum campo está nulo ou vazio
             verificarNulo()
 
-            //Começo a implementar na viewModel as informações
-            informacoesNoViewModel(boxApelidoCadastro.text.toString(),
-                boxEmailCadastro.text.toString(), boxSenhaCadastro.text.toString())
-
             findNavController().navigate(R.id.cadastroToComplementoCadastro)
         }
     }
 
     private fun verificarNulo(){
-        if(boxApelidoCadastro.text.isNullOrEmpty() || boxEmailCadastro.text.isNullOrEmpty()
-            || boxSenhaCadastro.text.isNullOrEmpty()){
+        if(!boxApelidoCadastro.text.isNullOrEmpty() || !boxEmailCadastro.text.isNullOrEmpty()
+            || !boxSenhaCadastro.text.isNullOrEmpty()){
             Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos",
                 Toast.LENGTH_SHORT).show()
+        }else{
+            //Começo a implementar na viewModel as informações
+            informacoesNoViewModel(boxApelidoCadastro.text.toString(),
+                boxEmailCadastro.text.toString(), boxSenhaCadastro.text.toString())
         }
     }
 

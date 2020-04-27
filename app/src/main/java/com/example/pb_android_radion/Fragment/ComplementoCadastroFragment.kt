@@ -48,10 +48,11 @@ class ComplementoCadastroFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
             }else{
                 //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
+                Log.i("ComplementarCadastro", "Entrei no complementar cadastro")
                 complementarCadastro()
 
                 //Cria novo Usuário
-                OperacaoBancoTask().execute()
+                //OperacaoBancoTask().execute()
 
                 /*usuarioViewModel.usuario == novoUsuario
                 //add usuário na lista de Usuarios
@@ -72,7 +73,7 @@ class ComplementoCadastroFragment : Fragment() {
 
         override fun onPostExecute(result: Unit?) {
             super.onPostExecute(result)
-            Toast.makeText(activity!!.baseContext, "Usuário criado com sucesso",
+            Toast.makeText(activity!!.baseContext, "Cadastro salvo com sucesso",
                 Toast.LENGTH_LONG)
 
             findNavController().navigate(R.id.returnToLogin)
@@ -80,10 +81,15 @@ class ComplementoCadastroFragment : Fragment() {
     }
 
     private fun complementarCadastro(){
-        usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
-            boxSobrenomeCadastro.text.toString(), boxCpf.text.toString(),
-            boxEstadoCadastro.text.toString(), boxDDDCadastro.text.toString(),
-            boxTelefoneCadastro.text.toString())
+        try {
+            usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
+                boxSobrenomeCadastro.text.toString(), boxCpf.text.toString(),
+                boxEstadoCadastro.text.toString(), boxDDDCadastro.text.toString(),
+                boxTelefoneCadastro.text.toString())
+        }catch (i: Exception){
+            Log.i("Erro", "Deu erro aqui")
+        }
+
     }
 
     private fun salvarNoBanco(){
