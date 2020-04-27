@@ -1,5 +1,6 @@
 package com.example.pb_android_radion.Fragment
 
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -49,16 +50,27 @@ class ComplementoCadastroFragment : Fragment() {
                 complementarCadastro()
 
                 //Cria novo Usuário
-                salvarNoBanco()
+                OperacaoBancoTask().execute()
 
                 /*usuarioViewModel.usuario == novoUsuario
                 //add usuário na lista de Usuarios
                 usuarioViewModel.listaUsuariosSeriazable?.lista?.add(novoUsuario)
                 usuarioViewModel.usuarios.add(novoUsuario)*/
 
-                findNavController().navigate(R.id.returnToLogin)
+                //findNavController().navigate(R.id.returnToLogin)
             }
+        }
+    }
 
+    inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Unit>(){
+
+        override fun doInBackground(vararg params: Unit?) {
+            salvarNoBanco()
+        }
+
+        override fun onPostExecute(result: Unit?) {
+            super.onPostExecute(result)
+            Toast.makeText(context, "Usuário criado com sucesso", Toast.LENGTH_LONG)
         }
     }
 
@@ -73,22 +85,25 @@ class ComplementoCadastroFragment : Fragment() {
 
     private fun salvarNoBanco(){
         val novoUsuario = Usuario(
-            usuarioViewModel.apelido.toString(),
-            usuarioViewModel.email.toString(),
-            usuarioViewModel.senha.toString(),
-            usuarioViewModel.nome.toString(),
-            usuarioViewModel.sobrenome.toString(),
-            usuarioViewModel.cpf.toString(),
-            usuarioViewModel.estado.toString(),
-            usuarioViewModel.ddd.toString(),
-            usuarioViewModel.telefone.toString()
+            usuarioViewModel.apelido!!,
+            usuarioViewModel.email!!,
+            usuarioViewModel.senha!!,
+            usuarioViewModel.nome!!,
+            usuarioViewModel.sobrenome!!,
+            usuarioViewModel.cpf!!,
+            usuarioViewModel.estado!!,
+            usuarioViewModel.ddd!!,
+            usuarioViewModel.telefone!!
         )
 
-        /*var db = Room.databaseBuilder(
+        var db = Room.databaseBuilder(
             requireContext(),
             AppDatabase::class.java,
-            "não_sei_ainda.sql"
-        )*/
+            "appDatabase.sql"
+        ).build()
+
+        db.usuarioDao()
+            .criarUsuario(novoUsuario)
     }
 
 }
