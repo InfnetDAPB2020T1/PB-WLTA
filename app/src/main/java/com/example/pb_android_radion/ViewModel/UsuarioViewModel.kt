@@ -17,7 +17,6 @@ class UsuarioViewModel: ViewModel() {
     var telefone: String? = null
     var ddd: String? = null
 
-
     var usuario: Usuario? = null
     var usuarios : MutableList<Usuario> = mutableListOf()
     var listaUsuariosSeriazable: Usuarios? = Usuarios()
@@ -30,5 +29,21 @@ class UsuarioViewModel: ViewModel() {
 //        Usuarios.add(usuario)
 //    }
 
+    fun cadastro(apelido: String, email: String, senha: String){
+        usuario!!.apelido = apelido
+        usuario!!.email = email
+        usuario!!.senha = senha
+    }
 
+    fun complementoCadastro(nome: String, sobrenome: String, cpf: String, estado: String,
+                            ddd: String, telefone: String){
+
+        usuario!!.nome = nome
+        usuario!!.sobrenome = sobrenome
+        usuario!!.cpf = cpf
+        usuario!!.estado = estado
+        usuario!!.ddd = ddd
+        usuario!!.telefone = telefone
+
+    }
 }

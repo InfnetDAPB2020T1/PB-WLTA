@@ -33,7 +33,7 @@
 
         ]]>
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/imageView"
             android:layout_width="700dp"
             android:layout_height="897dp"
@@ -108,7 +108,7 @@
             android:layout_marginTop="20dp"
             android:src="@drawable/abc_vector_test"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" /> -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

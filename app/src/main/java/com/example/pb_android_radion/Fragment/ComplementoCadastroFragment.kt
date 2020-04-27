@@ -2,6 +2,7 @@ package com.example.pb_android_radion.Fragment
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,7 +45,7 @@ class ComplementoCadastroFragment : Fragment() {
             //Verifico se algum campo está nulo ou vazio
             if(boxNomeCadastro.text.isNullOrEmpty() || boxSobrenomeCadastro.text.isNullOrEmpty() || boxEstadoCadastro.text.isNullOrEmpty()
                 || boxCpf.text.isNullOrEmpty() || boxDDDCadastro.text.isNullOrEmpty() || boxTelefoneCadastro.text.isNullOrEmpty()){
-                Toast.makeText(activity, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
             }else{
                 //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
                 complementarCadastro()
@@ -65,22 +66,24 @@ class ComplementoCadastroFragment : Fragment() {
     inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Unit>(){
 
         override fun doInBackground(vararg params: Unit?) {
+            Toast.makeText(activity!!.baseContext, "Salvando seu cadastro", Toast.LENGTH_LONG)
             salvarNoBanco()
         }
 
         override fun onPostExecute(result: Unit?) {
             super.onPostExecute(result)
-            Toast.makeText(context, "Usuário criado com sucesso", Toast.LENGTH_LONG)
+            Toast.makeText(activity!!.baseContext, "Usuário criado com sucesso",
+                Toast.LENGTH_LONG)
+
+            findNavController().navigate(R.id.returnToLogin)
         }
     }
 
     private fun complementarCadastro(){
-        usuarioViewModel.nome = boxNomeCadastro.text.toString()
-        usuarioViewModel.sobrenome = boxSobrenomeCadastro.text.toString()
-        usuarioViewModel.estado = boxEstadoCadastro.text.toString()
-        usuarioViewModel.cpf = boxCpf.text.toString()
-        usuarioViewModel.nome = boxNomeCadastro.text.toString()
-        usuarioViewModel.nome = boxNomeCadastro.text.toString()
+        usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
+            boxSobrenomeCadastro.text.toString(), boxCpf.text.toString(),
+            boxEstadoCadastro.text.toString(), boxDDDCadastro.text.toString(),
+            boxTelefoneCadastro.text.toString())
     }
 
     private fun salvarNoBanco(){
@@ -102,8 +105,8 @@ class ComplementoCadastroFragment : Fragment() {
             "appDatabase.sql"
         ).build()
 
-        db.usuarioDao()
-            .criarUsuario(novoUsuario)
-    }
+        Log.i("Usuario", db.usuarioDao()
+            .criarUsuario(novoUsuario).toString())
 
+    }
 }
