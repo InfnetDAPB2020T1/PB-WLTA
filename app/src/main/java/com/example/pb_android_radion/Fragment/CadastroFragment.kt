@@ -32,25 +32,41 @@ class CadastroFragment : Fragment() {
 
         btnContinuar.setOnClickListener{
             //Verifico se algum campo está nulo ou vazio
-            verificarNulo()
+            if(boxApelidoCadastro.text.isNullOrEmpty() || boxEmailCadastro.text.isNullOrEmpty()
+                || boxSenhaCadastro.text.isNullOrEmpty()){
+                Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos",
+                    Toast.LENGTH_SHORT).show()
+            }else {
+                //Começo a implementar na viewModel as informações
 
-            findNavController().navigate(R.id.cadastroToComplementoCadastro)
+                usuarioViewModel.apelido = boxApelidoCadastro.text.toString()
+                usuarioViewModel.email = boxEmailCadastro.text.toString()
+                usuarioViewModel.senha = boxSenhaCadastro.text.toString()
+                //verificarNulo()
+
+                findNavController().navigate(R.id.cadastroToComplementoCadastro)
+            }
         }
     }
 
-    private fun verificarNulo(){
-        if(!boxApelidoCadastro.text.isNullOrEmpty() || !boxEmailCadastro.text.isNullOrEmpty()
-            || !boxSenhaCadastro.text.isNullOrEmpty()){
+    /*private fun verificarNulo(){
+        if(boxApelidoCadastro.text.isNullOrEmpty() || boxEmailCadastro.text.isNullOrEmpty()
+            || boxSenhaCadastro.text.isNullOrEmpty()){
             Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos",
                 Toast.LENGTH_SHORT).show()
         }else{
             //Começo a implementar na viewModel as informações
-            informacoesNoViewModel(boxApelidoCadastro.text.toString(),
-                boxEmailCadastro.text.toString(), boxSenhaCadastro.text.toString())
-        }
-    }
 
-    private fun informacoesNoViewModel(apelido: String, email:String, senha: String) {
+            usuarioViewModel.apelido = boxApelidoCadastro.text.toString()
+            usuarioViewModel.email = boxEmailCadastro.text.toString()
+            usuarioViewModel.senha = boxSenhaCadastro.text.toString()
+
+            /*informacoesNoViewModel(boxApelidoCadastro.text.toString(),
+                boxEmailCadastro.text.toString(), boxSenhaCadastro.text.toString())*/
+        }
+    }*/
+
+    /*private fun informacoesNoViewModel(apelido: String, email:String, senha: String) {
         usuarioViewModel.cadastro(apelido, email, senha)
-    }
+    }*/
 }

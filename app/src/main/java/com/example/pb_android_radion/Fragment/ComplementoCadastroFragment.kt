@@ -48,18 +48,37 @@ class ComplementoCadastroFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
             }else{
                 //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
-                Log.i("ComplementarCadastro", "Entrei no complementar cadastro")
-                complementarCadastro()
+                usuarioViewModel.nome = boxNomeCadastro.text.toString()
+                usuarioViewModel.sobrenome = boxSobrenomeCadastro.text.toString()
+                usuarioViewModel.estado = boxEstadoCadastro.text.toString()
+                usuarioViewModel.cpf = boxCpf.text.toString()
+                usuarioViewModel.ddd = boxDDDCadastro.text.toString()
+                usuarioViewModel.telefone = boxTelefoneCadastro.text.toString()
+
+                /*Log.i("ComplementarCadastro", "Entrei no complementar cadastro")
+                complementarCadastro()*/
 
                 //Cria novo Usuário
+                val novoUsuario = Usuario(
+                    usuarioViewModel.apelido.toString(),
+                    usuarioViewModel.email.toString(),
+                    usuarioViewModel.senha.toString(),
+                    usuarioViewModel.nome.toString(),
+                    usuarioViewModel.sobrenome.toString(),
+                    usuarioViewModel.cpf.toString(),
+                    usuarioViewModel.estado.toString(),
+                    usuarioViewModel.ddd.toString(),
+                    usuarioViewModel.telefone.toString()
+                )
+
                 //OperacaoBancoTask().execute()
 
-                /*usuarioViewModel.usuario == novoUsuario
+                usuarioViewModel.usuario == novoUsuario
                 //add usuário na lista de Usuarios
                 usuarioViewModel.listaUsuariosSeriazable?.lista?.add(novoUsuario)
-                usuarioViewModel.usuarios.add(novoUsuario)*/
+                usuarioViewModel.usuarios.add(novoUsuario)
 
-                //findNavController().navigate(R.id.returnToLogin)
+                findNavController().navigate(R.id.returnToLogin)
             }
         }
     }
