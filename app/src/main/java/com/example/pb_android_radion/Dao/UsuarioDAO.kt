@@ -15,6 +15,9 @@ interface UsuarioDAO {
     @Update
     fun atualizarUsuario(usuario: Usuario)
 
+    @Query("UPDATE usuarios SET apelido = :apelido Where id = :id")
+    fun mudarApelido(apelido: String, id: Int)
+
     @Query("SELECT * FROM usuarios")
     fun listarUsuarios(): Array<Usuario>
 
