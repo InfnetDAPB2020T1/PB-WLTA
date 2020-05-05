@@ -16,6 +16,7 @@ import com.example.pb_android_radion.Database.AppDatabase
 import com.example.pb_android_radion.Model.Usuario
 
 import com.example.pb_android_radion.R
+import com.example.pb_android_radion.Service.AppDatabaseService
 import com.example.pb_android_radion.ViewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_cadastro.*
 import kotlinx.android.synthetic.main.fragment_complemento_cadastro.*
@@ -43,71 +44,50 @@ class ComplementoCadastroFragment : Fragment() {
 
         btnFinalizarCadastro.setOnClickListener{
             //Verifico se algum campo está nulo ou vazio
-            if(boxNomeCadastro.text.isNullOrEmpty() || boxSobrenomeCadastro.text.isNullOrEmpty() || boxEstadoCadastro.text.isNullOrEmpty()
-                || boxCpf.text.isNullOrEmpty() || boxDDDCadastro.text.isNullOrEmpty() || boxTelefoneCadastro.text.isNullOrEmpty()){
-                Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
-            }else{
-                //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
-                usuarioViewModel.nome = boxNomeCadastro.text.toString()
-                usuarioViewModel.sobrenome = boxSobrenomeCadastro.text.toString()
-                usuarioViewModel.estado = boxEstadoCadastro.text.toString()
-                usuarioViewModel.cpf = boxCpf.text.toString()
-                usuarioViewModel.ddd = boxDDDCadastro.text.toString()
-                usuarioViewModel.telefone = boxTelefoneCadastro.text.toString()
+            verificarNulo()
 
-                /*Log.i("ComplementarCadastro", "Entrei no complementar cadastro")
-                complementarCadastro()*/
+            OperacaoBancoTask().execute()
 
-                //Cria novo Usuário
-                val novoUsuario = Usuario(
-                    usuarioViewModel.apelido.toString(),
-                    usuarioViewModel.email.toString(),
-                    usuarioViewModel.senha.toString(),
-                    usuarioViewModel.nome.toString(),
-                    usuarioViewModel.sobrenome.toString(),
-                    usuarioViewModel.cpf.toString(),
-                    usuarioViewModel.estado.toString(),
-                    usuarioViewModel.ddd.toString(),
-                    usuarioViewModel.telefone.toString()
-                )
+            //Cria novo Usuário
+            val novoUsuario = Usuario(
+                usuarioViewModel.apelido.toString(),
+                usuarioViewModel.email.toString(),
+                usuarioViewModel.senha.toString(),
+                usuarioViewModel.nome.toString(),
+                usuarioViewModel.sobrenome.toString(),
+                usuarioViewModel.cpf.toString(),
+                usuarioViewModel.estado.toString(),
+                usuarioViewModel.ddd.toString(),
+                usuarioViewModel.telefone.toString()
+            )
 
-                //OperacaoBancoTask().execute()
+            usuarioViewModel.usuario == novoUsuario
+            //add usuário na lista de Usuarios
+            usuarioViewModel.listaUsuariosSeriazable?.lista?.add(novoUsuario)
+            usuarioViewModel.usuarios.add(novoUsuario)
 
-                usuarioViewModel.usuario == novoUsuario
-                //add usuário na lista de Usuarios
-                usuarioViewModel.listaUsuariosSeriazable?.lista?.add(novoUsuario)
-                usuarioViewModel.usuarios.add(novoUsuario)
-
-                findNavController().navigate(R.id.returnToLogin)
-            }
+            findNavController().navigate(R.id.returnToLogin)
         }
     }
 
     inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Unit>(){
 
         override fun doInBackground(vararg params: Unit?) {
-            Toast.makeText(activity!!.baseContext, "Salvando seu cadastro", Toast.LENGTH_LONG)
+            //Toast.makeText(activity!!.baseContext, "Salvando seu cadastro", Toast.LENGTH_LONG)
             salvarNoBanco()
         }
 
         override fun onPostExecute(result: Unit?) {
             super.onPostExecute(result)
-            Toast.makeText(activity!!.baseContext, "Cadastro salvo com sucesso",
-                Toast.LENGTH_LONG)
-
-            findNavController().navigate(R.id.returnToLogin)
+            //Toast.makeText(activity!!.baseContext, "Cadastro salvo com sucesso", Toast.LENGTH_LONG)
         }
     }
 
     private fun complementarCadastro(){
-        try {
-            usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
-                boxSobrenomeCadastro.text.toString(), boxCpf.text.toString(),
-                boxEstadoCadastro.text.toString(), boxDDDCadastro.text.toString(),
-                boxTelefoneCadastro.text.toString())
-        }catch (i: Exception){
-            Log.i("Erro", "Deu erro aqui")
-        }
+        usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
+            boxSobrenomeCadastro.text.toString(), boxCpf.text.toString(),
+            boxEstadoCadastro.text.toString(), boxDDDCadastro.text.toString(),
+            boxTelefoneCadastro.text.toString())
 
     }
 
@@ -124,14 +104,33 @@ class ComplementoCadastroFragment : Fragment() {
             usuarioViewModel.telefone!!
         )
 
-        var db = Room.databaseBuilder(
-            requireContext(),
-            AppDatabase::class.java,
-            "appDatabase.sql"
-        ).build()
+        /*Log.i("Usuario", "${usuarioViewModel.apelido}, ${usuarioViewModel.email}," +
+                "${usuarioViewModel.senha}, ${usuarioViewModel.nome}, ${usuarioViewModel.sobrenome}," +
+                "${usuarioViewModel.cpf}, ${usuarioViewModel.estado}, ${usuarioViewModel.ddd}, " +
+                "${usuarioViewModel.telefone}")*/
 
-        Log.i("Usuario", db.usuarioDao()
-            .criarUsuario(novoUsuario).toString())
+        var db = AppDatabaseService.getInstance(activity!!.baseContext)
 
+        db.usuarioDao().criarUsuario(novoUsuario)
+
+    }
+
+    private fun verificarNulo(){
+        //Verifico se algum campo está nulo ou vazio
+        if(boxNomeCadastro.text.isNullOrEmpty() || boxSobrenomeCadastro.text.isNullOrEmpty()
+            || boxEstadoCadastro.text.isNullOrEmpty() || boxCpf.text.isNullOrEmpty()
+            || boxDDDCadastro.text.isNullOrEmpty() || boxTelefoneCadastro.text.isNullOrEmpty()){
+
+            Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos",
+                Toast.LENGTH_SHORT).show()
+        }else {
+            //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
+            usuarioViewModel.nome = boxNomeCadastro.text.toString()
+            usuarioViewModel.sobrenome = boxSobrenomeCadastro.text.toString()
+            usuarioViewModel.estado = boxEstadoCadastro.text.toString()
+            usuarioViewModel.cpf = boxCpf.text.toString()
+            usuarioViewModel.ddd = boxDDDCadastro.text.toString()
+            usuarioViewModel.telefone = boxTelefoneCadastro.text.toString()
+        }
     }
 }

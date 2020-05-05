@@ -52,10 +52,10 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         //colocando as informacoes na tela de perfil
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
-        usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
-        usuarioViewModel.usuarioLogadoNome = nomeCompleto
+        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
+        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
+        //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
+        //usuarioViewModel.usuarioLogadoNome = nomeCompleto
 
         mudarFoto.setOnClickListener {
             chamarAlert()
@@ -92,11 +92,13 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
+        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
+        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
 
+        /*var nomeCompleto = usuarioViewModel.usuarioLogado!!.nome +
+                usuarioViewModel.usuarioLogado!!.sobrenome
         txtVwNomeCompleto.text = nomeCompleto
-        txtVwEmail.text = usuarioLogado.email
+        txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email*/
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
