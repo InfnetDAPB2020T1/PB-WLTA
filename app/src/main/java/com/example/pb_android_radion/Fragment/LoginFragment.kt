@@ -3,6 +3,7 @@ package com.example.pb_android_radion.Fragment
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -42,12 +43,10 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.LoginToCadastrar)
         }
 
-        val listaUsuarios = usuarioViewModel.listaUsuariosSeriazable
+        //val listaUsuarios = usuarioViewModel.listaUsuariosSeriazable
         btnLogarLogin.setOnClickListener {
             OperacaoBancoTask().execute()
 
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
             //Aqui é pra testar sem precisar criar login toda hora
             //Para user este comente a linha 54 até a 66
 //            val userTeste = Usuario("ApelidoAdmin","admin@email.com","a",
@@ -88,12 +87,22 @@ class LoginFragment : Fragment() {
 
             result!!.forEach {
                 if(boxEmailLogin.text.toString() == it.email &&
-                    boxSenhaLogin.text.toString() == it.senha
-                ){
+                    boxSenhaLogin.text.toString() == it.senha){
                     usuarioViewModel.usuarioLogado = it
-
+                    /*Log.i("Usuario", "${usuarioViewModel.usuarioLogado!!.email}," +
+                            "${usuarioViewModel.usuarioLogado!!.senha}," +
+                            "${usuarioViewModel.usuarioLogado!!.apelido}," +
+                            "${usuarioViewModel.usuarioLogado!!.nome}," +
+                            "${usuarioViewModel.usuarioLogado!!.sobrenome}," +
+                            "${usuarioViewModel.usuarioLogado!!.cpf}," +
+                            "${usuarioViewModel.usuarioLogado!!.estado}," +
+                            "${usuarioViewModel.usuarioLogado!!.ddd}," +
+                            "${usuarioViewModel.usuarioLogado!!.telefone}")*/
+                    val intent = Intent(context, MainActivity::class.java)
+                    startActivity(intent)
                 }else{
-                    Toast.makeText(activity!!.baseContext, "Usuário inválido", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity!!.baseContext, "Usuário inválido",
+                        Toast.LENGTH_SHORT).show()
                 }
             }
         }
