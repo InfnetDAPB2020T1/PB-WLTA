@@ -18,6 +18,7 @@ class UsuarioViewModel: ViewModel() {
     var ddd: String? = null
 
     var usuario: Usuario? = null
+    var usuarioLogado: Usuario? = null
     var usuarios : MutableList<Usuario> = mutableListOf()
     var listaUsuariosSeriazable: Usuarios? = Usuarios()
     var usuarioLogadoApelido: String = ""
