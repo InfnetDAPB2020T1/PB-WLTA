@@ -1,8 +1,10 @@
 package com.example.pb_android_radion
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.Menu
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -41,11 +43,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
+      /*  appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_perfil
             ), drawerLayout
-        )
+        )*/
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         //colocando as informacoes na tela de perfil
@@ -55,7 +57,29 @@ class MainActivity : AppCompatActivity() {
         usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
         usuarioViewModel.usuarioLogadoNome = nomeCompleto
 
+        mudarFoto.setOnClickListener {
+            chamarAlert()
+        }
+    }
+    fun chamarAlert() {
 
+        var alertDialog = AlertDialog.Builder(this)
+        alertDialog.setTitle("Alerta") // O Titulo da notificação
+        alertDialog.setMessage("Pretende encerrar a Aplicação ?") // a mensagem ou alerta
+
+        alertDialog.setPositiveButton("Sim", { _, _ ->
+
+            //Aqui sera executado a instrução a sua escolha
+            Toast.makeText(this, "Sim", Toast.LENGTH_LONG).show()
+
+        })
+
+        alertDialog.setNegativeButton("Não", { _, _ ->
+            //Aqui sera executado a instrução a sua escolha
+            Toast.makeText(this, "Não", Toast.LENGTH_LONG).show()
+
+        })
+        alertDialog.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -10,7 +10,6 @@
     <string name="btnLogin">Login</string>
     <string name="menu_settings">Perfil</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -21,8 +20,15 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_gallery">Home</string>
+    <string name="menu_slideshow">Home</string>
+    <string name="menu_mudarSenha">Mudar senha</string>
+    <string name="menu_mudarFotoPerfil">Mudar foto </string>
+    <string name="menu_mudarApelido">Mudar Apelido</string>
+    <string name="menu_historico">Hitórico</string>
+    <string name="menu_encerrar">Excluir conta</string>
+    <string name="menu_sair">Sair</string>
+    <string name="menu_bloqueado">Pessoas bloqueadas</string>
 
     <string name="home_second">Home Second</string>
 </resources>

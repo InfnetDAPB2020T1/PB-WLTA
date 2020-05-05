@@ -5,21 +5,34 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_fotoPerfil"
+            android:icon="@drawable/ic_photo_library_black_24dp"
+            android:title="@string/menu_mudarFotoPerfil"
+            android:onClick="chamarAlert"/>
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_historico"
+            android:icon="@drawable/ic_queue_music_black_24dp"
+            android:title="@string/menu_historico" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_bloqueio"
+            android:icon="@drawable/ic_blur_off_black_24dp"
+            android:title="@string/menu_bloqueado" />
         <item
-            android:id="@+id/nav_perfil"
-            android:icon="@drawable/ic_settings_white"
-            android:title="@string/menu_settings" />
+            android:id="@+id/nav_mudarApelido"
+            android:icon="@drawable/ic_text_fields_black_24dp"
+            android:title="@string/menu_mudarApelido" />
+        <item
+            android:id="@+id/nav_mudarSenha"
+            android:icon="@drawable/ic_security_black_24dp"
+            android:title="@string/menu_mudarSenha" />
+        <item
+            android:id="@+id/nav_encerrarConta"
+            android:icon="@drawable/ic_highlight_off_black_24dp"
+            android:title="@string/menu_encerrar" />
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_do_not_disturb_black_24dp"
+            android:title="@string/menu_sair" />
 
     </group>
 </menu>
