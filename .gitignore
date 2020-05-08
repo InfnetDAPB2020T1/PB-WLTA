@@ -12,3 +12,4 @@
 /captures
 .externalNativeBuild
 .cxx
+/app/schemas/com.example.pb_android_radion.database.AppDatabase/1.json
