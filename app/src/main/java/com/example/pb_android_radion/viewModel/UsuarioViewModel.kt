@@ -1,35 +1,20 @@
 package com.example.pb_android_radion.viewModel
 
-import android.app.Application
-import android.os.AsyncTask
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.example.pb_android_radion.model.Usuario
+import android.app.Application
+import android.content.Context
+import android.os.AsyncTask
+import android.widget.Toast
 import com.example.pb_android_radion.model.Usuarios
 import com.example.pb_android_radion.service.AppDatabaseService
 
 class UsuarioViewModel: ViewModel() {
 
-    //var db = AppDatabaseService.getInstance(Application().applicationContext)
-
-    var email: String? = null
-    var senha: String? = null
-    var nome: String? = null
-    var sobrenome: String? = null
-    var cpf: String? = null
-    var apelido: String? = null
-    var estado: String? = null
-    var telefone: String? = null
-    var ddd: String? = null
+    //var db = AppDatabaseService.getInstance()
 
     var usuario: Usuario? = null
     var usuarioLogado: Usuario? = null
-
-//    private val Usuarios = ArrayList<Usuario>()
-//
-//    fun addUsuario(usuario: Usuario) {
-//        Usuarios.add(usuario)
-//    }
 
     fun cadastro(apelido: String, email: String, senha: String){
         usuario!!.apelido = apelido
@@ -51,7 +36,7 @@ class UsuarioViewModel: ViewModel() {
     /*inner class OperacaoCriarUsuarioTask : AsyncTask<Usuario, Unit, Unit>(){
         override fun doInBackground(vararg params: Usuario?) {
 
-            //db.usuarioDao().criarUsuario(params[0]!!)
+            db.usuarioDao().criarUsuario(params[0]!!)
         }
 
         override fun onPostExecute(result: Unit?) {

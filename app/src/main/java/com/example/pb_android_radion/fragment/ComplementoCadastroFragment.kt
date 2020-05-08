@@ -13,6 +13,7 @@ import com.example.pb_android_radion.model.Usuario
 
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.service.AppDatabaseService
+import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_complemento_cadastro.*
 
 class ComplementoCadastroFragment : Fragment() {
@@ -37,28 +38,27 @@ class ComplementoCadastroFragment : Fragment() {
             //Verifico se algum campo está nulo ou vazio
             verificarNulo()
 
-            OperacaoBancoTask().execute()
+            //OperacaoBancoTask().execute()
 
-            //Cria novo Usuário
             val novoUsuario = Usuario(
-                usuarioViewModel.apelido.toString(),
-                usuarioViewModel.email.toString(),
-                usuarioViewModel.senha.toString(),
-                usuarioViewModel.nome.toString(),
-                usuarioViewModel.sobrenome.toString(),
-                usuarioViewModel.cpf.toString(),
-                usuarioViewModel.estado.toString(),
-                usuarioViewModel.ddd.toString(),
-                usuarioViewModel.telefone.toString()
+                usuarioViewModel.usuario!!.apelido,
+                usuarioViewModel.usuario!!.email,
+                usuarioViewModel.usuario!!.senha,
+                usuarioViewModel.usuario!!.nome,
+                usuarioViewModel.usuario!!.sobrenome,
+                usuarioViewModel.usuario!!.cpf,
+                usuarioViewModel.usuario!!.estado,
+                usuarioViewModel.usuario!!.ddd,
+                usuarioViewModel.usuario!!.telefone
             )
 
-            usuarioViewModel.usuario == novoUsuario
+            usuarioViewModel.OperacaoCriarUsuarioTask().execute(novoUsuario)
 
             findNavController().navigate(R.id.returnToLogin)
         }
     }
 
-    inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Unit>(){
+    /*inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Unit>(){
 
         override fun doInBackground(vararg params: Unit?) {
             //Toast.makeText(activity!!.baseContext, "Salvando seu cadastro", Toast.LENGTH_LONG)
@@ -69,7 +69,7 @@ class ComplementoCadastroFragment : Fragment() {
             super.onPostExecute(result)
             //Toast.makeText(activity!!.baseContext, "Cadastro salvo com sucesso", Toast.LENGTH_LONG)
         }
-    }
+    }*/
 
     /*private fun complementarCadastro(){
         usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
@@ -81,21 +81,20 @@ class ComplementoCadastroFragment : Fragment() {
 
     private fun salvarNoBanco(){
         val novoUsuario = Usuario(
-            usuarioViewModel.apelido!!,
-            usuarioViewModel.email!!,
-            usuarioViewModel.senha!!,
-            usuarioViewModel.nome!!,
-            usuarioViewModel.sobrenome!!,
-            usuarioViewModel.cpf!!,
-            usuarioViewModel.estado!!,
-            usuarioViewModel.ddd!!,
-            usuarioViewModel.telefone!!
+            usuarioViewModel.usuario!!.apelido,
+            usuarioViewModel.usuario!!.email,
+            usuarioViewModel.usuario!!.senha,
+            usuarioViewModel.usuario!!.nome,
+            usuarioViewModel.usuario!!.sobrenome,
+            usuarioViewModel.usuario!!.cpf,
+            usuarioViewModel.usuario!!.estado,
+            usuarioViewModel.usuario!!.ddd,
+            usuarioViewModel.usuario!!.telefone
         )
 
         var db = AppDatabaseService.getInstance(activity!!.baseContext)
 
         db.usuarioDao().criarUsuario(novoUsuario)
-
     }
 
     private fun verificarNulo(){
@@ -108,12 +107,12 @@ class ComplementoCadastroFragment : Fragment() {
                 Toast.LENGTH_SHORT).show()
         }else {
             //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
-            usuarioViewModel.nome = boxNomeCadastro.text.toString()
-            usuarioViewModel.sobrenome = boxSobrenomeCadastro.text.toString()
-            usuarioViewModel.estado = boxEstadoCadastro.text.toString()
-            usuarioViewModel.cpf = boxCpf.text.toString()
-            usuarioViewModel.ddd = boxDDDCadastro.text.toString()
-            usuarioViewModel.telefone = boxTelefoneCadastro.text.toString()
+            usuarioViewModel.usuario!!.nome = boxNomeCadastro.text.toString()
+            usuarioViewModel.usuario!!.sobrenome = boxSobrenomeCadastro.text.toString()
+            usuarioViewModel.usuario!!.estado = boxEstadoCadastro.text.toString()
+            usuarioViewModel.usuario!!.cpf = boxCpf.text.toString()
+            usuarioViewModel.usuario!!.ddd = boxDDDCadastro.text.toString()
+            usuarioViewModel.usuario!!.telefone = boxTelefoneCadastro.text.toString()
         }
     }
 }

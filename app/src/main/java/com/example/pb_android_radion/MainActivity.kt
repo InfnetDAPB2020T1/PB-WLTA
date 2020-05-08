@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.model.Usuario
+import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -52,30 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         usuarioViewModel.usuarioLogado = usuario
 
-        /*mudarFoto.setOnClickListener {
-            chamarAlert()
-        }*/
     }
-    /*fun chamarAlert() {
-
-        var alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle("Alerta") // O Titulo da notificação
-        alertDialog.setMessage("Pretende encerrar a Aplicação ?") // a mensagem ou alerta
-
-        alertDialog.setPositiveButton("Sim") { _, _ ->
-
-            //Aqui sera executado a instrução a sua escolha
-            Toast.makeText(this, "Sim", Toast.LENGTH_LONG).show()
-
-        }
-
-        alertDialog.setNegativeButton("Não") { _, _ ->
-            //Aqui sera executado a instrução a sua escolha
-            Toast.makeText(this, "Não", Toast.LENGTH_LONG).show()
-
-        }
-        alertDialog.show()
-    }*/
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.pb_android_radion.R
+import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_cadastro.*
 
 class CadastroFragment : Fragment() {
@@ -39,14 +40,14 @@ class CadastroFragment : Fragment() {
     private fun verificarNulo(){
         if(boxApelidoCadastro.text.isNullOrEmpty() || boxEmailCadastro.text.isNullOrEmpty()
             || boxSenhaCadastro.text.isNullOrEmpty()){
-            Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos",
+            Toast.makeText(requireActivity().baseContext, "Por favor preencha todos os campos",
                 Toast.LENGTH_SHORT).show()
         }else{
 
             //Começo a implementar na viewModel as informações
-            usuarioViewModel.apelido = boxApelidoCadastro.text.toString()
-            usuarioViewModel.email = boxEmailCadastro.text.toString()
-            usuarioViewModel.senha = boxSenhaCadastro.text.toString()
+            usuarioViewModel.usuario!!.apelido = boxApelidoCadastro.text.toString()
+            usuarioViewModel.usuario!!.email = boxEmailCadastro.text.toString()
+            usuarioViewModel.usuario!!.senha = boxSenhaCadastro.text.toString()
 
             /*informacoesNoViewModel(boxApelidoCadastro.text.toString(),
                 boxEmailCadastro.text.toString(), boxSenhaCadastro.text.toString())*/

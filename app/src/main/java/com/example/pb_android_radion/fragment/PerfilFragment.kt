@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.R
+import com.example.pb_android_radion.viewModel.UsuarioViewModel
 
 class PerfilFragment : Fragment() {
     private lateinit var usuarioViewModel: UsuarioViewModel
