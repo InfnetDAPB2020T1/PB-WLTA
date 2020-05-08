@@ -22,13 +22,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Home</string>
     <string name="menu_slideshow">Home</string>
-    <string name="menu_mudarSenha">Mudar senha</string>
-    <string name="menu_mudarFotoPerfil">Mudar foto </string>
-    <string name="menu_mudarApelido">Mudar Apelido</string>
-    <string name="menu_historico">Hitórico</string>
+    <string name="menu_mudarSenha">Alterar senha</string>
+    <string name="menu_mudarFotoPerfil">Alterar foto </string>
+    <string name="menu_mudarApelido">Alterar Apelido</string>
+    <string name="menu_infoUsuario">Apelido</string>
+    <string name="menu_historico">Histórico</string>
+
+    <string name="menu_playlist">Playlist</string>
     <string name="menu_encerrar">Excluir conta</string>
     <string name="menu_sair">Sair</string>
     <string name="menu_bloqueado">Pessoas bloqueadas</string>
 
     <string name="home_second">Home Second</string>
+
 </resources>

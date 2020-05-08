@@ -30,19 +30,19 @@
     </fragment> -->
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.pb_android_radion.ui.gallery.GalleryFragment"
+        android:id="@+id/nav_playlist"
+        android:name="com.example.pb_android_radion.fragment.MinhaPlaylistFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_minha_playlist" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.pb_android_radion.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_historico"
+        android:name="com.example.pb_android_radion.fragment.HistoricoFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_historico" />
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.example.pb_android_radion.Fragment.PerfilFragment"
+        android:name="com.example.pb_android_radion.fragment.PerfilFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
 </navigation>

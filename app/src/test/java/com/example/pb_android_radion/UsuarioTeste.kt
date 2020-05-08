@@ -1,9 +1,9 @@
 package com.example.pb_android_radion
 
-import com.example.pb_android_radion.Model.Usuario
-import com.example.pb_android_radion.Throws.UsuarioCPFException
-import com.example.pb_android_radion.Throws.UsuarioDDDException
-import com.example.pb_android_radion.Throws.UsuarioTelefoneException
+import com.example.pb_android_radion.model.Usuario
+import com.example.pb_android_radion.throws.UsuarioCPFException
+import com.example.pb_android_radion.throws.UsuarioDDDException
+import com.example.pb_android_radion.throws.UsuarioTelefoneException
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
