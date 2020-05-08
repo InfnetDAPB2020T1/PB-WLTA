@@ -1,12 +1,17 @@
 package com.example.pb_android_radion.ViewModel
 
+import android.app.Application
+import android.os.AsyncTask
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
-import com.example.pb_android_radion.Model.Musica
 import com.example.pb_android_radion.Model.Usuario
 import com.example.pb_android_radion.Model.Usuarios
-import java.util.*
+import com.example.pb_android_radion.Service.AppDatabaseService
 
 class UsuarioViewModel: ViewModel() {
+
+    //var db = AppDatabaseService.getInstance(Application().applicationContext)
+
     var email: String? = null
     var senha: String? = null
     var nome: String? = null
@@ -21,8 +26,6 @@ class UsuarioViewModel: ViewModel() {
     var usuarioLogado: Usuario? = null
     var usuarios : MutableList<Usuario> = mutableListOf()
     var listaUsuariosSeriazable: Usuarios? = Usuarios()
-    //var usuarioLogadoApelido: String = ""
-    //var usuarioLogadoNome: String = ""
 
 //    private val Usuarios = ArrayList<Usuario>()
 //
@@ -45,6 +48,19 @@ class UsuarioViewModel: ViewModel() {
         usuario!!.estado = estado
         usuario!!.ddd = ddd
         usuario!!.telefone = telefone
-
     }
+
+    /*inner class OperacaoCriarUsuarioTask : AsyncTask<Usuario, Unit, Unit>(){
+        override fun doInBackground(vararg params: Usuario?) {
+
+            //db.usuarioDao().criarUsuario(params[0]!!)
+        }
+
+        override fun onPostExecute(result: Unit?) {
+            super.onPostExecute(result)
+
+            Toast.makeText(Application().applicationContext,
+                "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show()
+        }
+    }*/
 }

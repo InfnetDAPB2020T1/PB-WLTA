@@ -30,8 +30,7 @@ class PerfilFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        //textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
-        //textViewNomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
-
+        textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
+        textViewNomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
     }
 }

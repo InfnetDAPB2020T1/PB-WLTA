@@ -21,9 +21,6 @@ import com.example.pb_android_radion.ViewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_cadastro.*
 import kotlinx.android.synthetic.main.fragment_complemento_cadastro.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class ComplementoCadastroFragment : Fragment() {
 
     private lateinit var usuarioViewModel: UsuarioViewModel
@@ -66,6 +63,7 @@ class ComplementoCadastroFragment : Fragment() {
             usuarioViewModel.listaUsuariosSeriazable?.lista?.add(novoUsuario)
             usuarioViewModel.usuarios.add(novoUsuario)
 
+
             findNavController().navigate(R.id.returnToLogin)
         }
     }
@@ -83,13 +81,13 @@ class ComplementoCadastroFragment : Fragment() {
         }
     }
 
-    private fun complementarCadastro(){
+    /*private fun complementarCadastro(){
         usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
             boxSobrenomeCadastro.text.toString(), boxCpf.text.toString(),
             boxEstadoCadastro.text.toString(), boxDDDCadastro.text.toString(),
             boxTelefoneCadastro.text.toString())
 
-    }
+    }*/
 
     private fun salvarNoBanco(){
         val novoUsuario = Usuario(
@@ -103,11 +101,6 @@ class ComplementoCadastroFragment : Fragment() {
             usuarioViewModel.ddd!!,
             usuarioViewModel.telefone!!
         )
-
-        /*Log.i("Usuario", "${usuarioViewModel.apelido}, ${usuarioViewModel.email}," +
-                "${usuarioViewModel.senha}, ${usuarioViewModel.nome}, ${usuarioViewModel.sobrenome}," +
-                "${usuarioViewModel.cpf}, ${usuarioViewModel.estado}, ${usuarioViewModel.ddd}, " +
-                "${usuarioViewModel.telefone}")*/
 
         var db = AppDatabaseService.getInstance(activity!!.baseContext)
 

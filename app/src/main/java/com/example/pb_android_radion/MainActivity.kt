@@ -53,10 +53,22 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         //colocando as informacoes na tela de perfil
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
-        //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
-        //usuarioViewModel.usuarioLogadoNome = nomeCompleto
+
+        var usuario = intent.getSerializableExtra("usuario") as Usuario
+
+        usuarioViewModel.usuarioLogado = usuario
+
+        /*usuarioViewModel.usuarioLogado!!.id = usuario.id
+        usuarioViewModel.usuarioLogado!!.apelido = usuario.apelido
+        usuarioViewModel.usuarioLogado!!.email = usuario.email
+        usuarioViewModel.usuarioLogado!!.senha = usuario.senha
+        usuarioViewModel.usuarioLogado!!.nome = usuario.nome
+        usuarioViewModel.usuarioLogado!!.sobrenome = usuario.sobrenome
+        usuarioViewModel.usuarioLogado!!.estado = usuario.estado
+        usuarioViewModel.usuarioLogado!!.cpf = usuario.cpf
+        usuarioViewModel.usuarioLogado!!.ddd = usuario.ddd
+        usuarioViewModel.usuarioLogado!!.telefone = usuario.telefone
+        // KotlinNullPointerException*/
 
         /*mudarFoto.setOnClickListener {
             chamarAlert()
@@ -92,15 +104,10 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
 
-        usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
-
-        /*var nomeCompleto = usuarioViewModel.usuarioLogado!!.nome +
-                usuarioViewModel.usuarioLogado!!.sobrenome
+        val nomeCompleto = "${usuarioViewModel.usuarioLogado!!.nome} "+
+                " ${usuarioViewModel.usuarioLogado!!.sobrenome}"
         txtVwNomeCompleto.text = nomeCompleto
-        txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email*/
-
+        txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }

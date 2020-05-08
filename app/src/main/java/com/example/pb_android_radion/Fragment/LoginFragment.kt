@@ -35,42 +35,13 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.let {
-            usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
-        }
 
         textoCadastroLogin.setOnClickListener{
             findNavController().navigate(R.id.LoginToCadastrar)
         }
 
-        //val listaUsuarios = usuarioViewModel.listaUsuariosSeriazable
         btnLogarLogin.setOnClickListener {
             OperacaoBancoTask().execute()
-
-            //Aqui é pra testar sem precisar criar login toda hora
-            //Para user este comente a linha 54 até a 66
-//            val userTeste = Usuario("ApelidoAdmin","admin@email.com","a",
-//            "NomeAdmin","SobrenomeAdmin","1111111111","XX",
-//            "XX","XXXXXXXXXX")
-//
-//            val intent = Intent(context, MainActivity::class.java)
-//            intent.putExtra("usuario", userTeste)
-//            startActivity(intent)
-            //Variavel para ver se o usuário digitado na tela existe ao percorrer a lista de Usuários
-            //Para usar aqui comente da linha 45 até 51
-            /*var existe: Boolean = false
-            listaUsuarios!!.lista.forEach{
-                if(boxEmailLogin.text.toString().compareTo(it.email) == && boxSenhaLogin.text.toString() == it.senha){
-                    existe = true
-                    val intent = Intent(context, MainActivity::class.java)
-                    intent.putExtra("usuario", it)
-                    intent.putExtra("listaUsuarios", listaUsuarios)
-                    startActivity(intent)
-                }
-            }
-            if(!existe){
-                Toast.makeText(this.context, "Usuário inválido", Toast.LENGTH_SHORT).show()
-            }*/
         }
     }
 
@@ -88,17 +59,8 @@ class LoginFragment : Fragment() {
             result!!.forEach {
                 if(boxEmailLogin.text.toString() == it.email &&
                     boxSenhaLogin.text.toString() == it.senha){
-                    usuarioViewModel.usuarioLogado = it
-                    /*Log.i("Usuario", "${usuarioViewModel.usuarioLogado!!.email}," +
-                            "${usuarioViewModel.usuarioLogado!!.senha}," +
-                            "${usuarioViewModel.usuarioLogado!!.apelido}," +
-                            "${usuarioViewModel.usuarioLogado!!.nome}," +
-                            "${usuarioViewModel.usuarioLogado!!.sobrenome}," +
-                            "${usuarioViewModel.usuarioLogado!!.cpf}," +
-                            "${usuarioViewModel.usuarioLogado!!.estado}," +
-                            "${usuarioViewModel.usuarioLogado!!.ddd}," +
-                            "${usuarioViewModel.usuarioLogado!!.telefone}")*/
                     val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("usuario", it)
                     startActivity(intent)
                 }else{
                     Toast.makeText(activity!!.baseContext, "Usuário inválido",
