@@ -1,11 +1,7 @@
 package com.example.pb_android_radion
 
-import android.app.AlertDialog
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import android.view.Menu
-import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -18,9 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
-import com.example.pb_android_radion.Model.Usuario
-import com.example.pb_android_radion.ViewModel.UsuarioViewModel
-import kotlinx.android.synthetic.main.fragment_perfil.*
+import com.example.pb_android_radion.model.Usuario
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_perfil
+                R.id.nav_home, R.id.nav_playlist, R.id.nav_historico, R.id.nav_perfil
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -57,18 +51,6 @@ class MainActivity : AppCompatActivity() {
         var usuario = intent.getSerializableExtra("usuario") as Usuario
 
         usuarioViewModel.usuarioLogado = usuario
-
-        /*usuarioViewModel.usuarioLogado!!.id = usuario.id
-        usuarioViewModel.usuarioLogado!!.apelido = usuario.apelido
-        usuarioViewModel.usuarioLogado!!.email = usuario.email
-        usuarioViewModel.usuarioLogado!!.senha = usuario.senha
-        usuarioViewModel.usuarioLogado!!.nome = usuario.nome
-        usuarioViewModel.usuarioLogado!!.sobrenome = usuario.sobrenome
-        usuarioViewModel.usuarioLogado!!.estado = usuario.estado
-        usuarioViewModel.usuarioLogado!!.cpf = usuario.cpf
-        usuarioViewModel.usuarioLogado!!.ddd = usuario.ddd
-        usuarioViewModel.usuarioLogado!!.telefone = usuario.telefone
-        // KotlinNullPointerException*/
 
         /*mudarFoto.setOnClickListener {
             chamarAlert()

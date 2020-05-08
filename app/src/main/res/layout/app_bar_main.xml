@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.pb_android_radion.Fragment.PlayerFragment"
+        android:name="com.example.pb_android_radion.fragment.PlayerFragment"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="bottom" />
