@@ -25,7 +25,7 @@ class CadastroFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.layout_cadastro, container, false)
+        return inflater.inflate(R.layout.fragment_cadastro, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,14 +34,15 @@ class CadastroFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        btnCadastrarUsuario.setOnClickListener{
+
+
+    }
+/* btnCadastrarUsuario.setOnClickListener{
             //Verifico se algum campo está nulo ou vazio
           //  verificarNulo()
             //findNavController().navigate(R.id.cadastroToComplementoCadastro)
             startActivity(Intent(activity?.baseContext, LoginActivity::class.java))
         }
-    }
-
     private fun verificarNulo(){
         if(boxApelidoCadastro.text.isNullOrEmpty() || boxEmailCadastro.text.isNullOrEmpty()
             || boxSenhaCadastro.text.isNullOrEmpty()){
@@ -61,5 +62,5 @@ class CadastroFragment : Fragment() {
 
     /*private fun informacoesNoViewModel(apelido: String, email:String, senha: String) {
         usuarioViewModel.cadastro(apelido, email, senha)
-    }*/
+    }*/*/
 }

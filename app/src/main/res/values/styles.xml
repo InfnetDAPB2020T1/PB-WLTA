@@ -23,7 +23,7 @@
 
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorAccent</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/fundoLogin</item>
         <item name="boxBackgroundMode">outline</item>
         <item name="errorEnabled">true</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
@@ -47,6 +47,8 @@
 
     <style name="config_edit">
         <item name="android:layout_width">match_parent</item>
+        <item name="android:ems">10</item>
+        <item name="android:lines">1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
     </style>
