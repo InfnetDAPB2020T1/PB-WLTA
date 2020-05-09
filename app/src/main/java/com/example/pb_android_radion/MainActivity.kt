@@ -1,6 +1,7 @@
 package com.example.pb_android_radion
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         val nomeCompleto = "${usuarioViewModel.usuarioLogado!!.nome} "+
-                " ${usuarioViewModel.usuarioLogado!!.sobrenome}"
+                "${usuarioViewModel.usuarioLogado!!.sobrenome}"
         txtVwNomeCompleto.text = nomeCompleto
         txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
 

@@ -15,7 +15,7 @@ class AppDatabaseService {
                     context,
                     AppDatabase::class.java,
                     databaseName
-                ).build()
+                ).allowMainThreadQueries().build()
             }
             return instance as AppDatabase
         }

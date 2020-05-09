@@ -16,7 +16,13 @@ interface UsuarioDAO {
     fun atualizarUsuario(usuario: Usuario)
 
     @Query("UPDATE usuarios SET apelido = :apelido Where id = :id")
-    fun mudarApelido(apelido: String, id: Int)
+    fun mudarApelido(apelido: String, id: Int?)
+
+    @Query("UPDATE usuarios SET estado = :estado WHERE id =:id")
+    fun mudarEstado(estado: String, id: Int?)
+
+    @Query("UPDATE usuarios SET senha =:senha WHERE id =:id")
+    fun mudarSenha(senha: String, id: Int?)
 
     @Query("SELECT * FROM usuarios")
     fun listarUsuarios(): Array<Usuario>

@@ -66,10 +66,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-
-
-
-
     def room_version = "2.2.3"
 
     //noinspection GradleDependency
@@ -87,5 +83,6 @@ dependencies {
 
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
+    //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
 }

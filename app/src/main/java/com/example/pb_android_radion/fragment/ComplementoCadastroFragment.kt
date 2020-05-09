@@ -38,27 +38,13 @@ class ComplementoCadastroFragment : Fragment() {
             //Verifico se algum campo está nulo ou vazio
             verificarNulo()
 
-            //OperacaoBancoTask().execute()
-
-            val novoUsuario = Usuario(
-                usuarioViewModel.usuario!!.apelido,
-                usuarioViewModel.usuario!!.email,
-                usuarioViewModel.usuario!!.senha,
-                usuarioViewModel.usuario!!.nome,
-                usuarioViewModel.usuario!!.sobrenome,
-                usuarioViewModel.usuario!!.cpf,
-                usuarioViewModel.usuario!!.estado,
-                usuarioViewModel.usuario!!.ddd,
-                usuarioViewModel.usuario!!.telefone
-            )
-
-            usuarioViewModel.OperacaoCriarUsuarioTask().execute(novoUsuario)
+            OperacaoBancoTask().execute()
 
             findNavController().navigate(R.id.returnToLogin)
         }
     }
 
-    /*inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Unit>(){
+    inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Unit>(){
 
         override fun doInBackground(vararg params: Unit?) {
             //Toast.makeText(activity!!.baseContext, "Salvando seu cadastro", Toast.LENGTH_LONG)
@@ -69,7 +55,7 @@ class ComplementoCadastroFragment : Fragment() {
             super.onPostExecute(result)
             //Toast.makeText(activity!!.baseContext, "Cadastro salvo com sucesso", Toast.LENGTH_LONG)
         }
-    }*/
+    }
 
     /*private fun complementarCadastro(){
         usuarioViewModel.complementoCadastro(boxNomeCadastro.text.toString(),
@@ -92,7 +78,7 @@ class ComplementoCadastroFragment : Fragment() {
             usuarioViewModel.usuario!!.telefone
         )
 
-        var db = AppDatabaseService.getInstance(activity!!.baseContext)
+        var db = AppDatabaseService.getInstance(requireActivity().baseContext)
 
         db.usuarioDao().criarUsuario(novoUsuario)
     }
@@ -103,7 +89,7 @@ class ComplementoCadastroFragment : Fragment() {
             || boxEstadoCadastro.text.isNullOrEmpty() || boxCpf.text.isNullOrEmpty()
             || boxDDDCadastro.text.isNullOrEmpty() || boxTelefoneCadastro.text.isNullOrEmpty()){
 
-            Toast.makeText(activity!!.baseContext, "Por favor preencha todos os campos",
+            Toast.makeText(requireActivity().baseContext, "Por favor preencha todos os campos",
                 Toast.LENGTH_SHORT).show()
         }else {
             //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações

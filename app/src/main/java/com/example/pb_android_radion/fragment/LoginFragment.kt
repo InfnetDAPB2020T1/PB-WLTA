@@ -3,10 +3,12 @@ package com.example.pb_android_radion.fragment
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pb_android_radion.MainActivity
 import com.example.pb_android_radion.model.Usuario
@@ -42,7 +44,9 @@ class LoginFragment : Fragment() {
         override fun doInBackground(vararg params: Unit?): Array<Usuario> {
             var db = AppDatabaseService.getInstance(activity!!.baseContext)
 
-            return db.usuarioDao().listarUsuarios()
+            var usuarios = db.usuarioDao().listarUsuarios()
+            Log.i("ListaUsuarios", "${usuarios.size}")
+            return usuarios
         }
 
         override fun onPostExecute(result: Array<Usuario>?) {
@@ -54,6 +58,9 @@ class LoginFragment : Fragment() {
                     val intent = Intent(context, MainActivity::class.java)
                     intent.putExtra("usuario", it)
                     startActivity(intent)
+                }else{
+                    Toast.makeText(activity!!.baseContext, "Cadastro não encontrado",
+                        Toast.LENGTH_SHORT).show()
                 }
             }
         }
