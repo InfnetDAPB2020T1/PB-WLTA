@@ -11,7 +11,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -41,8 +43,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints"
-                        />
+                        tools:ignore="MissingConstraints" />
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -55,15 +56,14 @@
                         app:layout_constraintStart_toStartOf="@+id/imageViewPerfil"
                         app:layout_constraintTop_toTopOf="@+id/imageViewPerfil"
                         app:layout_constraintVertical_bias="1.0"
-                        tools:ignore="MissingConstraints"
-                        />
+                        tools:ignore="MissingConstraints" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="352dp"
-                android:layout_height="538dp"
+                android:layout_width="354dp"
+                android:layout_height="454dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="32dp"
@@ -73,8 +73,7 @@
                 tools:ignore="MissingConstraints">
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    style="@style/config_contranint">
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
 
                     <ImageView
                         android:id="@+id/imageViewNome"
@@ -83,7 +82,6 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textField"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorAccent"
@@ -91,64 +89,53 @@
                         app:errorEnabled="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageViewNome"
-                        app:layout_constraintTop_toTopOf="parent"
-                        >
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextNome"
                             style="@style/config_edit"
                             android:hint="@string/nome" />
-
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    style="@style/config_contranint">
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
 
                     <ImageView
                         android:id="@+id/imageViewApelido"
                         style="@style/config_imgView"
-                        android:src="@drawable/ic_face_24px"
-                        />
+                        android:src="@drawable/ic_face_24px" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/TextApelidoCadastro"
                         style="@style/config_editText"
                         app:layout_constraintBottom_toBottomOf="@+id/imageViewApelido"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewApelido"
-                        >
+                        app:layout_constraintStart_toEndOf="@+id/imageViewApelido">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextApelido"
                             style="@style/config_edit"
-                            android:hint="@string/apelido"
-                             />
+                            android:hint="@string/apelido" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    style="@style/config_contranint">
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
 
                     <ImageView
                         android:id="@+id/imageViewCPF"
                         style="@style/config_imgView"
-                        android:src="@drawable/ic_crop_landscape_black_24dp"
-                         />
+                        android:src="@drawable/ic_crop_landscape_black_24dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/TextCPfCadastro"
                         style="@style/config_editText"
                         app:layout_constraintBottom_toBottomOf="@+id/imageViewCPF"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewCPF"
-                        >
+                        app:layout_constraintStart_toEndOf="@+id/imageViewCPF">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextCPFCadastro"
                             style="@style/config_edit"
-                            android:hint="@string/cpf"
-                            />
+                            android:hint="@string/cpf" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -258,8 +245,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/imageViewEstado"
-                        app:layout_constraintTop_toTopOf="parent"
-                        >
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextEstadoCadastro"
@@ -271,14 +257,13 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    style="@style/config_contranint">
 
-                <ImageView
-                    android:id="@+id/imageViewSenha"
-                    style="@style/config_imgView"
-                    android:src="@drawable/ic_security_black_24dp"
-                     />
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
+
+                    <ImageView
+                        android:id="@+id/imageViewSenha"
+                        style="@style/config_imgView"
+                        android:src="@drawable/ic_security_black_24dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textViewSenhaCadastro"
@@ -287,8 +272,7 @@
                         app:counterMaxLength="12"
                         app:layout_constraintBottom_toBottomOf="@+id/imageViewSenha"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewSenha"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:layout_constraintStart_toEndOf="@+id/imageViewSenha">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextSenhaCadastro"
@@ -311,8 +295,7 @@
                     android:background="@drawable/button"
                     android:text="@string/cadastrar"
                     android:textColor="@color/branco"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
