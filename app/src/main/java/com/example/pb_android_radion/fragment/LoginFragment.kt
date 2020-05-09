@@ -95,8 +95,7 @@ class LoginFragment : Fragment() {
                             "${usuarioViewModel.usuarioLogado!!.estado}," +
                             "${usuarioViewModel.usuarioLogado!!.ddd}," +
                             "${usuarioViewModel.usuarioLogado!!.telefone}")*/
-                    val intent = Intent(context, MainActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(activity?.baseContext, MainActivity::class.java))
                 }else{
                     Toast.makeText(activity!!.baseContext, "Usuário inválido",
                         Toast.LENGTH_SHORT).show()

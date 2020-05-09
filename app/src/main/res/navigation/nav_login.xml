@@ -6,22 +6,13 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/cadastroFragment"
-        android:name="com.example.pb_android_radion.fragment.CadastroFragment"
-        android:label="fragment_cadastro"
-        tools:layout="@layout/fragment_cadastro" >
-        <action
-            android:id="@+id/cadastroToComplementoCadastro"
-            app:destination="@id/complementoCadastroFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.pb_android_radion.fragment.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/LoginToCadastrar"
-            app:destination="@id/cadastroFragment" />
+            android:id="@+id/action_loginFragment_to_cadastroFragment"
+            app:destination="@id/LoginToCadastrar" />
     </fragment>
     <fragment
         android:id="@+id/complementoCadastroFragment"
@@ -32,4 +23,9 @@
             android:id="@+id/returnToLogin"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/LoginToCadastrar"
+        android:name="com.example.pb_android_radion.fragment.CadastroFragment"
+        android:label="layout_cadastro"
+        tools:layout="@layout/layout_cadastro" />
 </navigation>

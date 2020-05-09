@@ -34,7 +34,7 @@
     <string name="menu_bloqueado">Pessoas bloqueadas</string>
 
     <string name="home_second">Home Second</string>
-    <string name="estado">Estado</string>
+    <string name="estado">  UF  </string>
     <string name="exemploTelefone">(00) 0 0000 0000</string>
     <string name="telefone">Telefone</string>
     <string name="exemplo_email">developer@teste</string>
@@ -43,5 +43,11 @@
     <string name="cpf">CPF</string>
     <string name="apelido">Apelido</string>
     <string name="sair">Sair</string>
+    <string name="sobrenome">Sobrenome</string>
+    <string name="ddd_telefone">DDD + Telefone</string>
+    <string name="nome">Nome</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="ddd">DDD</string>
+    <string name="nomecompleto">NomeCompleto</string>
 
 </resources>
