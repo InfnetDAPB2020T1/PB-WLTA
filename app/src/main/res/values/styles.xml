@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/rosaEscuro</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -23,7 +23,7 @@
 
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/fundoLogin</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/rosaClaro</item>
         <item name="boxBackgroundMode">outline</item>
         <item name="errorEnabled">true</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
@@ -33,7 +33,6 @@
     <style name="config_imgView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:src">@drawable/ic_crop_landscape_black_24dp</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="layout_constraintTop_toTopOf">parent</item>

@@ -1,7 +1,13 @@
 package com.example.pb_android_radion
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -15,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
+import kotlinx.android.synthetic.main.layout_cadastro.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,30 +58,10 @@ class MainActivity : AppCompatActivity() {
         //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
         //usuarioViewModel.usuarioLogadoNome = nomeCompleto
 
-        /*mudarFoto.setOnClickListener {
-            chamarAlert()
-        }*/
+
+
     }
-    /*fun chamarAlert() {
 
-        var alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle("Alerta") // O Titulo da notificação
-        alertDialog.setMessage("Pretende encerrar a Aplicação ?") // a mensagem ou alerta
-
-        alertDialog.setPositiveButton("Sim") { _, _ ->
-
-            //Aqui sera executado a instrução a sua escolha
-            Toast.makeText(this, "Sim", Toast.LENGTH_LONG).show()
-
-        }
-
-        alertDialog.setNegativeButton("Não") { _, _ ->
-            //Aqui sera executado a instrução a sua escolha
-            Toast.makeText(this, "Não", Toast.LENGTH_LONG).show()
-
-        }
-        alertDialog.show()
-    }*/
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -96,5 +83,6 @@ class MainActivity : AppCompatActivity() {
 
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+
     }
 }
