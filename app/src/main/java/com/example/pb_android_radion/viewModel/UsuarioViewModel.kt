@@ -5,7 +5,7 @@ import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.model.Usuarios
 
 class UsuarioViewModel: ViewModel() {
-    var email: String? = null
+  /*  var email: String? = null
     var senha: String? = null
     var imagem: String? = null
     var nome: String? = null
@@ -14,7 +14,7 @@ class UsuarioViewModel: ViewModel() {
     var apelido: String? = null
     var estado: String? = null
     var telefone: String? = null
-    var ddd: String? = null
+    var ddd: String? = null*/
     var usuario: Usuario? = null
     var usuarioLogado: Usuario? = null
     var usuarios : MutableList<Usuario> = mutableListOf()
