@@ -6,30 +6,26 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/cadastroFragment"
-        android:name="com.example.pb_android_radion.fragment.CadastroFragment"
-        android:label="fragment_cadastro"
-        tools:layout="@layout/fragment_cadastro" >
-        <action
-            android:id="@+id/cadastroToComplementoCadastro"
-            app:destination="@id/complementoCadastroFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.pb_android_radion.fragment.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/LoginToCadastrar"
-            app:destination="@id/cadastroFragment" />
+            android:id="@+id/action_loginFragment_to_complementoCadastroFragment2"
+            app:destination="@id/LoginToCadastrar" />
     </fragment>
     <fragment
-        android:id="@+id/complementoCadastroFragment"
+        android:id="@+id/LoginToCadastrar2"
+        android:name="com.example.pb_android_radion.fragment.CadastroFragment"
+        android:label="layout_cadastro"
+        tools:layout="@layout/layout_cadastro" />
+    <fragment
+        android:id="@+id/LoginToCadastrar"
         android:name="com.example.pb_android_radion.fragment.ComplementoCadastroFragment"
-        android:label="fragment_complemento_cadastro"
-        tools:layout="@layout/fragment_complemento_cadastro" >
+        android:label="layout_cadastro"
+        tools:layout="@layout/layout_cadastro" >
         <action
-            android:id="@+id/returnToLogin"
+            android:id="@+id/action_LoginToCadastrar_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

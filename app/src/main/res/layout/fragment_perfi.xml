@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.PerfilFragment">
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -72,7 +72,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-
                     <ImageView
                         android:id="@+id/nameImageViewNome"
                         android:layout_width="wrap_content"
@@ -117,7 +116,6 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
 
                     <ImageView
                         android:id="@+id/imageViewApelido"
@@ -214,13 +212,11 @@
                         app:layout_constraintTop_toBottomOf="@+id/nameTextViewCPF"
                         app:layout_constraintVertical_bias="0.0" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
 
                     <ImageView
                         android:id="@+id/imageViewEmail"
@@ -266,7 +262,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-
                     <ImageView
                         android:id="@+id/imageViewTelefone"
                         android:layout_width="wrap_content"
@@ -305,13 +300,11 @@
                         app:layout_constraintTop_toBottomOf="@+id/textViewTelefone"
                         app:layout_constraintVertical_bias="0.0" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
 
                     <ImageView
                         android:id="@+id/imageViewEstado"
@@ -368,7 +361,6 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
 
                     <ImageView
                         android:id="@+id/imageViewSenha"
@@ -449,7 +441,6 @@
                         app:layout_constraintLeft_toRightOf="@id/imageViewSair"
                         app:layout_constraintTop_toTopOf="parent" />
 
-
                     <ImageView
                         android:id="@+id/imageViewUsuarioSair"
                         android:layout_width="wrap_content"
@@ -463,11 +454,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,7 +48,57 @@
                     android:contentDescription="@string/descricaoImagem"
                     app:srcCompat="@drawable/icon" />
 
-                <TextView
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textoEmailLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/fundoLogin"
+                    android:textStyle="bold"
+                    app:boxBackgroundMode="outline"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/boxEmailLogin"
+                        style="@style/config_edit"
+                        android:hint="@string/textoEmail"
+                        android:ems="10"
+                        tools:layout_editor_absoluteX="29dp"
+                        tools:layout_editor_absoluteY="272dp"
+                        android:inputType="textEmailAddress"
+                       />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textViewSenhaLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/fundoLogin"
+                    app:boxBackgroundMode="outline"
+                    android:inputType="textPassword"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/boxSenhaLogin"
+                        style="@style/config_edit"
+                        android:hint="@string/textoSenha"
+                        android:ems="10"
+                        tools:layout_editor_absoluteX="29dp"
+                        tools:layout_editor_absoluteY="325dp"
+                        android:inputType="textPassword"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+             <!--   <TextView
                     android:id="@+id/textoEmailCadastro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,7 +121,7 @@
                     android:textColorLink="@color/branco"
                     android:textStyle="bold"
                     tools:layout_editor_absoluteX="29dp"
-                    tools:layout_editor_absoluteY="272dp" />
+                    tools:layout_editor_absoluteY="272dp" /
 
                 <TextView
                     android:id="@+id/textoSenhaLogin"
@@ -96,8 +146,8 @@
                     android:textColorLink="@color/branco"
                     android:textStyle="bold"
                     tools:layout_editor_absoluteX="29dp"
-                    tools:layout_editor_absoluteY="325dp" />
-                />
+                    tools:layout_editor_absoluteY="325dp" />>!-->
+
 
                 <TextView
                     android:id="@+id/textoEsqueciSenhaLogin"

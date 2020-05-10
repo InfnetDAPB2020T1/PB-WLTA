@@ -14,7 +14,7 @@ import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.service.AppDatabaseService
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
-import kotlinx.android.synthetic.main.fragment_complemento_cadastro.*
+import kotlinx.android.synthetic.main.layout_cadastro.*
 
 class ComplementoCadastroFragment : Fragment() {
 
@@ -25,7 +25,7 @@ class ComplementoCadastroFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_complemento_cadastro, container, false)
+        return inflater.inflate(R.layout.layout_cadastro, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,13 +34,13 @@ class ComplementoCadastroFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        btnFinalizarCadastro.setOnClickListener{
+        btnCadastrarUsuario.setOnClickListener{
             //Verifico se algum campo está nulo ou vazio
             verificarNulo()
 
             OperacaoBancoTask().execute()
 
-            findNavController().navigate(R.id.returnToLogin)
+            findNavController().navigate(R.id.loginFragment)
         }
     }
 
@@ -53,7 +53,7 @@ class ComplementoCadastroFragment : Fragment() {
 
         override fun onPostExecute(result: Unit?) {
             super.onPostExecute(result)
-            //Toast.makeText(activity!!.baseContext, "Cadastro salvo com sucesso", Toast.LENGTH_LONG)
+            Toast.makeText(activity?.baseContext, "Cadastro salvo com sucesso", Toast.LENGTH_LONG)
         }
     }
 
@@ -78,14 +78,15 @@ class ComplementoCadastroFragment : Fragment() {
             usuarioViewModel.usuario!!.telefone
         )
 
-        var db = AppDatabaseService.getInstance(requireActivity().baseContext)
+        var db = AppDatabaseService.getInstance(requireContext().applicationContext)
 
         db.usuarioDao().criarUsuario(novoUsuario)
     }
 
     private fun verificarNulo(){
         //Verifico se algum campo está nulo ou vazio
-        if(boxNomeCadastro.text.isNullOrEmpty() || boxSobrenomeCadastro.text.isNullOrEmpty()
+        if(boxNomeCadastro.text.isNullOrEmpty() || boxSobrenomeCadastro.text.isNullOrEmpty() ||
+            boxApelidoCadastro.text.isNullOrEmpty() || boxEmailCadastro.text.isNullOrEmpty()
             || boxEstadoCadastro.text.isNullOrEmpty() || boxCpf.text.isNullOrEmpty()
             || boxDDDCadastro.text.isNullOrEmpty() || boxTelefoneCadastro.text.isNullOrEmpty()){
 
@@ -99,6 +100,9 @@ class ComplementoCadastroFragment : Fragment() {
             usuarioViewModel.usuario!!.cpf = boxCpf.text.toString()
             usuarioViewModel.usuario!!.ddd = boxDDDCadastro.text.toString()
             usuarioViewModel.usuario!!.telefone = boxTelefoneCadastro.text.toString()
+
+            Toast.makeText(activity?.baseContext, "Por favor preencha todos os campos",
+                Toast.LENGTH_SHORT).show()
         }
     }
 }
