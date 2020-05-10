@@ -48,6 +48,6 @@
     <string name="nome">Nome</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="ddd">DDD</string>
-    <string name="nomecompleto">NomeCompleto</string>
+    <string name="nomecompleto">Nome completo</string>
 
 </resources>

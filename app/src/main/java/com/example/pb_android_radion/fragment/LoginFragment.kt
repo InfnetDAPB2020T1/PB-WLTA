@@ -17,6 +17,7 @@ import com.example.pb_android_radion.R
 import com.example.pb_android_radion.service.AppDatabaseService
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.layout_cadastro.*
 
 class LoginFragment : Fragment() {
 
@@ -33,7 +34,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         activity?.let {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
@@ -42,8 +42,34 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.LoginToCadastrar)
         }
 
+        //val listaUsuarios = usuarioViewModel.listaUsuariosSeriazable
         btnLogarLogin.setOnClickListener {
             OperacaoBancoTask().execute()
+
+            //Aqui é pra testar sem precisar criar login toda hora
+            //Para user este comente a linha 54 até a 66
+//            val userTeste = Usuario("ApelidoAdmin","admin@email.com","a",
+//            "NomeAdmin","SobrenomeAdmin","1111111111","XX",
+//            "XX","XXXXXXXXXX")
+//
+//            val intent = Intent(context, MainActivity::class.java)
+//            intent.putExtra("usuario", userTeste)
+//            startActivity(intent)
+            //Variavel para ver se o usuário digitado na tela existe ao percorrer a lista de Usuários
+            //Para usar aqui comente da linha 45 até 51
+            /*var existe: Boolean = false
+            listaUsuarios!!.lista.forEach{
+                if(boxEmailLogin.text.toString().compareTo(it.email) == && boxSenhaLogin.text.toString() == it.senha){
+                    existe = true
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("usuario", it)
+                    intent.putExtra("listaUsuarios", listaUsuarios)
+                    startActivity(intent)
+                }
+            }
+            if(!existe){
+                Toast.makeText(this.context, "Usuário inválido", Toast.LENGTH_SHORT).show()
+            }*/
         }
     }
 
@@ -52,28 +78,52 @@ class LoginFragment : Fragment() {
         override fun doInBackground(vararg params: Unit?): Array<Usuario> {
             var db = AppDatabaseService.getInstance(activity!!.baseContext)
 
-            var usuarios = db.usuarioDao().listarUsuarios()
-            Log.i("ListaUsuarios", "${usuarios.size}")
-            return usuarios
+            return db.usuarioDao().listarUsuarios()
         }
 
         override fun onPostExecute(result: Array<Usuario>?) {
             super.onPostExecute(result)
 
             result!!.forEach {
+
                 if(boxEmailLogin.text.toString() == it.email &&
                     boxSenhaLogin.text.toString() == it.senha){
 
-                    val intent = Intent(context, MainActivity::class.java)
-                    intent.putExtra("usuario", it)
-                    startActivity(intent)
+                    //preenchendo o objeto usuarioLogado
+                    usuarioViewModel.usuarioLogado = Usuario(
+                        apelido = it.apelido,
+                        imagem = it.imagem,
+                        email = it.email,
+                        senha = it.senha,
+                        nome = it.nome,
+                        cpf = it.cpf,
+                        estado = it.estado,
+                        ddd = it.ddd,
+                        telefone = it.telefone
+                    )
+                /*    usuarioViewModel.usuarioLogado!!.nome = it.nome
+                    usuarioViewModel.usuarioLogado!!.apelido = it.apelido
+                    usuarioViewModel.usuarioLogado!!.email = it.email
+                    usuarioViewModel.usuarioLogado!!.senha = it.senha
+                    usuarioViewModel.usuarioLogado!!.cpf = it.cpf
+                    usuarioViewModel.usuarioLogado!!.telefone = it.telefone
+                    usuarioViewModel.usuarioLogado!!.ddd = it.ddd
+                    usuarioViewModel.usuarioLogado!!.estado = it.estado*/
 
-                    usuarioViewModel.usuarioLogado = it
+                    //usuarioViewModel.usuarioLogado = it --> salva o endereço de memoria do objeto
+
+                    /*Log.i("Usuario", "${it.email}," +
+                            "${it.senha}," +
+                            "${it.apelido}," +
+                            "${it.nome}," +
+                            "${it.cpf}," +
+                            "${it.estado}," +
+                            "${it.ddd}," +
+                            "${it.telefone}")*/
 
                     startActivity(Intent(activity?.baseContext, MainActivity::class.java))
-
                 }else{
-                    Toast.makeText(activity!!.baseContext, "Cadastro não encontrado",
+                    Toast.makeText(activity!!.baseContext, "Usuário inválido",
                         Toast.LENGTH_SHORT).show()
                 }
             }

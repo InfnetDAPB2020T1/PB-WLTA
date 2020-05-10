@@ -1,17 +1,27 @@
 package com.example.pb_android_radion.fragment
 
+import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import com.example.pb_android_radion.MainActivity
 import com.example.pb_android_radion.R
+import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.service.AppDatabaseService
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_perfil.*
+import kotlinx.android.synthetic.main.fragment_perfil.view.*
 
+/**
+ * A simple [Fragment] subclass.
+ */
 class PerfilFragment : Fragment() {
     private lateinit var usuarioViewModel: UsuarioViewModel
     override fun onCreateView(
@@ -28,38 +38,39 @@ class PerfilFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        var nomeCompleto = usuarioViewModel.usuarioLogado!!.nome +
-                usuarioViewModel.usuarioLogado!!.nome
+        OperacaoBancoTask().execute()
+        //textViewApelidoPerfil.text = usuarioViewModel.usuario!!.apelido
+        // textViewNomeSobrenomePerfil.text = usuarioViewModel.usuario!!.nome
+    }
 
-        textViewNomeSobrenome.text = nomeCompleto
-        textViewApelidoUsuario.text = usuarioViewModel.usuarioLogado!!.apelido
-        textViewCPFUsuario.text = usuarioViewModel.usuarioLogado!!.cpf
-        textViewEmailUsuario.text = usuarioViewModel.usuarioLogado!!.email
-        textViewTelefoneUsuario.text = usuarioViewModel.usuarioLogado!!.telefone
-        textViewEstadoUsuario.text = usuarioViewModel.usuarioLogado!!.estado
-        textViewSenhaUsuario.text = usuarioViewModel.usuarioLogado!!.senha
+    inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Array<Usuario>>() {
 
-        var db = AppDatabaseService.getInstance(requireContext().applicationContext)
+        override fun doInBackground(vararg params: Unit?): Array<Usuario> {
+            var db = AppDatabaseService.getInstance(activity!!.baseContext)
 
-        imageViewEditarApelido.setOnClickListener {
-            db.usuarioDao().mudarApelido("Boladao123",
-                usuarioViewModel.usuarioLogado!!.id)
-            textViewApelidoUsuario.text = usuarioViewModel.usuarioLogado!!.apelido
+            return db.usuarioDao().listarUsuarios()
         }
 
-        imageViewEditarEstado.setOnClickListener {
-            db.usuarioDao().mudarEstado("BH", usuarioViewModel.usuarioLogado!!.id)
-            textViewEstadoUsuario.text = usuarioViewModel.usuarioLogado!!.estado
-        }
+        override fun onPostExecute(result: Array<Usuario>?) {
+            super.onPostExecute(result)
 
-        imageViewEditarSenha.setOnClickListener {
-            db.usuarioDao().mudarSenha("54321", usuarioViewModel.usuarioLogado!!.id)
-            textViewSenhaUsuario.text = usuarioViewModel.usuarioLogado!!.senha
-        }
+          /*  Log.i("Usuario", "${usuarioViewModel.usuarioLogado!!.nome}," +
+                           "${usuarioViewModel.usuarioLogado!!.senha}," +
+                           "${usuarioViewModel.usuarioLogado!!.apelido}," +
+                           "${usuarioViewModel.usuarioLogado!!.nome}," +
+                           "${usuarioViewModel.usuarioLogado!!.cpf}," +
+                           "${usuarioViewModel.usuarioLogado!!.estado}," +
+                           "${usuarioViewModel.usuarioLogado!!.ddd}," +
+                           "${usuarioViewModel.usuarioLogado!!.telefone}")*/
 
-        imageViewSair.setOnClickListener {
-            Toast.makeText(requireActivity().baseContext, "Saindo",
-                Toast.LENGTH_SHORT).show()
+            textViewNomeSobrenomePerfil.text = "//usuarioViewModel.usuarioLogado!!.nome"
+            textViewApelidoPerfil.text = "Arlequina"
+            textViewCPFUsuario.text = "Harley Queen"
+            textViewEmailUsuario.text = "Harley Queen"
+            textViewTelefoneUsuario.text = "Harley Queen"
+            textViewEstadoUsuario.text = "Harley Queen"
+            // Botão drawable para trocar senha chamando um card de dialogo
+            TextViewSair// sair da aplicação
         }
     }
 }

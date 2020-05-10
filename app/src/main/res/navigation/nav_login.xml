@@ -15,11 +15,6 @@
             app:destination="@id/LoginToCadastrar" />
     </fragment>
     <fragment
-        android:id="@+id/LoginToCadastrar2"
-        android:name="com.example.pb_android_radion.fragment.CadastroFragment"
-        android:label="layout_cadastro"
-        tools:layout="@layout/layout_cadastro" />
-    <fragment
         android:id="@+id/LoginToCadastrar"
         android:name="com.example.pb_android_radion.fragment.ComplementoCadastroFragment"
         android:label="layout_cadastro"

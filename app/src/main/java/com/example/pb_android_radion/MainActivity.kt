@@ -1,8 +1,13 @@
 package com.example.pb_android_radion
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -15,8 +20,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
-import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
+import kotlinx.android.synthetic.main.layout_cadastro.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -49,11 +54,10 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         //colocando as informacoes na tela de perfil
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-
-        var usuario = intent.getSerializableExtra("usuario") as Usuario
-
-        usuarioViewModel.usuarioLogado = usuario
-
+        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
+        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
+        //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
+        //usuarioViewModel.usuarioLogadoNome = nomeCompleto
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -65,11 +69,19 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
 
-        val nomeCompleto = "${usuarioViewModel.usuarioLogado!!.nome} "+
-                "${usuarioViewModel.usuarioLogado!!.sobrenome}"
+        usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
+        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
+        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
+
+        /*var nomeCompleto = usuarioViewModel.usuarioLogado!!.nome +
+                usuarioViewModel.usuarioLogado!!.sobrenome
         txtVwNomeCompleto.text = nomeCompleto
         txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
 
+        imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
+       // imagemUsuario.setImage()
+
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+
     }
 }
