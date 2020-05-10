@@ -95,35 +95,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/boxNomeCadastro"
                             style="@style/config_edit"
-                            android:digits="abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                            android:hint="@string/nome" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
-
-                    <ImageView
-                        android:id="@+id/imageViewSobrenome"
-                        style="@style/config_imgView"
-                        android:src="@drawable/ic_face_24px" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textField2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/fundoLogin"
-                        app:boxBackgroundMode="outline"
-                        app:errorEnabled="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewSobrenome"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/boxSobrenomeCadastro"
-                            style="@style/config_edit"
-                            android:digits="abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                            android:hint="@string/nome" />
+                            android:digits="abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVWXYZ  "
+                            android:hint="@string/nomecompleto" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -144,7 +117,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/boxApelidoCadastro"
                             style="@style/config_edit"
-                            android:digits="abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                            android:lines="1"
                             android:hint="@string/apelido" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -316,7 +289,7 @@
                         app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextSenhaCadastro"
+                            android:id="@+id/boxSenhaCadastro2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/textoSenha"

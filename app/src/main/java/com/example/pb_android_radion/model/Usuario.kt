@@ -10,12 +10,13 @@ import java.net.URI
 
 @Entity(tableName = "usuarios")
 class Usuario(
-    var imagem: String,
+
     var apelido: String,
+    var imagem: String,
     var email: String,
     var senha: String,
     var nome: String,
-    var sobrenome: String,
+   // var sobrenome: String,
     var cpf: String,
     var estado: String,
     var ddd: String,

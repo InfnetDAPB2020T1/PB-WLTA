@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
+import kotlinx.android.synthetic.main.fragment_perfil.*
 
 /**
  * A simple [Fragment] subclass.
@@ -28,8 +29,8 @@ class PerfilFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        //textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
-        //textViewNomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
+        textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
+        textViewNomeSobrenomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
 
     }
 }
