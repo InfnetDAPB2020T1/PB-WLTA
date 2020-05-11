@@ -46,6 +46,30 @@ class LoginFragment : Fragment() {
         btnLogarLogin.setOnClickListener {
             OperacaoBancoTask().execute()
 
+            //Aqui é pra testar sem precisar criar login toda hora
+            //Para user este comente a linha 54 até a 66
+//            val userTeste = Usuario("ApelidoAdmin","admin@email.com","a",
+//            "NomeAdmin","SobrenomeAdmin","1111111111","XX",
+//            "XX","XXXXXXXXXX")
+//
+//            val intent = Intent(context, MainActivity::class.java)
+//            intent.putExtra("usuario", userTeste)
+//            startActivity(intent)
+            //Variavel para ver se o usuário digitado na tela existe ao percorrer a lista de Usuários
+            //Para usar aqui comente da linha 45 até 51
+            /*var existe: Boolean = false
+            listaUsuarios!!.lista.forEach{
+                if(boxEmailLogin.text.toString().compareTo(it.email) == && boxSenhaLogin.text.toString() == it.senha){
+                    existe = true
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("usuario", it)
+                    intent.putExtra("listaUsuarios", listaUsuarios)
+                    startActivity(intent)
+                }
+            }
+            if(!existe){
+                Toast.makeText(this.context, "Usuário inválido", Toast.LENGTH_SHORT).show()
+            }*/
         }
     }
 
@@ -64,9 +88,46 @@ class LoginFragment : Fragment() {
 
                 if(boxEmailLogin.text.toString() == it.email &&
                     boxSenhaLogin.text.toString() == it.senha){
-                    var intent = Intent(activity?.baseContext, MainActivity::class.java)
-                    intent.putExtra("UsuarioLogado", it)
+
+                    //preenchendo o objeto usuarioLogado
+                  /*  usuarioViewModel.usuarioLogado = Usuario(
+                        apelido = it.apelido,
+                        imagem = it.imagem,
+                        email = it.email,
+                        senha = it.senha,
+                        nome = it.nome,
+                        cpf = it.cpf,
+                        estado = it.estado,
+                        ddd = it.ddd,
+                        telefone = it.telefone
+                    )*/
+
+                            usuarioViewModel.usuarioLogado
+
+                    /*usuarioViewModel.usuarioLogado!!.nome = it.nome
+                    usuarioViewModel.usuarioLogado!!.apelido = it.apelido
+                    usuarioViewModel.usuarioLogado!!.email = it.email
+                    usuarioViewModel.usuarioLogado!!.senha = it.senha
+                    usuarioViewModel.usuarioLogado!!.cpf = it.cpf
+                    usuarioViewModel.usuarioLogado!!.telefone = it.telefone
+                    usuarioViewModel.usuarioLogado!!.ddd = it.ddd
+                    usuarioViewModel.usuarioLogado!!.estado = it.estado
+*/
+                    //usuarioViewModel.usuarioLogado = it --> salva o endereço de memoria do objeto
+
+                    /*Log.i("Usuario", "${it.email}," +
+                            "${it.senha}," +
+                            "${it.apelido}," +
+                            "${it.nome}," +
+                            "${it.cpf}," +
+                            "${it.estado}," +
+                            "${it.ddd}," +
+                            "${it.telefone}")*/
+
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("it",it)
                     startActivity(intent)
+
                 }else{
                     Toast.makeText(activity!!.baseContext, "Usuário inválido",
                         Toast.LENGTH_SHORT).show()
