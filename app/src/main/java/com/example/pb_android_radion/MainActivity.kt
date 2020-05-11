@@ -20,6 +20,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
+import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.layout_cadastro.*
 import kotlinx.android.synthetic.main.nav_header_main.*
@@ -52,12 +53,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        //colocando as informacoes na tela de perfil
-        usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
-        //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
-        //usuarioViewModel.usuarioLogadoNome = nomeCompleto
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -70,15 +65,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
+        val usuarioLogado = intent.getSerializableExtra("UsuarioLogado") as Usuario
+        usuarioViewModel.usuarioLogado = usuarioLogado
 
-        /*var nomeCompleto = usuarioViewModel.usuarioLogado!!.nome +
-                usuarioViewModel.usuarioLogado!!.sobrenome
-        txtVwNomeCompleto.text = nomeCompleto
         txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
-
-        imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
+        //imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
        // imagemUsuario.setImage()
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
