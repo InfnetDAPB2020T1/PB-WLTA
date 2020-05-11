@@ -31,9 +31,6 @@ import kotlinx.android.synthetic.main.layout_cadastro.boxApelidoCadastro
 import kotlinx.android.synthetic.main.layout_cadastro.boxEmailCadastro
 import kotlin.math.log
 
-/**
- * A simple [Fragment] subclass.
- */
 class ComplementoCadastroFragment : Fragment() {
 
     private lateinit var usuarioViewModel: UsuarioViewModel
@@ -152,16 +149,6 @@ class ComplementoCadastroFragment : Fragment() {
             Toast.makeText(activity?.baseContext, "Cadastro salvo com sucesso", Toast.LENGTH_LONG)
         }
     }
-/*
-    private fun complementarCadastro() {
-        usuarioViewModel.complementoCadastro(
-            boxNomeCadastro.text.toString(),
-           // boxSobrenomeCadastro.text.toString(),
-            boxCpf.text.toString(),
-            boxEstadoCadastro.text.toString(), boxDDDCadastro.text.toString(),
-            boxTelefoneCadastro.text.toString()
-        )
-    }*/
 
     private fun salvarNoBanco() {
 
