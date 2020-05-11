@@ -38,39 +38,15 @@ class PerfilFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        OperacaoBancoTask().execute()
-        //textViewApelidoPerfil.text = usuarioViewModel.usuario!!.apelido
-        // textViewNomeSobrenomePerfil.text = usuarioViewModel.usuario!!.nome
-    }
+        textViewNomeSobrenomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
+        textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
+        textViewCPFUsuario.text = usuarioViewModel.usuarioLogado!!.cpf
+        textViewEmailUsuario.text = usuarioViewModel.usuarioLogado!!.email
+        textViewTelefoneUsuario.text = usuarioViewModel.usuarioLogado!!.telefone
+        textViewEstadoUsuario.text = usuarioViewModel.usuarioLogado!!.estado
+        // Botão drawable para trocar senha chamando um card de dialogo
+        TextViewSair// sair da aplicação
 
-    inner class OperacaoBancoTask : AsyncTask<Unit, Unit, Array<Usuario>>() {
 
-        override fun doInBackground(vararg params: Unit?): Array<Usuario> {
-            var db = AppDatabaseService.getInstance(activity!!.baseContext)
-
-            return db.usuarioDao().listarUsuarios()
-        }
-
-        override fun onPostExecute(result: Array<Usuario>?) {
-            super.onPostExecute(result)
-
-          /*  Log.i("Usuario", "${usuarioViewModel.usuarioLogado!!.nome}," +
-                           "${usuarioViewModel.usuarioLogado!!.senha}," +
-                           "${usuarioViewModel.usuarioLogado!!.apelido}," +
-                           "${usuarioViewModel.usuarioLogado!!.nome}," +
-                           "${usuarioViewModel.usuarioLogado!!.cpf}," +
-                           "${usuarioViewModel.usuarioLogado!!.estado}," +
-                           "${usuarioViewModel.usuarioLogado!!.ddd}," +
-                           "${usuarioViewModel.usuarioLogado!!.telefone}")*/
-
-            textViewNomeSobrenomePerfil.text = "//usuarioViewModel.usuarioLogado!!.nome"
-            textViewApelidoPerfil.text = "Arlequina"
-            textViewCPFUsuario.text = "Harley Queen"
-            textViewEmailUsuario.text = "Harley Queen"
-            textViewTelefoneUsuario.text = "Harley Queen"
-            textViewEstadoUsuario.text = "Harley Queen"
-            // Botão drawable para trocar senha chamando um card de dialogo
-            TextViewSair// sair da aplicação
-        }
     }
 }

@@ -20,6 +20,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
+import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.layout_cadastro.*
 import kotlinx.android.synthetic.main.nav_header_main.*
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        usuarioViewModel = ViewModelProviders.of(this).get(UsuarioViewModel::class.java)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -58,6 +61,8 @@ class MainActivity : AppCompatActivity() {
         //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
         //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
         //usuarioViewModel.usuarioLogadoNome = nomeCompleto
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -80,6 +85,11 @@ class MainActivity : AppCompatActivity() {
 
         imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
        // imagemUsuario.setImage()
+
+        val usuarioLogado = intent.getSerializableExtra("it") as Usuario
+        usuarioViewModel.usuarioLogado = usuarioLogado
+        txtVwNomeCompleto.text = usuarioLogado.nome
+        txtVwEmail.text = usuarioLogado.email
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 

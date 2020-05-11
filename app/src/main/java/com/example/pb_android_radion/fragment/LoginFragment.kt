@@ -90,7 +90,7 @@ class LoginFragment : Fragment() {
                     boxSenhaLogin.text.toString() == it.senha){
 
                     //preenchendo o objeto usuarioLogado
-                    usuarioViewModel.usuarioLogado = Usuario(
+                  /*  usuarioViewModel.usuarioLogado = Usuario(
                         apelido = it.apelido,
                         imagem = it.imagem,
                         email = it.email,
@@ -100,16 +100,19 @@ class LoginFragment : Fragment() {
                         estado = it.estado,
                         ddd = it.ddd,
                         telefone = it.telefone
-                    )
-                /*    usuarioViewModel.usuarioLogado!!.nome = it.nome
+                    )*/
+
+                            usuarioViewModel.usuarioLogado
+
+                    /*usuarioViewModel.usuarioLogado!!.nome = it.nome
                     usuarioViewModel.usuarioLogado!!.apelido = it.apelido
                     usuarioViewModel.usuarioLogado!!.email = it.email
                     usuarioViewModel.usuarioLogado!!.senha = it.senha
                     usuarioViewModel.usuarioLogado!!.cpf = it.cpf
                     usuarioViewModel.usuarioLogado!!.telefone = it.telefone
                     usuarioViewModel.usuarioLogado!!.ddd = it.ddd
-                    usuarioViewModel.usuarioLogado!!.estado = it.estado*/
-
+                    usuarioViewModel.usuarioLogado!!.estado = it.estado
+*/
                     //usuarioViewModel.usuarioLogado = it --> salva o endereço de memoria do objeto
 
                     /*Log.i("Usuario", "${it.email}," +
@@ -121,7 +124,10 @@ class LoginFragment : Fragment() {
                             "${it.ddd}," +
                             "${it.telefone}")*/
 
-                    startActivity(Intent(activity?.baseContext, MainActivity::class.java))
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("it",it)
+                    startActivity(intent)
+
                 }else{
                     Toast.makeText(activity!!.baseContext, "Usuário inválido",
                         Toast.LENGTH_SHORT).show()
