@@ -6,9 +6,9 @@ import java.io.Serializable
 
 @Entity(tableName = "musicas")
 class Musica(
-    var nomeMusica: String? = null,
-    var nomeCantor: String? = null,
-    var classificacao: Int = 0,
+    var nomeMusica: String,
+    var nomeCantor: String,
+  //  var classificacao: Int = 0,
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
 

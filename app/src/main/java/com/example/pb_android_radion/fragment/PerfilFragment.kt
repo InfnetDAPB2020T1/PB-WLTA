@@ -40,7 +40,7 @@ class PerfilFragment : Fragment() {
 
         textViewNomeSobrenomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
         textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
-        textViewCPFUsuario.text = usuarioViewModel.usuarioLogado!!.cpf
+       // textViewCPFUsuario.text = usuarioViewModel.usuarioLogado!!.cpf
         textViewEmailUsuario.text = usuarioViewModel.usuarioLogado!!.email
         textViewTelefoneUsuario.text = usuarioViewModel.usuarioLogado!!.telefone
         textViewEstadoUsuario.text = usuarioViewModel.usuarioLogado!!.estado

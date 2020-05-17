@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/LoginToCadastrar"
-        android:name="com.example.pb_android_radion.fragment.ComplementoCadastroFragment"
+        android:name="com.example.pb_android_radion.fragment.CadastroFragment"
         android:label="layout_cadastro"
         tools:layout="@layout/layout_cadastro" >
         <action

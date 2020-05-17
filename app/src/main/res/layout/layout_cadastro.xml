@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ComplementoCadastroFragment">
+    tools:context=".fragment.CadastroFragment">
 
 
     <ScrollView
@@ -64,7 +64,7 @@
 
             <LinearLayout
                 android:layout_width="354dp"
-                android:layout_height="568dp"
+                android:layout_height="502dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="32dp"
@@ -117,13 +117,13 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/boxApelidoCadastro"
                             style="@style/config_edit"
-                            android:lines="1"
-                            android:hint="@string/apelido" />
+                            android:hint="@string/apelido"
+                            android:lines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
+                <!--    <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
 
                     <ImageView
                         android:id="@+id/imageViewCPF"
@@ -145,7 +145,7 @@
                             android:maxLength="11" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
+-->
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     style="@style/config_contranint"

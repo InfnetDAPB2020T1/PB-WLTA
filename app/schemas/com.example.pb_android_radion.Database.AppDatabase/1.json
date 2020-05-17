@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "5ce9a920d0e4da24eb962912fbdf304a",
+    "identityHash": "980b388b8ca4de3695857549072ef55b",
     "entities": [
       {
         "tableName": "usuarios",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apelido` TEXT NOT NULL, `imagem` TEXT NOT NULL, `email` TEXT NOT NULL, `senha` TEXT NOT NULL, `nome` TEXT NOT NULL, `cpf` TEXT NOT NULL, `estado` TEXT NOT NULL, `ddd` TEXT NOT NULL, `telefone` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apelido` TEXT NOT NULL, `imagem` TEXT, `email` TEXT NOT NULL, `senha` TEXT NOT NULL, `nome` TEXT NOT NULL, `estado` TEXT NOT NULL, `ddd` TEXT NOT NULL, `telefone` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT)",
         "fields": [
           {
             "fieldPath": "apelido",
@@ -18,7 +18,7 @@
             "fieldPath": "imagem",
             "columnName": "imagem",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "email",
@@ -35,12 +35,6 @@
           {
             "fieldPath": "nome",
             "columnName": "nome",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "cpf",
-            "columnName": "cpf",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -82,7 +76,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5ce9a920d0e4da24eb962912fbdf304a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '980b388b8ca4de3695857549072ef55b')"
     ]
   }
 }

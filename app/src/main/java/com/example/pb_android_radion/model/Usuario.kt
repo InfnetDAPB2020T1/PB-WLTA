@@ -12,12 +12,12 @@ import java.net.URI
 class Usuario(
 
     var apelido: String,
-    var imagem: String,
+    var imagem: String? = null,
     var email: String,
     var senha: String,
     var nome: String,
    // var sobrenome: String,
-    var cpf: String,
+  //  var cpf: String,
     var estado: String,
     var ddd: String,
     var telefone: String,
@@ -31,8 +31,8 @@ class Usuario(
             throw UsuarioDDDException()
         if(telefone.length != 9)
             throw UsuarioTelefoneException()
-        if(cpf.length != 11)
-            throw UsuarioCPFException()
+       /* if(cpf.length != 11)
+            throw UsuarioCPFException()*/
 
     }
 }

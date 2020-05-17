@@ -11,12 +11,14 @@
         <item
             android:id="@+id/nav_playlist"
             android:checkable="false"
+            android:visible="false"
             android:icon="@drawable/ic_equalizer_24px"
             android:title="@string/menu_playlist" />
 
         <item
             android:id="@+id/nav_historico"
             android:checkable="false"
+            android:visible="false"
             android:icon="@drawable/ic_queue_music_black_24dp"
             android:title="@string/menu_historico" />
 

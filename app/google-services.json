@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "708491077753",
+    "firebase_url": "https://radion-23f62.firebaseio.com",
+    "project_id": "radion-23f62",
+    "storage_bucket": "radion-23f62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708491077753:android:bd2fd2705bd2dbd577cca8",
+        "android_client_info": {
+          "package_name": "com.example.pb_android_radion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708491077753-red7if0pmb1dl9qr5eu4fpmjk49stnfu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7gMGuiFAjYA_RaXZf7LotvLCb0Uw8Ou8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708491077753-red7if0pmb1dl9qr5eu4fpmjk49stnfu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
