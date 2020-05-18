@@ -2,11 +2,9 @@ package com.example.pb_android_radion.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.pb_android_radion.throws.UsuarioCPFException
 import com.example.pb_android_radion.throws.UsuarioDDDException
 import com.example.pb_android_radion.throws.UsuarioTelefoneException
 import java.io.Serializable
-import java.net.URI
 
 @Entity(tableName = "usuarios")
 class Usuario(

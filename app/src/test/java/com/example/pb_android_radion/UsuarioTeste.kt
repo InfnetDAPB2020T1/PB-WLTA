@@ -1,7 +1,6 @@
 package com.example.pb_android_radion
 
 import com.example.pb_android_radion.model.Usuario
-import com.example.pb_android_radion.throws.UsuarioCPFException
 import com.example.pb_android_radion.throws.UsuarioDDDException
 import com.example.pb_android_radion.throws.UsuarioTelefoneException
 import org.junit.Test
