@@ -24,14 +24,13 @@ class MusicaViewModel :  ViewModel() {
     lateinit var storageReference: StorageReference
     lateinit var firebaseStorage: FirebaseStorage
 
-    fun listaReferencia(){
+   /* fun listaReferencia(){
         firebaseStorage = FirebaseStorage.getInstance()
-         var storageReference = firebaseStorage.reference
-        val obj = storageReference.child("Audio/").bucket
-        obj.forEach {
+        val storageReference = firebaseStorage.reference.child("Audio/...")
+        storageReference.forEach {
 
         }
-    }
+    }*/
 
 
    /* fun setupRecycleView(
@@ -58,38 +57,6 @@ class MusicaViewModel :  ViewModel() {
         }
     }*/
    /* fun setupStorageDownload() {
-
-           //Referencia - Diretorio Raiz
-           storageReference = firebaseStorage.reference              // C:/
-
-                   storageReference.listAll().addOnSuccessListener {
-                       it.items.forEach {
-                           it.metadata.addOnSuccessListener {
-                               it.contentType
-                           }
-                       }
-                  }
-
-           val arquivoMusica = storageReference.child("js.png")      // C:/js.png
-
-           val task = arquivoMusica.getBytes()
-           val task = arquivoMusica.getFile(File(filesDir, "js.png"))
-           // data/data/pacote/files
-
-        task.addOnSuccessListener {
-            //if (it != null)
-            Toast.makeText(
-                this,
-                "***** \\o/ ******",
-                Toast.LENGTH_LONG
-            ).show()
-        }.addOnFailureListener {
-            Toast.makeText(
-                this,
-                it.message,
-                Toast.LENGTH_LONG
-            ).show()
-        }
 
     }*/
 }
