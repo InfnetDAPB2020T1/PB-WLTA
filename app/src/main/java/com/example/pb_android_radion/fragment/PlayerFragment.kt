@@ -1,19 +1,18 @@
 package com.example.pb_android_radion.fragment
 
 import android.annotation.SuppressLint
+import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.provider.ContactsContract
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.viewModel.MusicaViewModel
@@ -22,8 +21,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.FirebaseStorage.getInstance
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_player.*
-import java.io.File
-import java.io.FileInputStream
+
 
 class PlayerFragment : Fragment() {
 
@@ -85,8 +83,8 @@ class PlayerFragment : Fragment() {
         }
 
 */
-        mediaPlayer = MediaPlayer.create(requireContext().applicationContext, R.raw.wilddrive)//onde passa a música
-        mediaPlayer.isLooping = true
+       // mediaPlayer = MediaPlayer.create(requireContext().applicationContext, R.raw.wilddrive)//onde passa a música
+//        mediaPlayer.isLooping = true
 
        // val myUri: Uri = arquivoMusica// initialize Uri here
        /* val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
@@ -95,8 +93,24 @@ class PlayerFragment : Fragment() {
             prepare()
             start()
         }*/
+        try {
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+            mediaPlayer.setDataSource(
+                "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/" +
+                        "Audio%2FImagine%20Dragons%20-%20Warriors.mp3?alt=media&token=e8894e" +
+                        "7b-2072-42a8-9adf-0beee59b9e1a"
+            )
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+        } catch (e: Exception) {
+            Toast.makeText(
+                requireContext().applicationContext,
+                "Deu ruim",
+                Toast.LENGTH_LONG
+            ).show()
+        }
 
-        _totalTime = mediaPlayer!!.duration
+        _totalTime = mediaPlayer.duration
         playBtn.setOnClickListener {
             if(mediaPlayer.isPlaying){
                 //Stop
