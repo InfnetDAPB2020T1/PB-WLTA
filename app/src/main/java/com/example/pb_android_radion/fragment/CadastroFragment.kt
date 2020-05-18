@@ -51,12 +51,20 @@ class CadastroFragment : Fragment() {
 
         btnCadastrarUsuario.setOnClickListener {
             //Verifico se algum campo está nulo ou vazio
-            usuarioViewModel.verificarNulo(
+            val confirmacao = usuarioViewModel.verificarNulo(
                 view,
                 requireContext().applicationContext
             )
-            SalvarUsuarioBancoTask(requireContext().applicationContext, usuarioViewModel).execute()
-            findNavController().navigate(R.id.loginFragment)
+            if(!confirmacao){
+                Toast.makeText(
+                    context, "Por favor preencha todos os campos",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else{
+                SalvarUsuarioBancoTask(requireContext().applicationContext, usuarioViewModel).execute()
+                findNavController().navigate(R.id.loginFragment)
+            }
+
         }
 
     }

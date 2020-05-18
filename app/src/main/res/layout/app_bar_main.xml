@@ -26,7 +26,7 @@
         android:id="@+id/fragment"
         android:name="com.example.pb_android_radion.fragment.PlayerFragment"
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

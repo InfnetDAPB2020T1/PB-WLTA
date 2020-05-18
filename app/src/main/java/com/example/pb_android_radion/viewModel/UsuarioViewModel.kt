@@ -38,7 +38,7 @@ class UsuarioViewModel: ViewModel() {
     }
 
     fun verificarNulo(
-        view: View, context: Context) {
+        view: View, context: Context): Boolean {
         //Verifico se algum campo está nulo ou vazio
         if (
             view.boxNomeCadastro.text.isNullOrBlank() ||
@@ -48,10 +48,7 @@ class UsuarioViewModel: ViewModel() {
             view.boxDDDCadastro.text.isNullOrBlank() ||
             view.boxTelefoneCadastro.text.isNullOrBlank()
         ) {
-            Toast.makeText(
-                context, "Por favor preencha todos os campos",
-                Toast.LENGTH_SHORT
-            ).show()
+            return false
         } else {
             //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
             usuario = Usuario(
@@ -65,6 +62,7 @@ class UsuarioViewModel: ViewModel() {
                 ddd = view.boxDDDCadastro.text.toString(),
                 telefone = view.boxTelefoneCadastro.text.toString()
             )
+            return true
         }
     }
 }
