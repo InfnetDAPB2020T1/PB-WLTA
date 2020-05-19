@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,9 +28,11 @@ import kotlinx.android.synthetic.main.fragment_player.*
 class PlayerFragment : Fragment() {
 
     private lateinit var musicaViewModel: MusicaViewModel
-    private lateinit var mediaPlayer: MediaPlayer
+
     private var _totalTime: Int = 0
+    private val mediaPlayer = MediaPlayer()
     val firebaseStore = FirebaseFirestore.getInstance()
+
     lateinit var storageReference: StorageReference
     lateinit var firebaseStorage: FirebaseStorage
 
@@ -41,7 +45,7 @@ class PlayerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_player, container, false)
     }
 
-    @SuppressLint("SdCardPath")
+    //@SuppressLint("SdCardPath")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -50,58 +54,110 @@ class PlayerFragment : Fragment() {
         }
 
         firebaseStorage = getInstance()
+       storageReference = firebaseStorage.reference.child("Audio")
+      /*   val teste2 = storageReference.downloadUrl
+        teste2.addOnSuccessListener {
+            for (i in listOf(it)) {
+                Log.i("msg", "${i}")
+            }
+        }*/
+    /*    val listaTeste = mutableListOf<StorageReference>()
+        val testeRef = firebaseStorage.reference.child("Audio").listAll()
+            .addOnSuccessListener { testeRef ->
+                testeRef.prefixes.forEach { prefix ->
+
+                    listaTeste.add(prefix)
+                    Log.i("teste2", "${listaTeste}")
+
+                }
+
+            }
+        Log.i("teste2", "${listaTeste}")*/
+        /*testeRef.listAll().addOnSuccessListener {
+
+            testeRef -> testeRef.prefixes.forEach { prefix ->
+
+            listaTeste.add(prefix)
+
+            Log.i("teste", {listaTeste})
+        }
+            testeRef.items.forEach { item ->
+                Log.i("MSG", {testeRef}.toString())
+            }
+        }.addOnFailureListener{
+            //Erro ocorre
+        }
+*/
+
         //Referencia - Diretorio Raiz
         //storageReference = firebaseStorage.reference
-       /* storageReference = firebaseStorage.getReferenceFromUrl("gs://radion-23f62.appspot.com/Audio")
+    //   storageReference = firebaseStorage.getReferenceFromUrl("gs://radion-23f62.appspot.com/Audio")
+      // storageReference = firebaseStorage.reference("Audio")
 
-        storageReference.listAll().addOnSuccessListener {
+     /*   val teste = storageReference.listAll().addOnSuccessListener {
             it.items.forEach {
                 it.metadata.addOnSuccessListener {
                     it.contentType
+                    Log.i("teste6", "${it}")
                 }
             }
-        }
+        }*/
 
-        val arquivoMusica = storageReference.child("Audio/John Newman - Love Me Again.mp3")      // C:/js.png
 
-        // val task = arquivoMusica.stream
-        // val localFile = File.createTempFile("audio", "mp3")
-        val task = arquivoMusica.getFile(File(context?.filesDir, "musicas"))
 
-        task.addOnSuccessListener {
-            Toast.makeText(
-                activity?.baseContext,
-                "***** \\o/ ******",
-                Toast.LENGTH_LONG
-            ).show()
-        }.addOnFailureListener {
-            Toast.makeText(
-                activity?.baseContext,
-                it.message,
-                Toast.LENGTH_LONG
-            ).show()
-        }
 
-*/
-       // mediaPlayer = MediaPlayer.create(requireContext().applicationContext, R.raw.wilddrive)//onde passa a música
+
+        /*    val arquivoMusica = storageReference.child("Audio/John Newman - Love Me Again.mp3")      // C:/js.png
+
+          // val task = arquivoMusica.stream
+          // val localFile = File.createTempFile("audio", "mp3")
+          val task = arquivoMusica.getFile(File(context?.filesDir, "musicas"))
+
+          task.addOnSuccessListener {
+              Toast.makeText(
+                  activity?.baseContext,
+                  "***** \\o/ ******",
+                  Toast.LENGTH_LONG
+              ).show()
+          }.addOnFailureListener {
+              Toast.makeText(
+                  activity?.baseContext,
+                  it.message,
+                  Toast.LENGTH_LONG
+              ).show()
+          }
+
+  */
+        // mediaPlayer = MediaPlayer.create(requireContext().applicationContext, R.raw.wilddrive)//onde passa a música
 //        mediaPlayer.isLooping = true
 
-       // val myUri: Uri = arquivoMusica// initialize Uri here
-       /* val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
+        //val myUri: Uri = arquivoMusica// initialize Uri here
+        /* val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
             setAudioStreamType(AudioManager.STREAM_MUSIC)
-            setDataSource( )
-            prepare()
+            setDataSource( requireContext().applicationContext,
+                musica,
+                null
+            )
+//            prepare()
             start()
         }*/
+        val teste6 = listOf(storageReference.child("Audio").downloadUrl)
+        teste6.forEach {
+            Log.i("oioioi", "$it")
+        }
+
+        val musica = Uri.parse("teste.toString()")// passar a urml da musica
         try {
+
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
             mediaPlayer.setDataSource(
-                "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/" +
-                        "Audio%2FImagine%20Dragons%20-%20Warriors.mp3?alt=media&token=e8894e" +
-                        "7b-2072-42a8-9adf-0beee59b9e1a"
+                requireContext().applicationContext,
+                musica,
+                null
             )
-            mediaPlayer.prepare()
+            mediaPlayer.prepareAsync()
             mediaPlayer.start()
+
         } catch (e: Exception) {
             Toast.makeText(
                 requireContext().applicationContext,
@@ -110,13 +166,15 @@ class PlayerFragment : Fragment() {
             ).show()
         }
 
+
+
         _totalTime = mediaPlayer.duration
         playBtn.setOnClickListener {
-            if(mediaPlayer.isPlaying){
+            if (mediaPlayer.isPlaying) {
                 //Stop
                 mediaPlayer.pause()
                 playBtn.setBackgroundResource(R.drawable.ic_play_arrow_black_24dp)
-            }else{
+            } else {
                 //Start
                 mediaPlayer.start()
                 playBtn.setBackgroundResource(R.drawable.ic_pause_black_24dp)
@@ -128,31 +186,37 @@ class PlayerFragment : Fragment() {
         positionBar.max = _totalTime
         positionBar.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
                     if (fromUser) {
                         mediaPlayer.seekTo(progress)
                     }
                 }
+
                 override fun onStartTrackingTouch(p0: SeekBar?) {
                 }
+
                 override fun onStopTrackingTouch(p0: SeekBar?) {
                 }
             }
         )
-        fun createTimeLabel(time: Int): String{
+        fun createTimeLabel(time: Int): String {
             var timeLabel = ""
-            var min = time/1000/60
-            var sec = time/1000%60
+            var min = time / 1000 / 60
+            var sec = time / 1000 % 60
 
             timeLabel = "$min:"
-            if(sec<10)timeLabel += "0"
+            if (sec < 10) timeLabel += "0"
             timeLabel += sec
 
             return timeLabel
         }
 
         @SuppressLint("HandlerLeak")
-        var handler = object : Handler(){
+        var handler = object : Handler() {
             override fun handleMessage(msg: Message) {
                 var currentPosition = msg.what
 
@@ -160,7 +224,7 @@ class PlayerFragment : Fragment() {
                 positionBar.progress = currentPosition
 
                 //Update Labels
-                var elapsedTime =  createTimeLabel(currentPosition)
+                var elapsedTime = createTimeLabel(currentPosition)
                 elapsedTimeLabel.text = elapsedTime
 
                 var remainingTime = createTimeLabel(_totalTime - currentPosition)
@@ -182,10 +246,10 @@ class PlayerFragment : Fragment() {
         }).start()
 
 
-       // val task = arquivoMusica.getFile(File(filesDir, "js.png"))
+        // val task = arquivoMusica.getFile(File(filesDir, "js.png"))
         // data/data/pacote/files
 
-      /*  task.addOnSuccessListener {
+        /*  task.addOnSuccessListener {
             //if (it != null)
             Toast.makeText(
                 this,
@@ -203,8 +267,6 @@ class PlayerFragment : Fragment() {
 
 
 }
-
-
 
 // Adiciona a quantidade de estrelas na classificação da musica de acordo com o nome da musica
         /*if(txtVwNomeMusica.text == musicaViewModel.musica!!.nomeMusica){
