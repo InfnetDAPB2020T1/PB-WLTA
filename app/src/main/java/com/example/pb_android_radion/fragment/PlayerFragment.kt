@@ -30,7 +30,7 @@ class PlayerFragment : Fragment() {
     private lateinit var musicaViewModel: MusicaViewModel
 
     private var _totalTime: Int = 0
-    private val mediaPlayer = MediaPlayer()
+//    private val mediaPlayer = MediaPlayer()
     val firebaseStore = FirebaseFirestore.getInstance()
 
     lateinit var storageReference: StorageReference
@@ -128,8 +128,8 @@ class PlayerFragment : Fragment() {
           }
 
   */
-        // mediaPlayer = MediaPlayer.create(requireContext().applicationContext, R.raw.wilddrive)//onde passa a música
-//        mediaPlayer.isLooping = true
+        var mediaPlayer = MediaPlayer.create(requireContext().applicationContext, R.raw.wilddrive)//onde passa a música
+        mediaPlayer.isLooping = true
 
         //val myUri: Uri = arquivoMusica// initialize Uri here
         /* val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
@@ -141,30 +141,30 @@ class PlayerFragment : Fragment() {
 //            prepare()
             start()
         }*/
-        val teste6 = listOf(storageReference.child("Audio").downloadUrl)
-        teste6.forEach {
-            Log.i("oioioi", "$it")
-        }
-
-        val musica = Uri.parse("teste.toString()")// passar a urml da musica
-        try {
-
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
-            mediaPlayer.setDataSource(
-                requireContext().applicationContext,
-                musica,
-                null
-            )
-            mediaPlayer.prepareAsync()
-            mediaPlayer.start()
-
-        } catch (e: Exception) {
-            Toast.makeText(
-                requireContext().applicationContext,
-                "Deu ruim",
-                Toast.LENGTH_LONG
-            ).show()
-        }
+//        val teste6 = listOf(storageReference.child("Audio").downloadUrl)
+//        teste6.forEach {
+//            Log.i("oioioi", "$it")
+//        }
+//
+//        val musica = Uri.parse("teste.toString()")// passar a urml da musica
+//        try {
+//
+//            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+//            mediaPlayer.setDataSource(
+//                requireContext().applicationContext,
+//                musica,
+//                null
+//            )
+//            mediaPlayer.prepareAsync()
+//            mediaPlayer.start()
+//
+//        } catch (e: Exception) {
+//            Toast.makeText(
+//                requireContext().applicationContext,
+//                "Deu ruim",
+//                Toast.LENGTH_LONG
+//            ).show()
+//        }
 
 
 
