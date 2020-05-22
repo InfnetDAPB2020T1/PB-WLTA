@@ -177,14 +177,14 @@ class PlayerFragment : Fragment() {
 //            ).show()
 //        }
 
-
+        playBtn.setBackgroundResource(R.drawable.iconeplay)
 
         _totalTime = mediaPlayer.duration
         playBtn.setOnClickListener {
             if (mediaPlayer.isPlaying) {
                 //Stop
                 mediaPlayer.pause()
-                playBtn.setBackgroundResource(R.drawable.ic_play_arrow_black_24dp)
+                playBtn.setBackgroundResource(R.drawable.iconeplay)
             } else {
                 //Start
                 mediaPlayer.start()
