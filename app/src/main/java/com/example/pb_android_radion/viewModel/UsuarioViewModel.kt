@@ -48,7 +48,7 @@ class UsuarioViewModel: ViewModel() {
     }
 
     fun salvarNoFirestore(context: Context){
-
+        firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
         var collection = firestore.collection("usuarios")

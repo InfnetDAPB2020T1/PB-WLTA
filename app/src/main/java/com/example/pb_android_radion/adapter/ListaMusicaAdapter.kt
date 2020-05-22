@@ -17,7 +17,7 @@ class ListaMusicaAdapter ( val musica: List<Musica>
         : RecyclerView.ViewHolder(view){
         val txtViewNomeMusica = view.txtNomeMusica
         val textViewNomeAutor = view.txtNomeAutor
-//        val imagemViewMusica = view.imagemMusica
+        val imagemViewMusica = view.imagemMusica
 
     }
 
@@ -49,6 +49,6 @@ class ListaMusicaAdapter ( val musica: List<Musica>
         val musica = musica[position]
         holder.txtViewNomeMusica.text = musica.nomeMusica
         holder.textViewNomeAutor.text = musica.nomeCantor
-//        holder.imagemViewMusica.setImageBitmap(BitmapFactory.decodeFile(musica.fotoMusica))
+        holder.imagemViewMusica.setImageResource(musica.fotoMusica)
     }
 }

@@ -7,7 +7,7 @@ import java.io.Serializable
 
 @Entity(tableName = "musicas")
 class Musica(
-//    var fotoMusica : String,
+    var fotoMusica : Int,
     var nomeMusica: String,
     var nomeCantor: String,
   //  var classificacao: Int = 0,

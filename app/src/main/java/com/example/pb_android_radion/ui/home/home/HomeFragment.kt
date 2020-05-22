@@ -13,7 +13,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pb_android_radion.R
+import com.example.pb_android_radion.adapter.ListaMusicaAdapter
+import com.example.pb_android_radion.model.Musica
 import com.example.pb_android_radion.viewModel.MusicaViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_player.*
@@ -39,6 +42,16 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //  musicaViewModel.setupRecycleView(ListaDeMusicasRecycle,this.requireContext())
 
-        
+        var musicas = mutableListOf(
+            Musica(R.drawable.true_damage,"True Damage", "League of Legends"),
+            Musica(R.drawable.ic_home,"furacao 2000", "So pa GOD"),
+            Musica(R.drawable.ic_home,"furacao 2000", "So pa GOD")
+
+        )
+        var listaMusicaAdapter = ListaMusicaAdapter(musicas)
+        ListaDeMusicasRecycle.adapter = listaMusicaAdapter
+        ListaDeMusicasRecycle.layoutManager = LinearLayoutManager(context)
+
+
     }
 }
