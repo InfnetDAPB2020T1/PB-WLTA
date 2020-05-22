@@ -4,30 +4,29 @@ import android.content.Context
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.example.pb_android_radion.R
 import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.service.AppDatabaseService
-import kotlinx.android.synthetic.main.fragment_login.view.*
-import kotlinx.android.synthetic.main.layout_cadastro.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.layout_cadastro.view.*
-
 
 class UsuarioViewModel: ViewModel() {
 
     var usuario: Usuario? = null
-    var usuarioLogado: Usuario? = null
+    var usuarioLogado: FirebaseUser? = null
+    lateinit var firebaseAuth: FirebaseAuth
+    lateinit var firestore: FirebaseFirestore
 
-    fun salvarNoBanco( context: Context) {
+    fun salvarNoBanco(context: Context) {
 
         val novoUsuario = Usuario(
             usuario!!.apelido,
             usuario!!.imagem,
             usuario!!.email,
             usuario!!.senha,
-            usuario!!.nome,
-            //  usuarioViewModel.usuario!!.cpf,
+            usuario!!.nomeCompleto,
+            //usuarioViewModel.usuario!!.cpf,
             usuario!!.estado,
             usuario!!.ddd,
             usuario!!.telefone
@@ -53,10 +52,10 @@ class UsuarioViewModel: ViewModel() {
             //Caso tudo ocorra ok, começo a alimentar o view model com o resto das informações
             usuario = Usuario(
                 apelido = view.boxApelidoCadastro.text.toString(),
-                imagem = view.imageViewPerfil.toString(),
+                //imagem = view.imageViewPerfil.toString(),
                 email = view.boxEmailCadastro.text.toString(),
                 senha = view.boxSenhaCadastro2.text.toString(),
-                nome = view.boxNomeCadastro.text.toString(),
+                nomeCompleto = view.boxNomeCadastro.text.toString(),
                 //  cpf = boxCpf.text.toString(),
                 estado = view.boxEstadoCadastro.text.toString(),
                 ddd = view.boxDDDCadastro.text.toString(),
@@ -64,5 +63,55 @@ class UsuarioViewModel: ViewModel() {
             )
             return true
         }
+    }
+
+    fun salvarNoFirestore(context: Context){
+
+        firestore = FirebaseFirestore.getInstance()
+
+        var collection = firestore.collection("usuarios")
+
+        var user: MutableMap<String, Any> = HashMap()
+        user["apelido"] = usuario!!.apelido
+        //user["imagem"] = usuario!!.imagem!!
+        user["email"] = usuario!!.email
+        user["senha"] = usuario!!.senha
+        user["nome"] = usuario!!.nomeCompleto
+        user["estado"] = usuario!!.estado
+        user["ddd"] = usuario!!.ddd
+        user["telefone"] = usuario!!.telefone
+
+        var document = collection.document(usuario!!.email)
+
+        firebaseAuth.createUserWithEmailAndPassword(usuario!!.email, usuario!!.senha)
+            .addOnSuccessListener {
+                if(it != null){
+                    Toast.makeText(context, "Cadastro realizado com sucesso",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener {
+                if(it.message == "The email address is already in use by another account"){
+                    Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        document.set(user)
+    }
+
+    fun loginFirestore(context: Context, boxEmail: String, boxSenha: String){
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        firebaseAuth.signInWithEmailAndPassword(boxEmail, boxSenha)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Bem vindo ${it.user!!.email}", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                if(it.message == "The email address is baldy formatted"){
+                    Toast.makeText(context, "Por favor insira um email com formato válido", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(context, "Email ou senha inválidos!", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 }

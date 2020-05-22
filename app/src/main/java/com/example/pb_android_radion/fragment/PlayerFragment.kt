@@ -54,7 +54,18 @@ class PlayerFragment : Fragment() {
         }
 
         firebaseStorage = getInstance()
-       storageReference = firebaseStorage.reference.child("Audio")
+        storageReference = firebaseStorage.reference.child("gs://radion-23f62.appspot.com/Audio")
+
+        // lista dentro da pasta audio
+        var listaItemsPastaAudio = storageReference.listAll()
+
+        listaItemsPastaAudio.addOnSuccessListener {
+            // foreach dentro da lista de musicas
+            it.items.forEach {
+
+            }
+        }
+
       /*   val teste2 = storageReference.downloadUrl
         teste2.addOnSuccessListener {
             for (i in listOf(it)) {

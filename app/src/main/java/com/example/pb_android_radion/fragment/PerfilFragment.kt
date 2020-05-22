@@ -38,14 +38,14 @@ class PerfilFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        textViewNomeSobrenomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
+        /*textViewNomeSobrenomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
         textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
-       // textViewCPFUsuario.text = usuarioViewModel.usuarioLogado!!.cpf
+        //textViewCPFUsuario.text = usuarioViewModel.usuarioLogado!!.cpf
         textViewEmailUsuario.text = usuarioViewModel.usuarioLogado!!.email
         textViewTelefoneUsuario.text = usuarioViewModel.usuarioLogado!!.telefone
         textViewEstadoUsuario.text = usuarioViewModel.usuarioLogado!!.estado
         // Botão drawable para trocar senha chamando um card de dialogo
-        TextViewSair// sair da aplicação
+        TextViewSair// sair da aplicação*/
 
 
     }

@@ -1,5 +1,6 @@
 package com.example.pb_android_radion.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.example.pb_android_radion.MainActivity
 import com.example.pb_android_radion.R
-import com.example.pb_android_radion.task.OperacaoBancoLoginTask
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -37,9 +38,11 @@ class LoginFragment : Fragment() {
         }
 
         btnLogarLogin.setOnClickListener {
-            OperacaoBancoLoginTask(requireContext().applicationContext, boxEmailLogin ,boxSenhaLogin, usuarioViewModel).execute()
+            //OperacaoBancoLoginTask(requireContext().applicationContext, boxEmailLogin ,boxSenhaLogin, usuarioViewModel).execute()
+            usuarioViewModel.loginFirestore(requireContext().applicationContext,
+                boxEmailLogin.text.toString(), boxSenhaLogin.text.toString())
+
+            startActivity(Intent(activity?.baseContext, MainActivity::class.java))
         }
     }
-
-
 }

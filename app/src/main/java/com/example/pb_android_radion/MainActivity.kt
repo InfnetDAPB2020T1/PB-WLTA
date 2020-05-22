@@ -57,8 +57,6 @@ class MainActivity : AppCompatActivity() {
         //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
         //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
         //usuarioViewModel.usuarioLogadoNome = nomeCompleto
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -83,9 +81,9 @@ class MainActivity : AppCompatActivity() {
        // imagemUsuario.setImage()
 
         val usuarioLogado = intent.getSerializableExtra("it") as Usuario
-        usuarioViewModel.usuarioLogado = usuarioLogado
+        /*usuarioViewModel.usuarioLogado = usuarioLogado
         txtVwNomeCompleto.text = usuarioLogado.nome
-        txtVwEmail.text = usuarioLogado.email
+        txtVwEmail.text = usuarioLogado.email*/
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
