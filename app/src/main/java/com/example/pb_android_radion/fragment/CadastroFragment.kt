@@ -1,33 +1,17 @@
 package com.example.pb_android_radion.fragment
 
-import android.Manifest
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.AsyncTask
-import android.os.Build
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.example.pb_android_radion.model.Usuario
-
 import com.example.pb_android_radion.R
-import com.example.pb_android_radion.service.AppDatabaseService
-import com.example.pb_android_radion.task.SalvarUsuarioBancoTask
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
-
 import kotlinx.android.synthetic.main.layout_cadastro.*
-import kotlinx.android.synthetic.main.layout_cadastro.boxApelidoCadastro
-import kotlinx.android.synthetic.main.layout_cadastro.boxEmailCadastro
 
 class CadastroFragment : Fragment() {
 
@@ -61,12 +45,10 @@ class CadastroFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }else{
-                SalvarUsuarioBancoTask(requireContext().applicationContext, usuarioViewModel).execute()
+                usuarioViewModel.salvarNoFirestore(requireContext())
                 findNavController().navigate(R.id.loginFragment)
             }
-
         }
-
     }
 
 /*
@@ -150,8 +132,6 @@ class CadastroFragment : Fragment() {
         }
     }*/
     */
-
-
 
 }
 

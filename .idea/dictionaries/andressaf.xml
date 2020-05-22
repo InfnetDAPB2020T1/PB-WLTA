@@ -6,6 +6,7 @@
       <w>atualizar</w>
       <w>banco</w>
       <w>buscar</w>
+      <w>cadastrado</w>
       <w>cadastro</w>
       <w>classificacao</w>
       <w>começo</w>
@@ -16,10 +17,12 @@
       <w>criar</w>
       <w>deletar</w>
       <w>estado</w>
+      <w>firestore</w>
       <w>implementar</w>
       <w>informacoes</w>
       <w>informações</w>
       <w>inválido</w>
+      <w>inválidos</w>
       <w>letra</w>
       <w>listar</w>
       <w>logado</w>
@@ -36,6 +39,7 @@
       <w>perfil</w>
       <w>preencha</w>
       <w>procurar</w>
+      <w>realizado</w>
       <w>refatorando</w>
       <w>saindo</w>
       <w>salvando</w>
