@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.example.pb_android_radion.model.Usuario
-import com.example.pb_android_radion.service.AppDatabaseService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,24 +16,6 @@ class UsuarioViewModel: ViewModel() {
     var usuarioLogado: FirebaseUser? = null
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var firestore: FirebaseFirestore
-
-    fun salvarNoBanco(context: Context) {
-
-        val novoUsuario = Usuario(
-            usuario!!.apelido,
-            usuario!!.imagem,
-            usuario!!.email,
-            usuario!!.senha,
-            usuario!!.nomeCompleto,
-            //usuarioViewModel.usuario!!.cpf,
-            usuario!!.estado,
-            usuario!!.ddd,
-            usuario!!.telefone
-
-        )
-        var db = AppDatabaseService.getInstance(context)
-        db.usuarioDao().criarUsuario(novoUsuario)
-    }
 
     fun verificarNulo(
         view: View, context: Context): Boolean {

@@ -1,15 +1,7 @@
 package com.example.pb_android_radion
 
-import android.Manifest
-import android.app.Activity
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,10 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
-import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
-import kotlinx.android.synthetic.main.layout_cadastro.*
-import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,10 +42,6 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         //colocando as informacoes na tela de perfil
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
-        //usuarioViewModel.usuarioLogadoApelido = usuarioLogado.apelido
-        //usuarioViewModel.usuarioLogadoNome = nomeCompleto
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -80,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
        // imagemUsuario.setImage()
 
-        val usuarioLogado = intent.getSerializableExtra("it") as Usuario
+        //val usuarioLogado = intent.getSerializableExtra("it") as Usuario
         /*usuarioViewModel.usuarioLogado = usuarioLogado
         txtVwNomeCompleto.text = usuarioLogado.nome
         txtVwEmail.text = usuarioLogado.email*/

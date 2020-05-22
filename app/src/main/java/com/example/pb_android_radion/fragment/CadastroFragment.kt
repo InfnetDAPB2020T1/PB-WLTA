@@ -45,7 +45,6 @@ class CadastroFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }else{
-                //SalvarUsuarioBancoTask(requireContext().applicationContext, usuarioViewModel).execute()
                 usuarioViewModel.salvarNoFirestore(requireContext())
                 findNavController().navigate(R.id.loginFragment)
             }

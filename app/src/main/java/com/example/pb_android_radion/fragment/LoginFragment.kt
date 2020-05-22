@@ -38,7 +38,6 @@ class LoginFragment : Fragment() {
         }
 
         btnLogarLogin.setOnClickListener {
-            //OperacaoBancoLoginTask(requireContext().applicationContext, boxEmailLogin ,boxSenhaLogin, usuarioViewModel).execute()
             usuarioViewModel.loginFirestore(requireContext().applicationContext,
                 boxEmailLogin.text.toString(), boxSenhaLogin.text.toString())
 
