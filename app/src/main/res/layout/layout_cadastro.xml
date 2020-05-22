@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.CadastroFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="6"
+                android:background="@color/fundoLogin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewPerfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher_foreground"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/imageViewIncluirFotoPerfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/ic_input_add"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewPerfil"
+                        app:layout_constraintEnd_toEndOf="@+id/imageViewPerfil"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/imageViewPerfil"
+                        app:layout_constraintTop_toTopOf="@+id/imageViewPerfil"
+                        app:layout_constraintVertical_bias="1.0"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="354dp"
+                android:layout_height="502dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
+
+                    <ImageView
+                        android:id="@+id/imageViewNome"
+                        style="@style/config_imgView"
+                        android:src="@drawable/ic_face_24px" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textField"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/fundoLogin"
+                        app:boxBackgroundMode="outline"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewNome"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxNomeCadastro"
+                            style="@style/config_edit"
+                            android:digits="abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVWXYZ  "
+                            android:hint="@string/nomecompleto" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
+
+                    <ImageView
+                        android:id="@+id/imageViewApelido"
+                        style="@style/config_imgView"
+                        android:src="@drawable/ic_face_24px" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/TextApelidoCadastro"
+                        style="@style/config_editText"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewApelido"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewApelido">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxApelidoCadastro"
+                            style="@style/config_edit"
+                            android:hint="@string/apelido"
+                            android:lines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--    <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
+
+                    <ImageView
+                        android:id="@+id/imageViewCPF"
+                        style="@style/config_imgView"
+                        android:src="@drawable/ic_crop_landscape_black_24dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/TextCPfCadastro"
+                        style="@style/config_editText"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewCPF"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewCPF">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxCpf"
+                            style="@style/config_edit"
+                            android:digits="1234567890"
+                            android:hint="@string/cpf"
+                            android:inputType="number"
+                            android:maxLength="11" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/config_contranint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewEmail"
+                        style="@style/config_imgView"
+                        android:src="@drawable/ic_email_black_24dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textoEmailCadastro"
+                        style="@style/config_editText"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewEmail"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewEmail">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxEmailCadastro"
+                            style="@style/config_edit"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewEmail" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
+
+                    <ImageView
+                        android:id="@+id/imageViewTelefone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:src="@drawable/ic_phone_android_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textViewDDDCadastro"
+                        android:layout_width="52dp"
+                        android:layout_height="54dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewTelefone"
+                        app:layout_constraintEnd_toStartOf="@+id/textViewTelefoneCadastro"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewTelefone"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxDDDCadastro"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:digits="1234567890"
+                            android:hint="@string/ddd"
+                            android:inputType="phone"
+                            android:lines="1"
+                            android:maxLength="2" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textViewTelefoneCadastro"
+                        android:layout_width="115dp"
+                        android:layout_height="55dp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewEstado"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textViewDDDCadastro">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxTelefoneCadastro"
+                            style="@style/config_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:digits="1234567890"
+                            android:hint="@string/telefone"
+                            android:inputType="phone"
+                            android:maxLength="9"
+                            app:layout_constraintBottom_toBottomOf="@+id/textViewTelefoneCadastro"
+                            app:layout_constraintEnd_toStartOf="@+id/editTextEstadoCadastro"
+                            app:layout_constraintStart_toEndOf="@+id/textViewDDDCadastro"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/imageViewEstado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/ic_location_on_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textViewEstadoCadastro"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textViewTelefoneCadastro"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textViewEstadoCadastro"
+                        style="@style/config_editText"
+                        android:layout_width="87dp"
+                        android:layout_height="57dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewEstado"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewEstado"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxEstadoCadastro"
+                            style="@style/config_edit"
+                            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:hint="@string/estado"
+                            android:maxLength="2" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout style="@style/config_contranint">
+
+                    <ImageView
+                        android:id="@+id/imageViewSenha"
+                        style="@style/config_imgView"
+                        android:src="@drawable/ic_security_black_24dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textViewSenhaCadastro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewSenha"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewSenha"
+                        app:passwordToggleEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/boxSenhaCadastro2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/textoSenha"
+                            android:inputType="textPassword"
+                            android:lines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <Button
+                    android:id="@+id/btnCadastrarUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/button"
+                    android:text="@string/cadastrar"
+                    android:textColor="@color/branco"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
