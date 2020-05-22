@@ -9,9 +9,7 @@ import com.example.pb_android_radion.R
 import com.example.pb_android_radion.model.Musica
 import kotlinx.android.synthetic.main.lista_musica.view.*
 
-class ListaMusicaAdapter ( val musica: List<Musica>
-
-)
+class ListaMusicaAdapter ( val musica: List<Musica>)
 :RecyclerView.Adapter<ListaMusicaAdapter.musicaViewHolder>() {
     class musicaViewHolder (view: View)
         : RecyclerView.ViewHolder(view){
