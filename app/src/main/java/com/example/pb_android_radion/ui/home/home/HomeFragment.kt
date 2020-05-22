@@ -43,9 +43,8 @@ class HomeFragment : Fragment() {
         //  musicaViewModel.setupRecycleView(ListaDeMusicasRecycle,this.requireContext())
 
         var musicas = mutableListOf(
-            Musica(R.drawable.true_damage,"True Damage", "League of Legends"),
-            Musica(R.drawable.ic_home,"furacao 2000", "So pa GOD"),
-            Musica(R.drawable.ic_home,"furacao 2000", "So pa GOD")
+            Musica(R.drawable.botao_play_home,"True Damage", "League of Legends"),
+            Musica(R.drawable.botao_play_home,"Legends never Die", "So pa GOD")
 
         )
         var listaMusicaAdapter = ListaMusicaAdapter(musicas)
