@@ -12,5 +12,4 @@ class Musica(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
 
-): Serializable {
-}
+)

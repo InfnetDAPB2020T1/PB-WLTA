@@ -14,6 +14,9 @@
         <!-- <action
             android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
             app:destination="@id/nav_home_second" /> -->
+        <action
+            android:id="@+id/action_nav_home_to_nav_search"
+            app:destination="@id/nav_search" />
     </fragment>
     <!-- <fragment
         android:id="@+id/nav_home_second"
@@ -49,5 +52,9 @@
         android:id="@+id/nav_search"
         android:name="com.example.pb_android_radion.SearchFragment"
         android:label="Pesquisa de Músicas"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_nav_search_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>
