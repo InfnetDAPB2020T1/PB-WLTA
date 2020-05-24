@@ -1,6 +1,7 @@
 package com.example.pb_android_radion
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,15 +58,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-        //val usuarioLogado = intent.getSerializableExtra("usuario") as Usuario
-        //val nomeCompleto = ("${usuarioLogado.nome} "+"${usuarioLogado.sobrenome}")
 
-        /*var nomeCompleto = usuarioViewModel.usuarioLogado!!.nome +
-                usuarioViewModel.usuarioLogado!!.sobrenome
-        txtVwNomeCompleto.text = nomeCompleto
+        usuarioViewModel.usuarioLogado = FirebaseAuth.getInstance().currentUser
+
         txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
 
-        imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
+        //imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
        // imagemUsuario.setImage()
 
         //val usuarioLogado = intent.getSerializableExtra("it") as Usuario

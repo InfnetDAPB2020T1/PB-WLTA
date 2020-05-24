@@ -275,21 +275,5 @@ class PlayerFragment : Fragment() {
             ).show()
         }*/
     }
-
-
 }
-
-// Adiciona a quantidade de estrelas na classificação da musica de acordo com o nome da musica
-        /*if(txtVwNomeMusica.text == musicaViewModel.musica!!.nomeMusica){
-            musicaViewModel.musica!!.classificacao = ratingClassificacao.numStars
-        }*/
-
-
-    // Método para que o componente de classificação recebe o número de estrelas de acordo
-    // com o nome da musica
-    /*private fun verificarClassificacao(){
-        if(txtVwNomeMusica.text == musicaViewModel.musica!!.nomeMusica){
-            ratingClassificacao.numStars = musicaViewModel.musica!!.classificacao
-        }
-    }*/
 

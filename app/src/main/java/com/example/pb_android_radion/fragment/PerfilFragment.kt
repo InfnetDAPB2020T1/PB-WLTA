@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
+import kotlinx.android.synthetic.main.fragment_perfil.*
 
 class PerfilFragment : Fragment() {
     private lateinit var usuarioViewModel: UsuarioViewModel
@@ -25,14 +26,16 @@ class PerfilFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
         }
 
-        /*textViewNomeSobrenomePerfil.text = usuarioViewModel.usuarioLogado!!.nome
-        textViewApelidoPerfil.text = usuarioViewModel.usuarioLogado!!.apelido
-        //textViewCPFUsuario.text = usuarioViewModel.usuarioLogado!!.cpf
-        textViewEmailUsuario.text = usuarioViewModel.usuarioLogado!!.email
-        textViewTelefoneUsuario.text = usuarioViewModel.usuarioLogado!!.telefone
-        textViewEstadoUsuario.text = usuarioViewModel.usuarioLogado!!.estado
+        usuarioViewModel.infoPerfil(
+            textViewNomeSobrenomePerfil,
+            textViewApelidoPerfil,
+            textViewEstadoUsuario,
+            textViewTelefoneUsuario,
+            textViewEmailUsuario
+        )
+
         // Botão drawable para trocar senha chamando um card de dialogo
-        TextViewSair// sair da aplicação*/
+        //TextViewSair// sair da aplicação*/
 
 
     }

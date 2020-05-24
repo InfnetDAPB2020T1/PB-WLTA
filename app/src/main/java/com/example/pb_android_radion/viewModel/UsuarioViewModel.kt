@@ -1,7 +1,9 @@
 package com.example.pb_android_radion.viewModel
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.example.pb_android_radion.model.Usuario
@@ -14,8 +16,8 @@ class UsuarioViewModel: ViewModel() {
 
     var usuario: Usuario? = null
     var usuarioLogado: FirebaseUser? = null
-    lateinit var firebaseAuth: FirebaseAuth
-    lateinit var firestore: FirebaseFirestore
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
 
     fun verificarNulo(
         view: View, context: Context): Boolean {
@@ -49,6 +51,7 @@ class UsuarioViewModel: ViewModel() {
     fun salvarNoFirestore(context: Context){
 
         firestore = FirebaseFirestore.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
 
         var collection = firestore.collection("usuarios")
 
@@ -85,14 +88,38 @@ class UsuarioViewModel: ViewModel() {
 
         firebaseAuth.signInWithEmailAndPassword(boxEmail, boxSenha)
             .addOnSuccessListener {
-                Toast.makeText(context, "Bem vindo ${it.user!!.email}", Toast.LENGTH_SHORT).show()
+                if(it != null){
+                    Toast.makeText(context, "Bem vindo ${it.user!!.email}",
+                        Toast.LENGTH_SHORT).show()
+                }
             }
             .addOnFailureListener {
                 if(it.message == "The email address is baldy formatted"){
-                    Toast.makeText(context, "Por favor insira um email com formato válido", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Por favor insira um email com formato válido",
+                        Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(context, "Email ou senha inválidos!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Email ou senha inválidos!",
+                        Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun infoPerfil(txtNomeCompleto: TextView, txtApelido: TextView, txtEstado: TextView,
+                   txtTelefone: TextView, txtEmail: TextView){
+        var document = FirebaseFirestore.getInstance()
+            .collection("usuarios")
+            .document(usuarioLogado!!.email!!)
+
+        document.get()
+            .addOnSuccessListener {
+            if(it != null){
+                txtNomeCompleto.text = "${it["nome"]}"
+                txtApelido.text = "${it["apelido"]}"
+                txtEstado.text = "${it["estado"]}"
+                txtTelefone.text = "${it["ddd"]}"+"${it["telefone"]}"
+                txtEmail.text = "${it["email"]}"
+            }
+        }
     }
 }
