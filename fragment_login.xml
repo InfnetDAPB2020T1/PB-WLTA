@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fundoLogin">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="30dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="30dp" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/lodotipoLogin"
+                    android:layout_width="108dp"
+                    android:layout_height="238dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/descricaoImagem"
+                    app:srcCompat="@drawable/icon" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textoEmailLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    app:boxBackgroundMode="outline"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/boxEmailLogin"
+                        style="@style/config_edit"
+                        android:textColor="@color/branco"
+                        android:hint="@string/textoEmail"
+                        android:ems="10"
+                        tools:layout_editor_absoluteX="29dp"
+                        tools:layout_editor_absoluteY="272dp"
+                        android:inputType="textEmailAddress"
+                       />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textViewSenhaLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/branco"
+                    app:boxBackgroundMode="outline"
+                    android:inputType="textPassword"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/boxSenhaLogin"
+                        style="@style/config_edit"
+                        android:hint="@string/textoSenha"
+                        android:ems="10"
+                        android:textColor="@color/branco"
+                        tools:layout_editor_absoluteX="29dp"
+                        tools:layout_editor_absoluteY="325dp"
+                        android:inputType="textPassword"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+             <!--   <TextView
+                    android:id="@+id/textoEmailCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textoEmail"
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="33dp"
+                    tools:layout_editor_absoluteY="253dp" />
+
+                <EditText
+                    android:id="@+id/boxEmailLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/boxEmail"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="29dp"
+                    tools:layout_editor_absoluteY="272dp" /
+
+                <TextView
+                    android:id="@+id/textoSenhaLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/boxSenha"
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="33dp"
+                    tools:layout_editor_absoluteY="306dp" />
+
+                <EditText
+                    android:id="@+id/boxSenhaLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/boxSenha"
+                    android:inputType="textPassword"
+                    android:textColor="@color/branco"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="@color/branco"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="29dp"
+                    tools:layout_editor_absoluteY="325dp" />>!-->
+
+
+                <TextView
+                    android:id="@+id/textoEsqueciSenhaLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:autoLink="all|web|phone|none|map|email"
+                    android:clickable="true"
+                    android:text="@string/textoEsqueciSenha"
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/textoCadastroLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:autoLink="all|web|phone|none|map|email"
+                    android:clickable="true"
+                    android:text="@string/textoCadastrar"
+                    android:textColor="@color/rosaClaro"
+                    android:visibility="visible"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnLogarLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/button"
+                    android:text="@string/btnLogin"
+                    android:textColor="@color/boxText"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
