@@ -1,19 +1,15 @@
 package com.example.pb_android_radion.fragment
 
 import android.annotation.SuppressLint
-import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.pb_android_radion.R
@@ -24,17 +20,23 @@ import com.google.firebase.storage.FirebaseStorage.getInstance
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_player.*
 
-
 class PlayerFragment : Fragment() {
 
     private lateinit var musicaViewModel: MusicaViewModel
-
     private var _totalTime: Int = 0
-//    private val mediaPlayer = MediaPlayer()
+    private var _positionTrack: Int = 0
+    private val mediaPlayer = MediaPlayer()
     val firebaseStore = FirebaseFirestore.getInstance()
-
+    // private var lista: MutableList<StorageReference> = mutableListOf()
     lateinit var storageReference: StorageReference
     lateinit var firebaseStorage: FirebaseStorage
+    var listaUrl = listOf<String>(
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062",
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F(IT)%20Skank%20-%20Ainda%20Gosto%20Dela(1).mp3?alt=media&token=a64bf254-7022-437f-a33b-e1256883770d",
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062",
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062",
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062"
+    )
 
 
     override fun onCreateView(
@@ -45,7 +47,7 @@ class PlayerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_player, container, false)
     }
 
-    //@SuppressLint("SdCardPath")
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -53,148 +55,29 @@ class PlayerFragment : Fragment() {
             musicaViewModel = ViewModelProviders.of(it).get(MusicaViewModel::class.java)
         }
 
+        var musicaNome = ""
+        var musicaUrl = ""
         firebaseStorage = getInstance()
-        storageReference = firebaseStorage.reference.child("gs://radion-23f62.appspot.com/Audio")
+        storageReference = firebaseStorage.reference.child("Audio")
+        /*  storageReference.listAll().addOnSuccessListener { listResult ->
 
-        // lista dentro da pasta audio
-        var listaItemsPastaAudio = storageReference.listAll()
+              listResult.items.forEach { item ->
+                  //  lista.add(item)
+                  musicaNome = item.name
+                  item.downloadUrl.addOnSuccessListener {
+                      //  musicaUrl = item.downloadUrl.toString()
+                      //   musicaViewModel.musica?.nomeMusica
+                      //Log.i("user", it.downloadUrl.toString())
+                  }
+                  //  url(item.downloadUrl.toString())
+                  // infosMusica(musicaNome, musicaUrl)
+              }
+          }*/
 
-        listaItemsPastaAudio.addOnSuccessListener {
-            // foreach dentro da lista de musicas
-            it.items.forEach {
+        //POSICAO DA LISTA
+        initMusicPlayer(_positionTrack)
 
-            }
-        }
-
-      /*   val teste2 = storageReference.downloadUrl
-        teste2.addOnSuccessListener {
-            for (i in listOf(it)) {
-                Log.i("msg", "${i}")
-            }
-        }*/
-    /*    val listaTeste = mutableListOf<StorageReference>()
-        val testeRef = firebaseStorage.reference.child("Audio").listAll()
-            .addOnSuccessListener { testeRef ->
-                testeRef.prefixes.forEach { prefix ->
-
-                    listaTeste.add(prefix)
-                    Log.i("teste2", "${listaTeste}")
-
-                }
-
-            }
-        Log.i("teste2", "${listaTeste}")*/
-        /*testeRef.listAll().addOnSuccessListener {
-
-            testeRef -> testeRef.prefixes.forEach { prefix ->
-
-            listaTeste.add(prefix)
-
-            Log.i("teste", {listaTeste})
-        }
-            testeRef.items.forEach { item ->
-                Log.i("MSG", {testeRef}.toString())
-            }
-        }.addOnFailureListener{
-            //Erro ocorre
-        }
-*/
-
-        //Referencia - Diretorio Raiz
-        //storageReference = firebaseStorage.reference
-    //   storageReference = firebaseStorage.getReferenceFromUrl("gs://radion-23f62.appspot.com/Audio")
-      // storageReference = firebaseStorage.reference("Audio")
-
-     /*   val teste = storageReference.listAll().addOnSuccessListener {
-            it.items.forEach {
-                it.metadata.addOnSuccessListener {
-                    it.contentType
-                    Log.i("teste6", "${it}")
-                }
-            }
-        }*/
-
-
-
-
-
-        /*    val arquivoMusica = storageReference.child("Audio/John Newman - Love Me Again.mp3")      // C:/js.png
-
-          // val task = arquivoMusica.stream
-          // val localFile = File.createTempFile("audio", "mp3")
-          val task = arquivoMusica.getFile(File(context?.filesDir, "musicas"))
-
-          task.addOnSuccessListener {
-              Toast.makeText(
-                  activity?.baseContext,
-                  "***** \\o/ ******",
-                  Toast.LENGTH_LONG
-              ).show()
-          }.addOnFailureListener {
-              Toast.makeText(
-                  activity?.baseContext,
-                  it.message,
-                  Toast.LENGTH_LONG
-              ).show()
-          }
-
-  */
-        var mediaPlayer = MediaPlayer.create(requireContext().applicationContext, R.raw.wilddrive)//onde passa a música
-        mediaPlayer.isLooping = true
-
-        //val myUri: Uri = arquivoMusica// initialize Uri here
-        /* val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
-            setAudioStreamType(AudioManager.STREAM_MUSIC)
-            setDataSource( requireContext().applicationContext,
-                musica,
-                null
-            )
-//            prepare()
-            start()
-        }*/
-//        val teste6 = listOf(storageReference.child("Audio").downloadUrl)
-//        teste6.forEach {
-//            Log.i("oioioi", "$it")
-//        }
-//
-//        val musica = Uri.parse("teste.toString()")// passar a urml da musica
-//        try {
-//
-//            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
-//            mediaPlayer.setDataSource(
-//                requireContext().applicationContext,
-//                musica,
-//                null
-//            )
-//            mediaPlayer.prepareAsync()
-//            mediaPlayer.start()
-//
-//        } catch (e: Exception) {
-//            Toast.makeText(
-//                requireContext().applicationContext,
-//                "Deu ruim",
-//                Toast.LENGTH_LONG
-//            ).show()
-//        }
-
-
-
-        _totalTime = mediaPlayer.duration
-        playBtn.setOnClickListener {
-            if (mediaPlayer.isPlaying) {
-                //Stop
-                mediaPlayer.pause()
-                playBtn.setBackgroundResource(R.drawable.ic_play_arrow_black_24dp)
-            } else {
-                //Start
-                mediaPlayer.start()
-                playBtn.setBackgroundResource(R.drawable.ic_pause_black_24dp)
-            }
-        }
-
-
-        // Position Bar
-        positionBar.max = _totalTime
+        // PROGRESS BAR
         positionBar.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
@@ -230,10 +113,8 @@ class PlayerFragment : Fragment() {
         var handler = object : Handler() {
             override fun handleMessage(msg: Message) {
                 var currentPosition = msg.what
-
                 //Update positionBar
                 positionBar.progress = currentPosition
-
                 //Update Labels
                 var elapsedTime = createTimeLabel(currentPosition)
                 elapsedTimeLabel.text = elapsedTime
@@ -245,7 +126,7 @@ class PlayerFragment : Fragment() {
 
         // Thread
         Thread(Runnable {
-            while (mediaPlayer != null) {
+            while (true) {
                 try {
                     var msg = Message()
                     msg.what = mediaPlayer.currentPosition
@@ -256,24 +137,65 @@ class PlayerFragment : Fragment() {
             }
         }).start()
 
-
-        // val task = arquivoMusica.getFile(File(filesDir, "js.png"))
-        // data/data/pacote/files
-
-        /*  task.addOnSuccessListener {
-            //if (it != null)
-            Toast.makeText(
-                this,
-                "***** \\o/ ******",
-                Toast.LENGTH_LONG
-            ).show()
-        }.addOnFailureListener {
-            Toast.makeText(
-                this,
-                it.message,
-                Toast.LENGTH_LONG
-            ).show()
-        }*/
+        playBtn.setOnClickListener() {
+            if (mediaPlayer.isPlaying) {
+                //Stop
+                mediaPlayer.pause()
+                playBtn.setBackgroundResource(R.drawable.ic_play_arrow_black_24dp)
+            } else {
+                //Start
+                mediaPlayer.start()
+                playBtn.setBackgroundResource(R.drawable.ic_pause_black_24dp)
+            }
+        }
     }
+
+    private fun initMusicPlayer(positionTrack: Int) {
+
+        //Get
+        val urlSong = listaUrl.get(positionTrack)
+
+        // create a media player
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        mediaPlayer.setDataSource(urlSong)
+        mediaPlayer.prepareAsync()
+        mediaPlayer.setVolume(0.5f, 0.5f)
+
+        mediaPlayer.setOnPreparedListener(MediaPlayer.OnPreparedListener() {
+            _totalTime = mediaPlayer.duration
+            //Progress bar value paramater
+            positionBar.max = _totalTime
+            //ESSE IF INICA O PLAYER SOZINHO
+            if (!mediaPlayer.isPlaying) {
+                mediaPlayer.start()
+                playBtn.setBackgroundResource(R.drawable.ic_pause_black_24dp)
+            }
+        })
+
+        mediaPlayer.setOnCompletionListener {
+            //UPDATE next song to play
+            if (_positionTrack < listaUrl.size - 1) {
+                //Go to the next song
+                _positionTrack++
+            } else {
+                //Back to the first song
+                _positionTrack = 0
+            }
+            mediaPlayer.reset()
+            initMusicPlayer(_positionTrack)
+        }
+
+    }
+
+    ///UPLOAD DAS INFOS NO STORE ---- NÂO APAGUE
+    /*private fun infosMusica(musicaNome: String, musicaUrl: String)  {
+        val infoMusica: MutableMap<String, Any> = HashMap()
+        infoMusica["MusicaNome"] = musicaNome
+        infoMusica["MusicaUrl"] = musicaUrl
+        Log.i("info", infoMusica.toString())
+        firebaseStore.collection("musicas").document(musicaNome)
+        .set(infoMusica)
+    }*/
+
 }
 
