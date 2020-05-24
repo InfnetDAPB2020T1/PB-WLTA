@@ -48,9 +48,11 @@ class UsuarioViewModel: ViewModel() {
 
     fun salvarNoFirestore(context: Context){
 
+        firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        var collection = firestore.collection("usuarios")
+       var collection = firestore.collection("usuarios")
 
         var user: MutableMap<String, Any> = HashMap()
         user["apelido"] = usuario!!.apelido
