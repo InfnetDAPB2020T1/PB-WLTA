@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,22 +60,24 @@ class PlayerFragment : Fragment() {
         var musicaUrl = ""
         firebaseStorage = getInstance()
         storageReference = firebaseStorage.reference.child("Audio")
-        /*  storageReference.listAll().addOnSuccessListener { listResult ->
+     /*   storageReference.listAll().addOnSuccessListener { listResult ->
 
-              listResult.items.forEach { item ->
-                  //  lista.add(item)
-                  musicaNome = item.name
-                  item.downloadUrl.addOnSuccessListener {
-                      //  musicaUrl = item.downloadUrl.toString()
-                      //   musicaViewModel.musica?.nomeMusica
-                      //Log.i("user", it.downloadUrl.toString())
-                  }
-                  //  url(item.downloadUrl.toString())
-                  // infosMusica(musicaNome, musicaUrl)
-              }
-          }*/
+            listResult.items.forEach { item ->
+                //  lista.add(item)
+                musicaNome = item.name
+                musicaUrl = item.downloadUrl.toString()
 
-        //POSICAO DA LISTA
+                item.downloadUrl.addOnSuccessListener {
+                    //  musicaUrl = item.downloadUrl.toString()
+                     //musicaViewModel.musica?.nomeMusica = item.downloadUrl.toString()
+                    //Log.i("user", it.downloadUrl.toString())
+                }
+                //  url(item.downloadUrl.toString())
+                 infosMusica(musicaNome, musicaUrl)
+            }
+        }*/
+
+           //POSICAO DA LISTA
         initMusicPlayer(_positionTrack)
 
         // PROGRESS BAR
@@ -141,7 +144,7 @@ class PlayerFragment : Fragment() {
             if (mediaPlayer.isPlaying) {
                 //Stop
                 mediaPlayer.pause()
-                playBtn.setBackgroundResource(R.drawable.ic_play_arrow_black_24dp)
+                playBtn.setBackgroundResource(R.drawable.iconeplay)
             } else {
                 //Start
                 mediaPlayer.start()
@@ -166,10 +169,10 @@ class PlayerFragment : Fragment() {
             //Progress bar value paramater
             positionBar.max = _totalTime
             //ESSE IF INICA O PLAYER SOZINHO
-            if (!mediaPlayer.isPlaying) {
+           /* if (!mediaPlayer.isPlaying) {
                 mediaPlayer.start()
                 playBtn.setBackgroundResource(R.drawable.ic_pause_black_24dp)
-            }
+            }*/
         })
 
         mediaPlayer.setOnCompletionListener {
@@ -184,18 +187,17 @@ class PlayerFragment : Fragment() {
             mediaPlayer.reset()
             initMusicPlayer(_positionTrack)
         }
-
     }
 
     ///UPLOAD DAS INFOS NO STORE ---- NÂO APAGUE
-    /*private fun infosMusica(musicaNome: String, musicaUrl: String)  {
+   /* private fun infosMusica(musicaNome: String, musicaUrl: String)  {
         val infoMusica: MutableMap<String, Any> = HashMap()
-        infoMusica["MusicaNome"] = musicaNome
-        infoMusica["MusicaUrl"] = musicaUrl
+        infoMusica["nomeMusica"] = musicaNome
+        infoMusica["musica"] = musicaUrl
+        infoMusica["musicaUrl"] = ""
         Log.i("info", infoMusica.toString())
-        firebaseStore.collection("musicas").document(musicaNome)
+        firebaseStore.collection(" listaMusicas").document()
         .set(infoMusica)
     }*/
-
 }
 
