@@ -3,16 +3,20 @@ package com.example.pb_android_radion
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.EditText
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.*
+import androidx.recyclerview.widget.RecyclerView
+import com.example.pb_android_radion.R.*
+import com.example.pb_android_radion.R.id.*
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -25,38 +29,42 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(layout.activity_main)
 
         usuarioViewModel = ViewModelProviders.of(this).get(UsuarioViewModel::class.java)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(toolbar)
         setSupportActionBar(toolbar)
 
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
+        val drawerLayout: DrawerLayout = findViewById(drawer_layout)
+        val navView: NavigationView = findViewById(nav_view)
+        val navController = findNavController(nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_playlist, R.id.nav_historico, R.id.nav_perfil, R.id.nav_search
+                nav_home, nav_playlist, nav_historico, nav_perfil, nav_search
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         //colocando as informacoes na tela de perfil
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
+
+
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+   /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
-//        hsbsdadsasfgtsafbdhfsafyasbsfhsfyas/**/
-    }
 
+    }*/
+
+
+    ///exibir info no drawer layout
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
+        val navController = findNavController(nav_host_fragment)
 
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
 
@@ -75,4 +83,18 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
     }
+  /*  private fun loadData() {
+        listaMusica.add("Afghanistan")
+        listaMusica.add("Albania")
+        listaMusica.add("Algeria")
+        listaMusica.add("Andorra")
+        listaMusica.add("Angola")
+        listaMusica.add("Antigua and Barbuda")
+        listaMusica.add("Argentina")
+        listaMusica.add("Armenia")
+        listaMusica.add("Australia")
+        listaMusica.add("Austria")
+        displayList.addAll(listaMusica)
+    }*/
+
 }

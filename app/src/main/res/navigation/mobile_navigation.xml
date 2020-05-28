@@ -10,10 +10,6 @@
         android:name="com.example.pb_android_radion.ui.home.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
-
-        <!-- <action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_home_second" /> -->
         <action
             android:id="@+id/action_nav_home_to_nav_search"
             app:destination="@id/nav_search" />
@@ -50,11 +46,7 @@
         tools:layout="@layout/fragment_perfil" />
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.example.pb_android_radion.SearchFragment"
-        android:label="Pesquisa de Músicas"
-        tools:layout="@layout/fragment_search" >
-        <action
-            android:id="@+id/action_nav_search_to_nav_home"
-            app:destination="@id/nav_home" />
-    </fragment>
+        android:name="com.example.pb_android_radion.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
