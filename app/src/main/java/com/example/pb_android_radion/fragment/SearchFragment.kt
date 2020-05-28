@@ -1,5 +1,6 @@
 package com.example.pb_android_radion.fragment
 
+import android.annotation.SuppressLint
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
@@ -8,18 +9,16 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.viewModel.SearchViewModel
+import kotlinx.android.synthetic.main.fragment_search.*
 
 
 class SearchFragment : Fragment() {
 
     private lateinit var searchViewModel: SearchViewModel
-    lateinit var searchRecycle: RecyclerView
     var listaMusica = ArrayList<String>()
-     var displayList = ArrayList<String>()
+    var displayList = ArrayList<String>()
     private var searchView: SearchView? = null
     private var queryTextListener: SearchView.OnQueryTextListener? = null
 
@@ -31,6 +30,7 @@ class SearchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
@@ -38,7 +38,7 @@ class SearchFragment : Fragment() {
             searchViewModel = ViewModelProviders.of(it).get(SearchViewModel::class.java)
         }
         //loadData()
-        searchViewModel.setupRecycleView(searchRecycle, requireContext().applicationContext)
+        searchViewModel.setupRecycleView(ListaDeMusicasRecycle, requireContext().applicationContext)
 
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -48,10 +48,10 @@ class SearchFragment : Fragment() {
             requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
         if (searchItem != null) {
             searchView = searchItem.actionView as SearchView
-            findNavController().navigate(R.id.action_nav_home_to_nav_search)
+            //findNavController().navigate(R.id.action_nav_home_to_nav_search)
         }
         if (searchView != null) {
-           findNavController().navigate(R.id.action_nav_home_to_nav_search)
+           //findNavController().navigate(R.id.action_nav_home_to_nav_search)
             searchView!!.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
             queryTextListener = object : SearchView.OnQueryTextListener {
 
@@ -67,7 +67,7 @@ class SearchFragment : Fragment() {
                     } else {
                         displayList.addAll(listaMusica)
                     }
-                    searchRecycle.adapter?.notifyDataSetChanged()
+                    ListaDeMusicasRecycle.adapter?.notifyDataSetChanged()
                     return true
                 }
 

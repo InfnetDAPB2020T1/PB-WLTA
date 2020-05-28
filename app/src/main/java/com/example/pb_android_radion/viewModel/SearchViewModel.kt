@@ -5,9 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pb_android_radion.adapter.ListaMusicaAdapter
 import com.example.pb_android_radion.adapter.SearchAdapter
-import com.example.pb_android_radion.model.Musica
 import com.example.pb_android_radion.model.Search
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -15,13 +13,11 @@ import com.google.firebase.storage.StorageReference
 
 
 class SearchViewModel : ViewModel(){
+
     var search: Search? = null
-
-
     val firebaseStore = FirebaseFirestore.getInstance()
     lateinit var storageReference: StorageReference
     lateinit var firebaseStorage: FirebaseStorage
-
 
     fun setupRecycleView(
         recycleView: RecyclerView, context: Context
@@ -31,7 +27,6 @@ class SearchViewModel : ViewModel(){
         val task = collection.get()
         task.addOnSuccessListener {
             if (it!= null){
-
                 val search = it.toObjects(Search::class.java)
                 //alimentando a recycle
                 recycleView.adapter = SearchAdapter(search)
