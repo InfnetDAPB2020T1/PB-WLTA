@@ -1,8 +1,5 @@
 package com.example.pb_android_radion.model
 
-import android.graphics.Bitmap
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.example.pb_android_radion.throws.UsuarioDDDException
 import com.example.pb_android_radion.throws.UsuarioTelefoneException
 import java.io.Serializable
@@ -16,8 +13,7 @@ class Usuario(
     var nomeCompleto: String,
     var estado: String,
     var ddd: String,
-    var telefone: String,
-    var id: Int? = null
+    var telefone: String
 
 ) : Serializable {
 

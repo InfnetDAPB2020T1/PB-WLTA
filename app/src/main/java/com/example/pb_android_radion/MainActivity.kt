@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        //colocando as informacoes na tela de perfil
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
     }
 
@@ -52,25 +51,18 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
-//        hsbsdadsasfgtsafbdhfsafyasbsfhsfyas/**/
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
 
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
-
         usuarioViewModel.usuarioLogado = FirebaseAuth.getInstance().currentUser
 
         txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
 
         //imagemUsuario = usuarioViewModel.usuarioLogado!!.imagem*/
        // imagemUsuario.setImage()
-
-        //val usuarioLogado = intent.getSerializableExtra("it") as Usuario
-        /*usuarioViewModel.usuarioLogado = usuarioLogado
-        txtVwNomeCompleto.text = usuarioLogado.nome
-        txtVwEmail.text = usuarioLogado.email*/
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 

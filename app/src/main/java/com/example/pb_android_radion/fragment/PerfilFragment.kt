@@ -36,7 +36,5 @@ class PerfilFragment : Fragment() {
 
         // Botão drawable para trocar senha chamando um card de dialogo
         //TextViewSair// sair da aplicação*/
-
-
     }
 }

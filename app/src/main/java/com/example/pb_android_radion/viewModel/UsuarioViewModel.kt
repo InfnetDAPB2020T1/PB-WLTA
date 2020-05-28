@@ -2,6 +2,7 @@ package com.example.pb_android_radion.viewModel
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -39,7 +40,6 @@ class UsuarioViewModel: ViewModel() {
                 email = view.boxEmailCadastro.text.toString(),
                 senha = view.boxSenhaCadastro2.text.toString(),
                 nomeCompleto = view.boxNomeCadastro.text.toString(),
-                //  cpf = boxCpf.text.toString(),
                 estado = view.boxEstadoCadastro.text.toString(),
                 ddd = view.boxDDDCadastro.text.toString(),
                 telefone = view.boxTelefoneCadastro.text.toString()
@@ -53,7 +53,6 @@ class UsuarioViewModel: ViewModel() {
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-
        var collection = firestore.collection("usuarios")
 
         var user: MutableMap<String, Any> = HashMap()
@@ -61,7 +60,7 @@ class UsuarioViewModel: ViewModel() {
         //user["imagem"] = usuario!!.imagem!!
         user["email"] = usuario!!.email
         user["senha"] = usuario!!.senha
-        user["nome"] = usuario!!.nomeCompleto
+        user["nomeCompleto"] = usuario!!.nomeCompleto
         user["estado"] = usuario!!.estado
         user["ddd"] = usuario!!.ddd
         user["telefone"] = usuario!!.telefone
@@ -71,6 +70,7 @@ class UsuarioViewModel: ViewModel() {
         firebaseAuth.createUserWithEmailAndPassword(usuario!!.email, usuario!!.senha)
             .addOnSuccessListener {
                 if(it != null){
+                    document.set(user)
                     Toast.makeText(context, "Cadastro realizado com sucesso",
                         Toast.LENGTH_SHORT).show()
                 }
@@ -80,7 +80,6 @@ class UsuarioViewModel: ViewModel() {
                     Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_SHORT).show()
                 }
             }
-        document.set(user)
     }
 
     fun loginFirestore(context: Context, boxEmail: String, boxSenha: String){
@@ -105,22 +104,26 @@ class UsuarioViewModel: ViewModel() {
             }
     }
 
+    
     @SuppressLint("SetTextI18n")
     fun infoPerfil(txtNomeCompleto: TextView, txtApelido: TextView, txtEstado: TextView,
                    txtTelefone: TextView, txtEmail: TextView){
+
         var document = FirebaseFirestore.getInstance()
             .collection("usuarios")
             .document(usuarioLogado!!.email!!)
 
-        document.get()
-            .addOnSuccessListener {
-            if(it != null){
-                txtNomeCompleto.text = "${it["nome"]}"
-                txtApelido.text = "${it["apelido"]}"
-                txtEstado.text = "${it["estado"]}"
-                txtTelefone.text = "${it["ddd"]}"+"${it["telefone"]}"
-                txtEmail.text = "${it["email"]}"
-            }
-        }
+            document.get()
+                .addOnSuccessListener {
+                    if(it != null){
+                        txtNomeCompleto.text = "${it["nomeCompleto"]}"
+                        txtApelido.text = "${it["apelido"]}"
+                        txtEstado.text = "${it["estado"]}"
+                        txtTelefone.text = "${it["ddd"]}"+"${it["telefone"]}"
+                        txtEmail.text = "${it["email"]}"
+                    }else{
+                        Log.i("Problema", "algum problema ocorreu aqui")
+                    }
+                }
     }
 }
