@@ -15,12 +15,4 @@ class Usuario(
     var ddd: String,
     var telefone: String
 
-) : Serializable {
-
-    init {
-        if(ddd.length != 2)
-            throw UsuarioDDDException()
-        if(telefone.length != 9)
-            throw UsuarioTelefoneException()
-    }
-}
+)

@@ -1,26 +1,45 @@
 package com.example.pb_android_radion.viewModel
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.example.pb_android_radion.MainActivity
+import com.example.pb_android_radion.R
+import com.example.pb_android_radion.fragment.LoginFragment
 import com.example.pb_android_radion.model.Usuario
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.layout_cadastro.view.*
+import kotlin.coroutines.coroutineContext
+import androidx.navigation.fragment.NavHostFragment.findNavController as findNavController1
 
 class UsuarioViewModel: ViewModel() {
 
     var usuario: Usuario? = null
     var usuarioLogado: FirebaseUser? = null
+    var autenticado: Boolean = false
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var firestore: FirebaseFirestore
+    val firebaseStore = FirebaseFirestore.getInstance()
+    var firebaseAuthInstance = FirebaseAuth.getInstance()
+    var firestoreInstance = FirebaseFirestore.getInstance()
 
-    fun verificarNulo(
+
+     fun verificarNulo(
         view: View, context: Context): Boolean {
         //Verifico se algum campo está nulo ou vazio
         if (
@@ -44,16 +63,14 @@ class UsuarioViewModel: ViewModel() {
                 ddd = view.boxDDDCadastro.text.toString(),
                 telefone = view.boxTelefoneCadastro.text.toString()
             )
+
             return true
         }
     }
 
     fun salvarNoFirestore(context: Context){
 
-        firebaseAuth = FirebaseAuth.getInstance()
-        firestore = FirebaseFirestore.getInstance()
-
-       var collection = firestore.collection("usuarios")
+       var collection = firebaseStore.collection("usuarios")
 
         var user: MutableMap<String, Any> = HashMap()
         user["apelido"] = usuario!!.apelido
@@ -65,14 +82,41 @@ class UsuarioViewModel: ViewModel() {
         user["ddd"] = usuario!!.ddd
         user["telefone"] = usuario!!.telefone
 
-        var document = collection.document(usuario!!.email)
+        collection.document(usuario!!.email).set(user)
+        criarAuth(usuario!!.email, usuario!!.senha, context)
 
-        firebaseAuth.createUserWithEmailAndPassword(usuario!!.email, usuario!!.senha)
+        /*firebaseAuthInstance.createUserWithEmailAndPassword(usuario!!.email, usuario!!.senha)
+
             .addOnSuccessListener {
-                if(it != null){
-                    document.set(user)
+                Log.i("usuario", usuario!!.email)
+                Log.i("usuario",  usuario!!.senha)
+
+                if (it != null){
+                   // collection.document(usuario!!.email).set(user)
                     Toast.makeText(context, "Cadastro realizado com sucesso",
                         Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.d("Autenticacao", "Cadastrado!")
+                }
+            }
+            .addOnFailureListener {
+                if(it.message == "The email address is already in use by another account"){
+                    Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+*/
+    }
+    fun criarAuth(usuario:String, senha:String, context: Context){
+        firebaseAuthInstance.createUserWithEmailAndPassword(usuario, senha)
+            .addOnSuccessListener {
+                Log.i("usuario", usuario)
+                Log.i("usuario",  senha)
+                if (it != null){
+                    Toast.makeText(context, "Cadastro realizado com sucesso",
+                        Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.d("Autenticacao", "Cadastrado!")
                 }
             }
             .addOnFailureListener {
@@ -83,25 +127,37 @@ class UsuarioViewModel: ViewModel() {
     }
 
     fun loginFirestore(context: Context, boxEmail: String, boxSenha: String){
-
-        firebaseAuth = FirebaseAuth.getInstance()
-
-        firebaseAuth.signInWithEmailAndPassword(boxEmail, boxSenha)
+        firebaseAuthInstance.signInWithEmailAndPassword(boxEmail, boxSenha)
             .addOnSuccessListener {
                 if(it != null){
                     Toast.makeText(context, "Bem vindo ${it.user!!.email}",
                         Toast.LENGTH_SHORT).show()
+                    //Autenticação foi validada
+                    autenticado = true
+                    Log.i("usu", "cheguei")
+                    /*val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("it",it)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(intent)
+                    findNavController(context.req,R.layout.activity_login).navigate(R.id.nav_home)
+*/
+                    //context.startActivity(Intent(context, MainActivity::class.java))
+                    //val intent : Intent
+                    //startActivity(context.applicationContext, MainActivity::class.java)
                 }
-            }
-            .addOnFailureListener {
-                if(it.message == "The email address is baldy formatted"){
-                    Toast.makeText(context, "Por favor insira um email com formato válido",
-                        Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(context, "Email ou senha inválidos!",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
+            }.addOnFailureListener {
+                autenticado =false
+                Toast.makeText(
+                    context,
+                    "Usuário inválido",
+                    Toast.LENGTH_LONG
+                ).show()
+        }
+
+    }
+
+    fun confirmaLogin(): Boolean{
+        return autenticado
     }
 
     
@@ -126,4 +182,7 @@ class UsuarioViewModel: ViewModel() {
                     }
                 }
     }
+
+
 }
+

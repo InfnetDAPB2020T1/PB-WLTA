@@ -39,4 +39,5 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
           musicaViewModel.setupRecycleView(ListaDeMusicasRecycle,this.requireContext())
     }
+
 }

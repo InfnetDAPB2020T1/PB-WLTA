@@ -56,5 +56,8 @@
     <string name="nome_da_m_sica">Nome da música</string>
     <string name="cantor_a_banda">Cantor(a)/Banda: </string>
     <string name="album">Album: </string>
+    <string name="novo_apelido">Novo apelido</string>
+    <string name="mudar_apelido">Editar apelido</string>
+    <string name="editar_estado">Editar estado</string>
 
 </resources>

@@ -54,19 +54,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-   /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
 
-    }*/
+    }
 
 
     ///exibir info no drawer layout
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(nav_host_fragment)
 
-        usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
+      //  usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
 
         usuarioViewModel.usuarioLogado = FirebaseAuth.getInstance().currentUser
 
@@ -83,6 +83,8 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
     }
+
+
   /*  private fun loadData() {
         listaMusica.add("Afghanistan")
         listaMusica.add("Albania")
