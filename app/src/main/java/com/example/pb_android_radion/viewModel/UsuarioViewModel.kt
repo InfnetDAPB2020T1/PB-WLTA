@@ -127,6 +127,10 @@ class UsuarioViewModel: ViewModel() {
     }
 
     fun loginFirestore(context: Context, boxEmail: String, boxSenha: String){
+        if(boxEmail.isNullOrBlank() || boxSenha.isNullOrBlank()){
+            Toast.makeText(context, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+            return
+        }
         firebaseAuthInstance.signInWithEmailAndPassword(boxEmail, boxSenha)
             .addOnSuccessListener {
                 if(it != null){
@@ -146,7 +150,7 @@ class UsuarioViewModel: ViewModel() {
                     //startActivity(context.applicationContext, MainActivity::class.java)
                 }
             }.addOnFailureListener {
-                autenticado =false
+                autenticado = false
                 Toast.makeText(
                     context,
                     "Usuário inválido",
