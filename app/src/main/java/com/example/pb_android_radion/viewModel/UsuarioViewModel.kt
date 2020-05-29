@@ -137,8 +137,9 @@ class UsuarioViewModel: ViewModel() {
                     Toast.makeText(context, "Bem vindo ${it.user!!.email}",
                         Toast.LENGTH_SHORT).show()
                     //Autenticação foi validada
-                    autenticado = true
+                    //autenticado = true
                     Log.i("usu", "cheguei")
+                    context.startActivity(Intent(context, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
                     /*val intent = Intent(context, MainActivity::class.java)
                     intent.putExtra("it",it)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -150,7 +151,7 @@ class UsuarioViewModel: ViewModel() {
                     //startActivity(context.applicationContext, MainActivity::class.java)
                 }
             }.addOnFailureListener {
-                autenticado = false
+                //autenticado = false
                 Toast.makeText(
                     context,
                     "Usuário inválido",

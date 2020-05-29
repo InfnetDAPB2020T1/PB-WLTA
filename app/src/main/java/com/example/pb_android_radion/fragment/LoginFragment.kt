@@ -48,9 +48,9 @@ class LoginFragment : Fragment() {
         btnLogarLogin.setOnClickListener {
             usuarioViewModel.loginFirestore(requireContext().applicationContext,
                 boxEmailLogin.text.toString(), boxSenhaLogin.text.toString())
-            if (usuarioViewModel.confirmaLogin()){
-                startActivity(Intent(activity?.baseContext, MainActivity::class.java))
-            }
+//            if (usuarioViewModel.confirmaLogin()){
+//                startActivity(Intent(activity?.baseContext, MainActivity::class.java))
+//            }
         }
     }
 }
