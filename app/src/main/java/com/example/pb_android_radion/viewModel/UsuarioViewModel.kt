@@ -2,10 +2,12 @@ package com.example.pb_android_radion.viewModel
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import com.example.pb_android_radion.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
@@ -78,28 +80,6 @@ class UsuarioViewModel: ViewModel() {
             .addOnFailureListener {
                 if(it.message == "The email address is already in use by another account"){
                     Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
-    fun loginFirestore(context: Context, boxEmail: String, boxSenha: String){
-
-        firebaseAuth = FirebaseAuth.getInstance()
-
-        firebaseAuth.signInWithEmailAndPassword(boxEmail, boxSenha)
-            .addOnSuccessListener {
-                if(it != null){
-                    Toast.makeText(context, "Bem vindo ${it.user!!.email}",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-            .addOnFailureListener {
-                if(it.message == "The email address is baldy formatted"){
-                    Toast.makeText(context, "Por favor insira um email com formato válido",
-                        Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(context, "Email ou senha inválidos!",
-                        Toast.LENGTH_SHORT).show()
                 }
             }
     }
