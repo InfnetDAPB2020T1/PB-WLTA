@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.example.pb_android_radion.LoginActivity
 import com.example.pb_android_radion.MainActivity
 import com.example.pb_android_radion.R
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
@@ -30,10 +31,7 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
-
     }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.let {
@@ -46,10 +44,16 @@ class LoginFragment : Fragment() {
         }
 
         btnLogarLogin.setOnClickListener {
-            usuarioViewModel.loginFirestore(requireContext().applicationContext,
-                boxEmailLogin.text.toString(), boxSenhaLogin.text.toString())
+            if (!boxEmailLogin.text.isNullOrBlank() || !boxSenhaLogin.text.isNullOrBlank()){
+                usuarioViewModel.loginFirestore(requireContext().applicationContext,
+                    boxEmailLogin.text.toString(), boxSenhaLogin.text.toString())
+            }else{
+                Toast.makeText(requireContext().applicationContext, "Preencha os dados.", Toast.LENGTH_SHORT).show()
+            }
+
             if (usuarioViewModel.confirmaLogin()){
                 startActivity(Intent(activity?.baseContext, MainActivity::class.java))
+
             }
         }
     }

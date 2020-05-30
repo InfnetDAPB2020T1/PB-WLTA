@@ -10,7 +10,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun finish() {
+        super.finish()
     }
 }

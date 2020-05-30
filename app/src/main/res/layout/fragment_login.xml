@@ -56,8 +56,8 @@
                     app:boxBackgroundMode="outline"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/branco"
-                    android:textColorHighlight="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHighlight="@color/branco"
+                    android:textColorHint="@color/branco"
                     android:textColorLink="@color/branco"
                     >
 
@@ -100,56 +100,6 @@
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
-             <!--   <TextView
-                    android:id="@+id/textoEmailCadastro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textoEmail"
-                    android:textColor="@color/boxText"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="33dp"
-                    tools:layout_editor_absoluteY="253dp" />
-
-                <EditText
-                    android:id="@+id/boxEmailLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/boxEmail"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/branco"
-                    android:textColorHighlight="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
-                    android:textColorLink="@color/branco"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="29dp"
-                    tools:layout_editor_absoluteY="272dp" /
-
-                <TextView
-                    android:id="@+id/textoSenhaLogin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/boxSenha"
-                    android:textColor="@color/boxText"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="33dp"
-                    tools:layout_editor_absoluteY="306dp" />
-
-                <EditText
-                    android:id="@+id/boxSenhaLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/boxSenha"
-                    android:inputType="textPassword"
-                    android:textColor="@color/branco"
-                    android:textColorHighlight="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
-                    android:textColorLink="@color/branco"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="29dp"
-                    tools:layout_editor_absoluteY="325dp" />>!-->
-
 
                 <TextView
                     android:id="@+id/textoEsqueciSenhaLogin"

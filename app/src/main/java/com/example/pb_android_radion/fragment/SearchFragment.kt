@@ -38,10 +38,10 @@ class SearchFragment : Fragment() {
             searchViewModel = ViewModelProviders.of(it).get(SearchViewModel::class.java)
         }
         //loadData()
-        searchViewModel.setupRecycleView(ListaDeMusicasRecycle, requireContext().applicationContext)
+     //   searchViewModel.setupRecycleView(searchRecycle, requireContext().applicationContext)
 
     }
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+   /* override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main, menu)
         val searchItem = menu.findItem(R.id.menu_search)
         val searchManager =
@@ -67,7 +67,7 @@ class SearchFragment : Fragment() {
                     } else {
                         displayList.addAll(listaMusica)
                     }
-                    ListaDeMusicasRecycle.adapter?.notifyDataSetChanged()
+                    searchRecycle.adapter?.notifyDataSetChanged()
                     return true
                 }
 
@@ -79,18 +79,8 @@ class SearchFragment : Fragment() {
             searchView!!.setOnQueryTextListener(queryTextListener)
         }
         super.onCreateOptionsMenu(menu, inflater)
-    }
+    }*/
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_search ->
-                return false
-            else -> {
-            }
-        }
-        searchView?.setOnQueryTextListener(queryTextListener)
-        return super.onOptionsItemSelected(item)
-    }
 /*
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
