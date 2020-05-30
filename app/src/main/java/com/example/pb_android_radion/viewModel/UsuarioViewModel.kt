@@ -127,23 +127,38 @@ class UsuarioViewModel: ViewModel() {
     }
 
     fun loginFirestore(context: Context, boxEmail: String, boxSenha: String){
+        if(boxEmail.isNullOrBlank() || boxSenha.isNullOrBlank()){
+            Toast.makeText(context, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+            return
+        }
         firebaseAuthInstance.signInWithEmailAndPassword(boxEmail, boxSenha)
             .addOnSuccessListener {
                 if(it != null){
                     Toast.makeText(context, "Bem vindo ${it.user!!.email}",
                         Toast.LENGTH_SHORT).show()
                     //Autenticação foi validada
-                    autenticado = true
+                    //autenticado = true
                     Log.i("usu", "cheguei")
+                    context.startActivity(Intent(context, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                    /*val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("it",it)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(intent)
+                    findNavController(context.req,R.layout.activity_login).navigate(R.id.nav_home)
+*/
+                    //context.startActivity(Intent(context, MainActivity::class.java))
+                    //val intent : Intent
+                    //startActivity(context.applicationContext, MainActivity::class.java)
                 }
             }.addOnFailureListener {
-                autenticado = false
+                //autenticado = false
                 Toast.makeText(
                     context,
                     "Usuário inválido",
                     Toast.LENGTH_LONG
                 ).show()
         }
+
     }
 
     fun confirmaLogin(): Boolean{
