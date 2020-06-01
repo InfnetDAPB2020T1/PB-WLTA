@@ -28,16 +28,6 @@ class SearchAdapter(
       //  var textViewNomeAlbum = view.textViewNomeAlbum
        // var imagem: ImageManager? = null
        var expandableLayout = view.expandableLayout
-/*
-
-        textViewNomeMusica.setOnClickListener {
-                val movie = SearchEvent.get(getAdapterPosition())
-                movie.setExpanded(!movie.isExpanded());
-                notifyItemChanged(getAdapterPosition());
-
-            }
-*/
-
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)

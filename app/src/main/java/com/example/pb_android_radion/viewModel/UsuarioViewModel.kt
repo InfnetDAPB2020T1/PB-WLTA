@@ -140,15 +140,6 @@ class UsuarioViewModel: ViewModel() {
                     //autenticado = true
                     Log.i("usu", "cheguei")
                     context.startActivity(Intent(context, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-                    /*val intent = Intent(context, MainActivity::class.java)
-                    intent.putExtra("it",it)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    context.startActivity(intent)
-                    findNavController(context.req,R.layout.activity_login).navigate(R.id.nav_home)
-*/
-                    //context.startActivity(Intent(context, MainActivity::class.java))
-                    //val intent : Intent
-                    //startActivity(context.applicationContext, MainActivity::class.java)
                 }
             }.addOnFailureListener {
                 //autenticado = false
@@ -158,7 +149,6 @@ class UsuarioViewModel: ViewModel() {
                     Toast.LENGTH_LONG
                 ).show()
         }
-
     }
 
     fun confirmaLogin(): Boolean{
