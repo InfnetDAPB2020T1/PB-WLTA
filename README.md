@@ -7,7 +7,7 @@
 - Andressa Fernandes
 
 ## Assunto
-> Uma rádio online, que tem por objetivo sua programação diária ser construída pelos usuários cadastrados enviado suas músicas.
+> Uma rádio online, que tem sua programação diária construída pelos usuários cadastrados, através da seleção de músicas.
 
 ## Cenário
 
