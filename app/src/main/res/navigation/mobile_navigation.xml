@@ -3,50 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
+    app:startDestination="@id/nav_home">
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.pb_android_radion.ui.home.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_nav_home_to_nav_search"
-            app:destination="@id/nav_search" />
-    </fragment>
-    <!-- <fragment
-        android:id="@+id/nav_home_second"
-        android:name="com.example.pb_android_radion.ui.home.HomeSecondFragment"
-        android:label="@string/home_second"
-        tools:layout="@layout/fragment_home_second">
-        <action
-            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
-            app:destination="@id/nav_home" />
-
-        <argument
-            android:name="myArg"
-            app:argType="string" />
-    </fragment> -->
-
-    <fragment
-        android:id="@+id/nav_playlist"
-        android:name="com.example.pb_android_radion.fragment.MinhaPlaylistFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_minha_playlist" />
-
+        android:id="@+id/nav_search"
+        android:name="com.projeto.pb_android_radion.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/nav_historico"
-        android:name="com.example.pb_android_radion.fragment.HistoricoFragment"
-        android:label="@string/menu_slideshow"
+        android:name="com.projeto.pb_android_radion.fragment.HistoricoFragment"
+        android:label="fragment_historico"
         tools:layout="@layout/fragment_historico" />
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.example.pb_android_radion.fragment.PerfilFragment"
-        android:label="Perfil"
+        android:name="com.projeto.pb_android_radion.fragment.PerfilFragment"
+        android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" />
     <fragment
-        android:id="@+id/nav_search"
-        android:name="com.example.pb_android_radion.fragment.SearchFragment"
-        android:label="Pesquisa de Músicas"
-        tools:layout="@layout/fragment_search" />
+        android:id="@+id/nav_home"
+        android:name="com.projeto.pb_android_radion.ui.home.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_playlist"
+        android:name="com.projeto.pb_android_radion.fragment.MinhaPlaylistFragment"
+        android:label="fragment_minha_playlist"
+        tools:layout="@layout/fragment_minha_playlist" />
 </navigation>

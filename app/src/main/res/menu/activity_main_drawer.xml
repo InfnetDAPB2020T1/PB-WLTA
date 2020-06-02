@@ -14,11 +14,6 @@
             android:title="@string/menu_settings" />
 
         <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/ic_search"
-            android:visible="false"
-            android:title="@string/menu_search" />
-        <item
             android:id="@+id/nav_playlist"
             android:checkable="false"
             android:visible="false"

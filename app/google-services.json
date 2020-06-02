@@ -8,20 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:708491077753:android:bd2fd2705bd2dbd577cca8",
+        "mobilesdk_app_id": "1:708491077753:android:47cd56659d54c7b677cca8",
         "android_client_info": {
-          "package_name": "com.example.pb_android_radion"
+          "package_name": "com.projeto.pb_android_radion"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "708491077753-894960ora9dhi2b78jeii0savsn406os.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.pb_android_radion",
-            "certificate_hash": "8c4c60b6ac05f2a5ad04866cfb22799bee6a84ce"
-          }
-        },
         {
           "client_id": "708491077753-red7if0pmb1dl9qr5eu4fpmjk49stnfu.apps.googleusercontent.com",
           "client_type": 3
