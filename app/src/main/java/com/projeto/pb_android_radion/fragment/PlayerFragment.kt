@@ -1,4 +1,4 @@
-package com.example.pb_android_radion.fragment
+package com.projeto.pb_android_radion.fragment
 
 import android.annotation.SuppressLint
 import android.media.AudioManager
@@ -6,18 +6,19 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.viewModel.MusicaViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.FirebaseStorage.getInstance
 import com.google.firebase.storage.StorageReference
+import com.projeto.pb_android_radion.R
 import kotlinx.android.synthetic.main.fragment_player.*
 
 class PlayerFragment : Fragment() {

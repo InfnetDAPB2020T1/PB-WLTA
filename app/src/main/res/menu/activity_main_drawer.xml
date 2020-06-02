@@ -4,10 +4,10 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
+        <!--<item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_home" />-->
         <item
             android:id="@+id/nav_perfil"
             android:icon="@drawable/ic_icons8_configuracoes_3_50_2"
@@ -16,6 +16,7 @@
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/ic_search"
+            android:visible="false"
             android:title="@string/menu_search" />
         <item
             android:id="@+id/nav_playlist"

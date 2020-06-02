@@ -1,4 +1,4 @@
-package com.projeto.pb_android_radion.home
+package com.projeto.pb_android_radion.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

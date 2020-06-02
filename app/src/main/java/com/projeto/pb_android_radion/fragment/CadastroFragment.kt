@@ -1,4 +1,4 @@
-package com.example.pb_android_radion.fragment
+package com.projeto.pb_android_radion.fragment
 
 
 import android.os.Bundle
@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.projeto.pb_android_radion.R
-import com.example.pb_android_radion.viewModel.UsuarioViewModel
+import com.projeto.pb_android_radion.viewModel.UsuarioViewModel
 import kotlinx.android.synthetic.main.layout_cadastro.*
 
 class CadastroFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.pb_android_radion.fragment
+package com.projeto.pb_android_radion.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

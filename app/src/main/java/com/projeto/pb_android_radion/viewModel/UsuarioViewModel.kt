@@ -1,4 +1,4 @@
-package com.example.pb_android_radion.viewModel
+package com.projeto.pb_android_radion.viewModel
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,11 +8,11 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.projeto.pb_android_radion.MainActivity
+import com.projeto.pb_android_radion.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.example.pb_android_radion.MainActivity
-import com.example.pb_android_radion.model.Usuario
 import kotlinx.android.synthetic.main.layout_cadastro.view.*
 
 class UsuarioViewModel: ViewModel() {
@@ -72,33 +72,10 @@ class UsuarioViewModel: ViewModel() {
         collection.document(usuario!!.email).set(user)
         criarAuth(usuario!!.email, usuario!!.senha, context)
 
-        /*firebaseAuthInstance.createUserWithEmailAndPassword(usuario!!.email, usuario!!.senha)
-
-            .addOnSuccessListener {
-                Log.i("usuario", usuario!!.email)
-                Log.i("usuario",  usuario!!.senha)
-
-                if (it != null){
-                   // collection.document(usuario!!.email).set(user)
-                    Toast.makeText(context, "Cadastro realizado com sucesso",
-                        Toast.LENGTH_SHORT).show()
-                } else {
-                    Log.d("Autenticacao", "Cadastrado!")
-                }
-            }
-            .addOnFailureListener {
-                if(it.message == "The email address is already in use by another account"){
-                    Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-*/
     }
     fun criarAuth(usuario:String, senha:String, context: Context){
         firebaseAuthInstance.createUserWithEmailAndPassword(usuario, senha)
             .addOnSuccessListener {
-                Log.i("usuario", usuario)
-                Log.i("usuario",  senha)
                 if (it != null){
                     Toast.makeText(context, "Cadastro realizado com sucesso",
                         Toast.LENGTH_SHORT).show()
@@ -126,25 +103,11 @@ class UsuarioViewModel: ViewModel() {
                     //Autenticação foi validada
                     //autenticado = true
                     Log.i("usu", "cheguei")
-<<<<<<< HEAD:app/src/main/java/com.projeto.pb_android_radion/viewModel/UsuarioViewModel.kt
                     context.startActivity(Intent(context, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+
                 }
             }.addOnFailureListener {
                 //autenticado = false
-=======
-                    /*val intent = Intent(context, MainActivity::class.java)
-                    intent.putExtra("it",it)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    context.startActivity(intent)
-                    findNavController(context.req,R.layout.activity_login).navigate(R.id.nav_home)
-*/
-                    //context.startActivity(Intent(context, MainActivity::class.java))
-                    //val intent : Intent
-                    //startActivity(context.applicationContext, MainActivity::class.java)
-                }
-            }.addOnFailureListener {
-                autenticado =false
->>>>>>> parent of 6a6e5f8... Mudando search:app/src/main/java/com/example/pb_android_radion/viewModel/UsuarioViewModel.kt
                 Toast.makeText(
                     context,
                     "Usuário inválido",
@@ -180,7 +143,5 @@ class UsuarioViewModel: ViewModel() {
                     }
                 }
     }
-
-
 }
 

@@ -1,4 +1,4 @@
-package com.example.pb_android_radion
+package com.projeto.pb_android_radion
 
 import org.junit.Test
 

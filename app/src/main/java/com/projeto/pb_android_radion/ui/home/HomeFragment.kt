@@ -1,4 +1,4 @@
-package com.projeto.pb_android_radion.home
+package com.projeto.pb_android_radion.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.viewModel.MusicaViewModel
+import com.projeto.pb_android_radion.R
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {

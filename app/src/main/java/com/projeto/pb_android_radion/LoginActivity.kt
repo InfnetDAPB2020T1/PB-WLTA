@@ -1,8 +1,7 @@
-package com.example.pb_android_radion
+package com.projeto.pb_android_radion
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.projeto.pb_android_radion.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -11,7 +10,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun finish() {
+        super.finish()
     }
 }

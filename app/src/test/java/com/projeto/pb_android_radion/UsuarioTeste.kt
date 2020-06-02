@@ -1,5 +1,4 @@
-package com.example.pb_android_radion
-
+package com.projeto.pb_android_radion
 
 import com.projeto.pb_android_radion.model.Usuario
 import com.projeto.pb_android_radion.throws.UsuarioDDDException
@@ -41,4 +40,5 @@ class UsuarioTeste {
             assertEquals(UsuarioTelefoneException().message, e.message)
         }
     }
+
 }

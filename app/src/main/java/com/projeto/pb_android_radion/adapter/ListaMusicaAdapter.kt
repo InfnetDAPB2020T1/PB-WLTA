@@ -1,12 +1,11 @@
-package com.example.pb_android_radion.adapter
+package com.projeto.pb_android_radion.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.projeto.pb_android_radion.R
-import com.example.pb_android_radion.model.Musica
-
+import com.projeto.pb_android_radion.model.Musica
 import kotlinx.android.synthetic.main.lista_musica.view.*
 
 class ListaMusicaAdapter(val musica:List<Musica>

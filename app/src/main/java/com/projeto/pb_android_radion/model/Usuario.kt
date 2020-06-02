@@ -1,4 +1,4 @@
-package com.example.pb_android_radion.model
+package com.projeto.pb_android_radion.model
 
 class Usuario(
 

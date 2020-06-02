@@ -1,6 +1,7 @@
-package com.example.pb_android_radion.model
+package com.projeto.pb_android_radion.model
 
 import com.google.android.gms.common.images.ImageManager
+import com.google.firebase.firestore.DocumentId
 
 class Search (
     var nomeMusica: String? = null,

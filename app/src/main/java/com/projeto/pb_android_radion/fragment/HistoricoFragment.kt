@@ -1,4 +1,4 @@
-package com.example.pb_android_radion.fragment
+package com.projeto.pb_android_radion.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.projeto.pb_android_radion.R
-import com.example.pb_android_radion.viewModel.HistoricoViewModel
+import com.projeto.pb_android_radion.viewModel.HistoricoViewModel
 
 class HistoricoFragment : Fragment() {
 
