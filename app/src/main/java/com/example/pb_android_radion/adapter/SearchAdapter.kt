@@ -6,27 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pb_android_radion.R
-import com.example.pb_android_radion.model.User
+import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.viewModel.SearchViewModel
 import kotlinx.android.synthetic.main.layout_search.view.*
 
 class SearchAdapter(
-    val musicaSearch: MutableList<User>
+    val musicaSearch: MutableList<Usuario>
 )
-    :RecyclerView.Adapter<SearchAdapter.searchViewHolder>() {
+    :RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
     private var mExpandedPosition = -1
     private var previousExpandedPosition = -1
     private val recyclerView: RecyclerView? = null
 
-    class searchViewHolder(
+    class SearchViewHolder(
         view: View
     )
         : RecyclerView.ViewHolder(view){
 
         var textViewNomeMusica = view.textViewNomeMusica
         var textViewNomeCantor = view.textViewNomeCantorBanda
-      //  var textViewNomeAlbum = view.textViewNomeAlbum
-       // var imagem: ImageManager? = null
+        //var textViewNomeAlbum = view.textViewNomeAlbum
+        //var imagem: ImageManager? = null
        var expandableLayout = view.expandableLayout
 /*
 
@@ -41,7 +41,7 @@ class SearchAdapter(
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            : searchViewHolder {
+            : SearchViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(
@@ -50,7 +50,7 @@ class SearchAdapter(
                 false
             )
         val searchViewHolder =
-            searchViewHolder(
+            SearchViewHolder(
                 view
             )
         return searchViewHolder
@@ -59,15 +59,15 @@ class SearchAdapter(
     override fun getItemCount(): Int = musicaSearch.size
 
     @SuppressLint("NewApi")
-    override fun onBindViewHolder(holder: searchViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
 
         val musica = musicaSearch[position]
         holder.textViewNomeMusica.text = "musica.nomeMusica"
         holder.textViewNomeCantor.text = "musica.nomeCantor"
        // holder.textViewNomeAlbum.text = "musica.nomeAlbum"
-     //   holder.expandableLayout = musicaSearch.get(position).isExpanded()
+       // holder.expandableLayout = musicaSearch.get(position).isExpanded()
 
-        val isExpanded = position === mExpandedPosition
+        val isExpanded = position == mExpandedPosition
 
         //ESSE
         holder.expandableLayout.setVisibility(if (isExpanded) View.VISIBLE else View.GONE)

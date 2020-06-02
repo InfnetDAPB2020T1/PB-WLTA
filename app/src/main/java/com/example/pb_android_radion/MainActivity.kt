@@ -23,7 +23,7 @@ import com.example.pb_android_radion.R.id.*
 import com.example.pb_android_radion.R.layout
 import com.example.pb_android_radion.adapter.SearchAdapter
 import com.example.pb_android_radion.model.Search
-import com.example.pb_android_radion.model.User
+import com.example.pb_android_radion.model.Usuario
 import com.example.pb_android_radion.viewModel.SearchViewModel
 import com.example.pb_android_radion.viewModel.UsuarioViewModel
 import com.google.android.material.navigation.NavigationView
@@ -31,7 +31,6 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.nav_header_main.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        //colocando as informacoes na tela de perfil
         usuarioViewModel = ViewModelProviders.of(this)[UsuarioViewModel::class.java]
 
     }

@@ -84,34 +84,10 @@ class UsuarioViewModel: ViewModel() {
 
         collection.document(usuario!!.email).set(user)
         criarAuth(usuario!!.email, usuario!!.senha, context)
-
-        /*firebaseAuthInstance.createUserWithEmailAndPassword(usuario!!.email, usuario!!.senha)
-
-            .addOnSuccessListener {
-                Log.i("usuario", usuario!!.email)
-                Log.i("usuario",  usuario!!.senha)
-
-                if (it != null){
-                   // collection.document(usuario!!.email).set(user)
-                    Toast.makeText(context, "Cadastro realizado com sucesso",
-                        Toast.LENGTH_SHORT).show()
-                } else {
-                    Log.d("Autenticacao", "Cadastrado!")
-                }
-            }
-            .addOnFailureListener {
-                if(it.message == "The email address is already in use by another account"){
-                    Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-*/
     }
     fun criarAuth(usuario:String, senha:String, context: Context){
         firebaseAuthInstance.createUserWithEmailAndPassword(usuario, senha)
             .addOnSuccessListener {
-                Log.i("usuario", usuario)
-                Log.i("usuario",  senha)
                 if (it != null){
                     Toast.makeText(context, "Cadastro realizado com sucesso",
                         Toast.LENGTH_SHORT).show()
@@ -136,19 +112,7 @@ class UsuarioViewModel: ViewModel() {
                 if(it != null){
                     Toast.makeText(context, "Bem vindo ${it.user!!.email}",
                         Toast.LENGTH_SHORT).show()
-                    //Autenticação foi validada
-                    //autenticado = true
-                    Log.i("usu", "cheguei")
                     context.startActivity(Intent(context, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-                    /*val intent = Intent(context, MainActivity::class.java)
-                    intent.putExtra("it",it)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    context.startActivity(intent)
-                    findNavController(context.req,R.layout.activity_login).navigate(R.id.nav_home)
-*/
-                    //context.startActivity(Intent(context, MainActivity::class.java))
-                    //val intent : Intent
-                    //startActivity(context.applicationContext, MainActivity::class.java)
                 }
             }.addOnFailureListener {
                 //autenticado = false
@@ -158,7 +122,6 @@ class UsuarioViewModel: ViewModel() {
                     Toast.LENGTH_LONG
                 ).show()
         }
-
     }
 
     fun confirmaLogin(): Boolean{
@@ -182,12 +145,8 @@ class UsuarioViewModel: ViewModel() {
                         txtEstado.text = "${it["estado"]}"
                         txtTelefone.text = "${it["ddd"]}"+"${it["telefone"]}"
                         txtEmail.text = "${it["email"]}"
-                    }else{
-                        Log.i("Problema", "algum problema ocorreu aqui")
                     }
                 }
     }
-
-
 }
 
