@@ -42,10 +42,10 @@ Nossa intenção ao fazer este app é resgatar a dinâmica de uma década super 
 - Sistema de crédito. - a decidir  
 - Amizade.
 - Notificação de amizade (pedido de aceitação???).
-- Boquear usuário.
+- Bloquear usuário.
 - Favoritar músicas do colega - desbloqueado para amigos.
 - Notificação de quais amigos favoritando as músicas, do usuário, e quais músicas.
-- Área para comentário - abaixo de cada álbum.
+- Área para comentario - abaixo de cada álbum.
 - Recomendação de música para outros usuários.
 - Notificação da recomendação do colega.
 - Playlist colaborativa entre convidados do grupo.
