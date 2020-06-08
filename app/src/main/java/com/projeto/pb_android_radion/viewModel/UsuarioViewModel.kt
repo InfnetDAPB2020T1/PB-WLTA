@@ -104,7 +104,6 @@ class UsuarioViewModel: ViewModel() {
                     //autenticado = true
                     Log.i("usu", "cheguei")
                     context.startActivity(Intent(context, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-
                 }
             }.addOnFailureListener {
                 //autenticado = false

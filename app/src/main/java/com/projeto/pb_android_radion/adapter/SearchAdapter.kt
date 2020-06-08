@@ -1,23 +1,21 @@
 package com.projeto.pb_android_radion.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.projeto.pb_android_radion.model.Search
 import com.projeto.pb_android_radion.R
 import kotlinx.android.synthetic.main.layout_search.view.*
 
 class SearchAdapter(
-    val musicaSearch: MutableList<Search>
+    val musicaSearch: ArrayList<String>
 )
-    :RecyclerView.Adapter<SearchAdapter.searchViewHolder>() {
+    :RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
     private var mExpandedPosition = -1
     private var previousExpandedPosition = -1
     private val recyclerView: RecyclerView? = null
 
-    class searchViewHolder(
+    class SearchViewHolder(
         view: View
     )
         : RecyclerView.ViewHolder(view){
@@ -40,7 +38,7 @@ class SearchAdapter(
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            : searchViewHolder {
+            : SearchViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(
@@ -49,7 +47,7 @@ class SearchAdapter(
                 false
             )
         val searchViewHolder =
-            searchViewHolder(
+            SearchViewHolder(
                 view
             )
         return searchViewHolder
@@ -57,8 +55,8 @@ class SearchAdapter(
 
     override fun getItemCount(): Int = musicaSearch.size
 
-    @SuppressLint("NewApi")
-    override fun onBindViewHolder(holder: searchViewHolder, position: Int) {
+
+    override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
 
         val musica = musicaSearch[position]
         holder.textViewNomeMusica.text = "musica.nomeMusica"

@@ -54,11 +54,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
-        searchImg.setOnClickListener {
+        /*searchImg.setOnClickListener {
          //
             findViewById<View>(R.id.mobile_navigation)
 //            findNavController(searchFragment)
-        }
+        }*/
        /* //item da toolbar
         val searchViewItem = menu.findItem(R.id.menu_search)
         //SearchView
@@ -113,12 +113,6 @@ class MainActivity : AppCompatActivity() {
         usuarioViewModel.usuarioLogado = FirebaseAuth.getInstance().currentUser
         txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-
-    }
-
-
-    fun pesquisaMusica(view: View) {
-
 
     }
 }

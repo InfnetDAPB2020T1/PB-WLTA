@@ -56,7 +56,7 @@
                 android:layout_marginRight="16dp"
                 android:clickable="false"
                 android:ems="10"
-                android:hint="Pesquisa por música"
+                android:hint="@string/pesquisa_por_m_sica"
                 android:inputType="textPersonName"
                 android:onClick="pesquisaMusica"
                 app:layout_constraintEnd_toStartOf="@+id/searchImg"
@@ -67,7 +67,9 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <include layout="@layout/content_main" />
+    <include
+        layout="@layout/content_main"
+         />
 
     <fragment
         android:id="@+id/fragment"

@@ -52,56 +52,53 @@
                     android:id="@+id/textoEmailLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    app:boxBackgroundMode="outline"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/branco"
                     android:textColorHighlight="@color/branco"
                     android:textColorHint="@color/branco"
                     android:textColorLink="@color/branco"
-                    >
+                    android:textStyle="bold"
+                    app:boxBackgroundMode="outline">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/boxEmailLogin"
                         style="@style/config_edit"
-                        android:textColor="@color/branco"
-                        android:hint="@string/textoEmail"
                         android:ems="10"
-                        tools:layout_editor_absoluteX="29dp"
-                        tools:layout_editor_absoluteY="272dp"
+                        android:hint="@string/textoEmail"
                         android:inputType="textEmailAddress"
-                       />
+                        android:textColor="@color/branco"
+                        tools:layout_editor_absoluteX="29dp"
+                        tools:layout_editor_absoluteY="272dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textViewSenhaLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/branco"
-                    app:boxBackgroundMode="outline"
                     android:inputType="textPassword"
                     android:textColor="@color/branco"
                     android:textColorHighlight="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     android:textColorLink="@color/branco"
-                    >
+                    android:textStyle="bold"
+                    app:boxBackgroundMode="outline"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/branco">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/boxSenhaLogin"
                         style="@style/config_edit"
-                        android:hint="@string/textoSenha"
                         android:ems="10"
+                        android:hint="@string/textoSenha"
+                        android:inputType="textPassword"
                         android:textColor="@color/branco"
                         tools:layout_editor_absoluteX="29dp"
-                        tools:layout_editor_absoluteY="325dp"
-                        android:inputType="textPassword"
-                        />
+                        tools:layout_editor_absoluteY="325dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/textoEsqueciSenhaLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -111,7 +108,9 @@
                     android:text="@string/textoEsqueciSenha"
                     android:textColor="@color/boxText"
                     android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:visibility="false"
+                    android:focusable="true"
+                    tools:ignore="RtlHardcoded" />-->
 
                 <TextView
                     android:id="@+id/textoCadastroLogin"
@@ -121,10 +120,11 @@
                     android:layout_marginTop="25dp"
                     android:autoLink="all|web|phone|none|map|email"
                     android:clickable="true"
+                    android:focusable="true"
                     android:text="@string/textoCadastrar"
                     android:textColor="@color/rosaClaro"
-                    android:visibility="visible"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="visible" />
 
                 <Button
                     android:id="@+id/btnLogarLogin"
@@ -138,6 +138,8 @@
 
             </LinearLayout>
         </ScrollView>
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

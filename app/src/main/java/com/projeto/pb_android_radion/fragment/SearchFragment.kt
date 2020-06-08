@@ -8,9 +8,11 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.projeto.pb_android_radion.R
+import com.projeto.pb_android_radion.adapter.SearchAdapter
 import com.projeto.pb_android_radion.viewModel.SearchViewModel
-
 
 
 class SearchFragment : Fragment() {
@@ -20,6 +22,8 @@ class SearchFragment : Fragment() {
     var displayList = ArrayList<String>()
     private var searchView: SearchView? = null
     private var queryTextListener: SearchView.OnQueryTextListener? = null
+    lateinit var recycleView : RecyclerView
+    lateinit var search : SearchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +40,14 @@ class SearchFragment : Fragment() {
         activity?.let {
             searchViewModel = ViewModelProviders.of(it).get(SearchViewModel::class.java)
         }
-        //loadData()
-     //   searchViewModel.setupRecycleView(searchRecycle, requireContext().applicationContext)
+        loadData()
+        val search2 = SearchAdapter(displayList)
+        recycleView.adapter = search2
+        recycleView.layoutManager = LinearLayoutManager(requireContext().applicationContext)
+        /*recycleView.adapter = ListaMusicaAdapter(musica)*/
+    /*    recycleView.layoutManager = LinearLayoutManager(context)*/
+
+       /*searchViewModel.setupRecycleView(searchRecycle, requireContext().applicationContext)*/
 
     }
    /* override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
