@@ -18,7 +18,8 @@ class MusicaViewModel :  ViewModel() {
 
     //Instancia do FirebaseStorage - Conexao
   //  val firebaseStorage = FirebaseStorage.getInstance()
-    val firebaseStore = FirebaseFirestore.getInstance()
+//    val firebaseStore = FirebaseFirestore.getInstance()
+    private lateinit var firebaseFirestore: FirebaseFirestore
     lateinit var storageReference: StorageReference
     lateinit var firebaseStorage: FirebaseStorage
 
@@ -26,19 +27,26 @@ class MusicaViewModel :  ViewModel() {
     fun setupRecycleView(
         recycleView: RecyclerView, context: Context
     ){
+        firebaseFirestore = FirebaseFirestore.getInstance()
        // progressBar.visibility = View.VISIBLE
-        val collection = firebaseStore.collection("musica")
-        //val task = collection.get()
+        val collection = firebaseFirestore.collection("music")
 
-        val task = collection.limit(10).get() // 10 primeiros itens da consulta
+        val task = collection.get()
+
+//        val task = collection.limit(10).get() // 10 primeiros itens da consulta
         task.addOnSuccessListener {
-            if (it!= null){
+            if (it != null){
                 //pega resultado da consulta
+                Toast.makeText(context, "Criando Lista", Toast.LENGTH_LONG).show()
 
-                val musica = it.toObjects(Musica::class.java)
+                val musicas = it.toObjects(Musica::class.java)
+//                Toast.makeText(context, musicas.size, Toast.LENGTH_LONG).show()
                 //alimentando a recycle
-                recycleView.adapter = ListaMusicaAdapter(musica)
+                recycleView.adapter = ListaMusicaAdapter(musicas)
                 recycleView.layoutManager = LinearLayoutManager(context)
+
+            }else{
+                Toast.makeText(context, "Lista vazia", Toast.LENGTH_LONG).show()
             }
           //  progressBar.visibility = View.GONE
         }.addOnFailureListener{

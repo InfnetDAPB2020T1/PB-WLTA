@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.lista_musica.view.*
 class ListaMusicaAdapter(val musica:List<Musica>
 
 )
-:RecyclerView.Adapter<ListaMusicaAdapter.musicaViewHolder>() {
-    class musicaViewHolder (view: View)
+:RecyclerView.Adapter<ListaMusicaAdapter.MusicaViewHolder>() {
+    class MusicaViewHolder (view: View)
         : RecyclerView.ViewHolder(view){
         val txtViewNomeMusica = view.txtNomeMusica
         val textViewNomeAutor = view.txtNomeAutor
@@ -20,7 +20,7 @@ class ListaMusicaAdapter(val musica:List<Musica>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            : musicaViewHolder {
+            : MusicaViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(
@@ -29,7 +29,7 @@ class ListaMusicaAdapter(val musica:List<Musica>
                 false
             )
         val musicaViewHolder =
-            musicaViewHolder(
+            MusicaViewHolder(
                 view
             )
        /* musicaViewHolder.itemView.setOnClickListener{
@@ -43,9 +43,9 @@ class ListaMusicaAdapter(val musica:List<Musica>
     override fun getItemCount(): Int = musica.size
 
 
-    override fun onBindViewHolder(holder: musicaViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MusicaViewHolder, position: Int) {
         val musica = musica[position]
         holder.txtViewNomeMusica.text = musica.nomeMusica
-        holder.textViewNomeAutor.text = musica.nomeCantor
+        holder.textViewNomeAutor.text = musica.artista
     }
 }
