@@ -1,5 +1,6 @@
 package com.projeto.pb_android_radion.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.model.Musica
 import kotlinx.android.synthetic.main.lista_musica.view.*
 
-class ListaMusicaAdapter(val musica:List<Musica>
+class ListaMusicaAdapter(val musica:List<Musica>, val callback:(Musica, Context) -> Unit
 
 )
 :RecyclerView.Adapter<ListaMusicaAdapter.MusicaViewHolder>() {
@@ -32,6 +33,10 @@ class ListaMusicaAdapter(val musica:List<Musica>
             MusicaViewHolder(
                 view
             )
+        musicaViewHolder.itemView.setOnClickListener {
+            val musica = musica[musicaViewHolder.adapterPosition]
+            callback(musica, parent.context)
+        }
        /* musicaViewHolder.itemView.setOnClickListener{
             val musica = musica[musicaViewHolder.adapterPosition]
 
