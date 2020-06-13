@@ -5,13 +5,24 @@ import com.projeto.pb_android_radion.apiService.model.Album
 import com.projeto.pb_android_radion.apiService.model.Artist
 
 class MusicList(
-    @SerializedName("data")
-    var musics: List<Musica>? = null,
-    var title: String? = null,
-    var duration: String? =null,
-    var artist: Artist? = null,
-    var album: Album? = null
-) {
+    val data: List<Atributos>)
+{
 
+    class Atributos(
+        val title: String? = null,
+        val artist: Artist? = null,
+        val album: Album? = null,
+        val duration: String? = null
+    ) {
+        class Artist (
+            val name: String? = null,
+            val link: String? = null,
+            val type: String? = null
+        )
 
+        class Album(
+            val cover_medium: String? = null,
+            val title: String? = null
+        )
+    }
 }

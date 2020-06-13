@@ -16,7 +16,7 @@ interface MusicaService {
 
     //Mocado
     @GET("search?q=artist:'blink 182'track:'Always'")
-    fun show() : Call<List<MusicList>>
+    fun show() : Call<MusicList>
 
 //    @GET("search?q=artist:'{artista}'track:'{musica}'")
 //    fun show(@Path("artista") artista: String,

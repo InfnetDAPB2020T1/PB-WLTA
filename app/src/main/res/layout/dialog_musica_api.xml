@@ -2,10 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,43 +18,118 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imgViewFotoAlbum"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 app:srcCompat="@drawable/ic_menu_gallery" />
 
-            <TextView
-                android:id="@+id/textViewArtista"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Artista" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textViewMusica"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nome da Música" />
+                <TextView
+                    android:id="@+id/textViewTituloArtista"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:text="Artista:"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textViewTempoTotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Informação da duração da música" />
+                <TextView
+                    android:id="@+id/textViewArtista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Artista"
+                    android:textColor="#A00C56"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/textViewAlbum"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Album" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewTituloMusica"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:text="Música:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewMusica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome da Música"
+                    android:textColor="#A00C56"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewTituloTempo"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:text="Duração:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewTempoTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Informação da duração da música"
+                    android:textColor="#A00C56"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewTituloAlbumName"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:text="Album"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewAlbum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Album"
+                    android:textColor="#A00C56"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnVoltar"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="voltar" />
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:background="#DC215C"
+                android:text="voltar"
+                android:textColor="#FFF" />
+
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
