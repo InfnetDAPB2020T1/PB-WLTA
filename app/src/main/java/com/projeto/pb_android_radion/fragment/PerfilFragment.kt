@@ -33,6 +33,9 @@ class PerfilFragment : Fragment() {
             textViewTelefoneUsuario,
             textViewEmailUsuario
         )
+        imageViewUsuarioSair.setOnClickListener {
+            usuarioViewModel.logout(this.requireContext())
+        }
 
         // Botão drawable para trocar senha chamando um card de dialogo
         //TextViewSair// sair da aplicação*/

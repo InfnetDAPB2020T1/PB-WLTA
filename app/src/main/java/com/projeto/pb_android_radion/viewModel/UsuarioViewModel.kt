@@ -13,6 +13,7 @@ import com.projeto.pb_android_radion.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.projeto.pb_android_radion.LoginActivity
 import kotlinx.android.synthetic.main.layout_cadastro.view.*
 
 class UsuarioViewModel: ViewModel() {
@@ -141,6 +142,11 @@ class UsuarioViewModel: ViewModel() {
                         Log.i("Problema", "algum problema ocorreu aqui")
                     }
                 }
+    }
+
+    fun logout(context: Context) {
+        firebaseAuthInstance.signOut()
+        context.startActivity(Intent(context, LoginActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 }
 
