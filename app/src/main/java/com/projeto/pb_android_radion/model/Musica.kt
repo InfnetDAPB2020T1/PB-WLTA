@@ -6,12 +6,15 @@ import com.google.firebase.firestore.DocumentId
 import java.io.Serializable
 
 class Musica(
-    var artista: String? = null,
-    var nomeMusica: String? = null
-//    var musicaUrl: String? = null,
-//    var musica: String? = null
-  //  var classificacao: Int = 0,
-   /* @PrimaryKey(autoGenerate = true)
+
+    var track: Track? = null,
+    var nomeMusica: String? = null,
+    var artista: String? = null
+
+    //var musicaUrl: String? = null,
+    //var musica: String? = null
+    //var classificacao: Int = 0,
+    /*@PrimaryKey(autoGenerate = true)
     var id: Int? = null*/
 
 )

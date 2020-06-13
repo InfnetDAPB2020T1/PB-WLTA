@@ -37,11 +37,10 @@ class ListaMusicaAdapter(val musica:List<Musica>, val callback:(Musica, Context)
             val musica = musica[musicaViewHolder.adapterPosition]
             callback(musica, parent.context)
         }
-       /* musicaViewHolder.itemView.setOnClickListener{
+        /*musicaViewHolder.itemView.setOnClickListener{
             val musica = musica[musicaViewHolder.adapterPosition]
 
-        }
-*/
+        }*/
         return musicaViewHolder
     }
 

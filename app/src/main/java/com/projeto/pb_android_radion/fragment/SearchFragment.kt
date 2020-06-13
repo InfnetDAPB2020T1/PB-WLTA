@@ -45,9 +45,11 @@ class SearchFragment : Fragment() {
         recycleView.adapter = search2
         recycleView.layoutManager = LinearLayoutManager(requireContext().applicationContext)
         /*recycleView.adapter = ListaMusicaAdapter(musica)*/
-    /*    recycleView.layoutManager = LinearLayoutManager(context)*/
+        /*recycleView.layoutManager = LinearLayoutManager(context)*/
 
-       /*searchViewModel.setupRecycleView(searchRecycle, requireContext().applicationContext)*/
+        /*searchViewModel.setupRecycleView(searchRecycle, requireContext().applicationContext)*/
+
+
 
     }
    /* override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
