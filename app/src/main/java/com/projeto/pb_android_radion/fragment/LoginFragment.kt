@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
         if(auth.currentUser != null){
 
             val intt = Intent(this.context, MainActivity::class.java)
-            Toast.makeText(this.context, "Bem vindo ${auth.currentUser!!.email}!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this.context, "Bem vindo ${auth.currentUser!!.email}", Toast.LENGTH_LONG).show()
             startActivity(intt)
         }
 
