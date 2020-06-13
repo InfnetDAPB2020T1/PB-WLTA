@@ -2,8 +2,8 @@ package com.projeto.pb_android_radion.viewModel
 
 import android.app.AlertDialog
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,13 +14,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.projeto.pb_android_radion.R
-import com.projeto.pb_android_radion.service.MusicaService
+import com.projeto.pb_android_radion.apiService.ApiClient
+import com.projeto.pb_android_radion.apiService.model.MusicaAPI
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dialog_musica_api.view.*
 import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Callback
+
 import retrofit2.Response
+
 
 class MusicaViewModel :  ViewModel() {
 
@@ -47,7 +49,7 @@ class MusicaViewModel :  ViewModel() {
         task.addOnSuccessListener {
             if (it != null){
                 //pega resultado da consulta
-                Toast.makeText(context, "Criando Lista", Toast.LENGTH_LONG).show()
+//                Toast.makeText(context, "Criando Lista", Toast.LENGTH_LONG).show()
 
                 val musicas = it.toObjects(Musica::class.java)
                 //Toast.makeText(context, musicas.size, Toast.LENGTH_LONG).show()
@@ -73,15 +75,40 @@ class MusicaViewModel :  ViewModel() {
 
         val myAlertDialog = myBuilder.show()
         //Aqui vc chama o método de busca da API passando o nome da musica e o artista
-        informarcoesMusica(musica.nomeMusica!!.toLowerCase(), musica.artista!!.toLowerCase())
         //Essa informação veio quando o usuário clicou em cima da musica lá na recyclerView
         //metodoBuscaAPI(musica.artista,musica.nomeMusica)
         //Depois preenche os textViews do AlertDialog
 
-        myDialogView.textViewArtista.setText(musicaApi!!.track!!.artist!!.name)
-        myDialogView.textViewMusica.setText(musicaApi!!.track!!.title)
-        myDialogView.textViewTempoTotal.setText(musicaApi!!.track!!.duration.toString())
-        myDialogView.textViewAlbum.setText(musicaApi!!.track!!.album!!.title)
+        ApiClient.getMusicasService()
+            .show(musica.artista.toString(), musica.nomeMusica.toString())
+            .enqueue(object : Callback<List<MusicaAPI>> {
+                override fun onFailure(call: Call<List<MusicaAPI>>, t: Throwable) {
+                    Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
+                }
+
+                override fun onResponse(
+                    call: Call<List<MusicaAPI>>,
+                    response: Response<List<MusicaAPI>>
+                ) {
+                    val lista = response.body()
+
+//                    var imageView: ImageView = (R.drawable.ic_home) as ImageView
+
+
+//                    Picasso.get().load(lista!![0].album?.cover_medium).into(imageView)
+                    myDialogView.textViewArtista.setText(lista!![0].artist?.name)
+                    myDialogView.textViewMusica.setText(lista!![0].title)
+                    myDialogView.textViewTempoTotal.setText(lista!![0].duration)
+                    myDialogView.textViewAlbum.setText(lista!![0].album?.title)
+
+                }
+
+            })
+
+//        myDialogView.textViewArtista.setText(musicaApi!!.track!!.artist!!.name)
+//        myDialogView.textViewMusica.setText(musicaApi!!.track!!.title)
+//        myDialogView.textViewTempoTotal.setText(musicaApi!!.track!!.duration.toString())
+//        myDialogView.textViewAlbum.setText(musicaApi!!.track!!.album!!.title)
 
         myDialogView.btnVoltar.setOnClickListener {
             //Botão para fechar o dialog, pode ser um daqueles floatbutton com um x em lá em cima
@@ -89,28 +116,28 @@ class MusicaViewModel :  ViewModel() {
         }
     }
 
-    fun informarcoesMusica(nomeMusica: String, artista: String){
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.deezer.com")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val musicaService = retrofit.create(MusicaService::class.java)
-        val task = musicaService.buscaMusica(nomeMusica, artista)
-
-        task.enqueue(object : Callback<Musica>{
-
-            override fun onResponse(call: Call<Musica>, response: Response<Musica>) {
-                musicaApi = response.body()
-
-            }
-
-            override fun onFailure(call: Call<Musica>, t: Throwable) {
-                Log.e("Musica", t.message!!)
-            }
-        })
-
-    }
+//    fun informarcoesMusica(nomeMusica: String, artista: String){
+//
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl("https://api.deezer.com")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        val musicaService = retrofit.create(MusicaService::class.java)
+//        val task = musicaService.buscaMusica(nomeMusica, artista)
+//
+//        task.enqueue(object : Callback<Musica> {
+//
+//            override fun onResponse(call: Call<Musica>, response: Response<Musica>) {
+//                musicaApi = response.body()
+//
+//            }
+//
+//            override fun onFailure(call: Call<Musica>, t: Throwable) {
+//                Log.e("Musica", t.message!!)
+//            }
+//        })
+//
+//    }
 
 }

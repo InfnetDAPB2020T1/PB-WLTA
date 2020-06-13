@@ -1,10 +1,9 @@
-package com.projeto.pb_android_radion.service
+package com.projeto.pb_android_radion.apiService
 
 import com.projeto.pb_android_radion.model.Musica
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface MusicaService {
 
@@ -14,7 +13,7 @@ interface MusicaService {
 
     //@Query("search/track?order=RANKING&q=artist:{artista}track:{nomeMusica}")
 
-    @GET("/search/q=track:{nomeMusica}artist:{artista}")
-    fun buscaMusica(@Path("nomeMusica")nomeMusica: String,
-                    @Path("artista")artista: String) : Call<Musica>
+    @GET("search?q=artist:'{artista}' track:'{musica}'")
+    fun show(@Path("artista") artista: String,
+            @Path("musica") musica: String) : Call<List<Musica>>
 }
