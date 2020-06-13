@@ -2,8 +2,8 @@ package com.projeto.pb_android_radion.viewModel
 
 import android.app.AlertDialog
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,8 +15,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.apiService.ApiClient
-import com.projeto.pb_android_radion.apiService.model.MusicaAPI
-import com.squareup.picasso.Picasso
+import com.projeto.pb_android_radion.apiService.model.Musica_api
 import kotlinx.android.synthetic.main.dialog_musica_api.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -80,26 +79,29 @@ class MusicaViewModel :  ViewModel() {
         //Depois preenche os textViews do AlertDialog
 
         ApiClient.getMusicasService()
-            .show(musica.artista.toString(), musica.nomeMusica.toString())
-            .enqueue(object : Callback<List<MusicaAPI>> {
-                override fun onFailure(call: Call<List<MusicaAPI>>, t: Throwable) {
+            .show()
+//        musica.artista.toString(), musica.nomeMusica.toString()
+            .enqueue(object : Callback<List<Musica>> {
+                override fun onFailure(call: Call<List<Musica>>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
+                    Log.e("ERROAPI", t.message)
                 }
 
                 override fun onResponse(
-                    call: Call<List<MusicaAPI>>,
-                    response: Response<List<MusicaAPI>>
+                    call: Call<List<Musica>>,
+                    response: Response<List<Musica>>
                 ) {
                     val lista = response.body()
 
 //                    var imageView: ImageView = (R.drawable.ic_home) as ImageView
 
 
+
 //                    Picasso.get().load(lista!![0].album?.cover_medium).into(imageView)
-                    myDialogView.textViewArtista.setText(lista!![0].artist?.name)
-                    myDialogView.textViewMusica.setText(lista!![0].title)
-                    myDialogView.textViewTempoTotal.setText(lista!![0].duration)
-                    myDialogView.textViewAlbum.setText(lista!![0].album?.title)
+                    myDialogView.textViewArtista.setText(lista!![0].musics!![0].title)
+//                    myDialogView.textViewMusica.setText(lista!![0].title)
+//                    myDialogView.textViewTempoTotal.setText(lista!![0].duration)
+//                    myDialogView.textViewAlbum.setText(lista!![0].album?.title)
 
                 }
 

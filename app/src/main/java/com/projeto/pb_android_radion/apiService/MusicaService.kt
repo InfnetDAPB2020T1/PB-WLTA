@@ -13,7 +13,7 @@ interface MusicaService {
 
     //@Query("search/track?order=RANKING&q=artist:{artista}track:{nomeMusica}")
 
-    @GET("search?q=artist:'{artista}' track:'{musica}'")
+    @GET("search?q=artist:'{artista}'track:'{musica}'")
     fun show(@Path("artista") artista: String,
-            @Path("musica") musica: String) : Call<List<Musica>>
+             @Path("musica") musica: String) : Call<List<Musica>>
 }

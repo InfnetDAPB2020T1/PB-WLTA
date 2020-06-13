@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_main)
 
+
+
         usuarioViewModel = ViewModelProviders.of(this).get(UsuarioViewModel::class.java)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
