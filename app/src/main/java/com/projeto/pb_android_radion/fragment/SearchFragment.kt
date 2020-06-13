@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.adapter.SearchAdapter
 import com.projeto.pb_android_radion.viewModel.SearchViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_search.*
 
 
 class SearchFragment : Fragment() {
@@ -40,6 +42,12 @@ class SearchFragment : Fragment() {
         activity?.let {
             searchViewModel = ViewModelProviders.of(it).get(SearchViewModel::class.java)
         }
+
+        btnPesquisar.setOnClickListener {
+            var pesquisa = editTextTextPersonName.text.toString()
+            searchViewModel.searchMusica(searchRecycle,this.requireContext(), pesquisa)
+        }
+
 //        loadData()
 //        val search2 = SearchAdapter(displayList)
 //        recycleView.adapter = search2

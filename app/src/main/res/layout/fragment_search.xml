@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -24,7 +25,7 @@
             android:inputType="textPersonName" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/btnPesquisar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -35,11 +36,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchRecycle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
         tools:listitem="@layout/layout_search" />
 
 
