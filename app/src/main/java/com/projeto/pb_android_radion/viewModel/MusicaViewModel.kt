@@ -79,7 +79,7 @@ class MusicaViewModel :  ViewModel() {
         //Depois preenche os textViews do AlertDialog
 
         ApiClient.getMusicasService()
-            .show()
+            .show(musica.artista.toString(), musica.nomeMusica.toString())
 //        musica.artista.toString(), musica.nomeMusica.toString()
             .enqueue(object : Callback<List<Musica>> {
                 override fun onFailure(call: Call<List<Musica>>, t: Throwable) {
