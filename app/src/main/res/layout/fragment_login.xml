@@ -43,10 +43,22 @@
                 <ImageView
                     android:id="@+id/lodotipoLogin"
                     android:layout_width="108dp"
-                    android:layout_height="238dp"
+                    android:layout_height="108dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
                     android:contentDescription="@string/descricaoImagem"
                     app:srcCompat="@drawable/icon" />
+
+                <TextView
+                    android:id="@+id/txtVwTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="35dp"
+                    android:gravity="center"
+                    android:text="RadiON"
+                    android:textColor="#FFF"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textoEmailLogin"
