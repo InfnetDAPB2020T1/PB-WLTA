@@ -13,6 +13,10 @@ interface MusicaService {
 
     //@Query("search/track?order=RANKING&q=artist:{artista}track:{nomeMusica}")
 
+    //Mocado
+//    @GET("search?q=artist:'blink 182'track:'Always'")
+//    fun show() : Call<List<Musica>>
+
     @GET("search?q=artist:'{artista}'track:'{musica}'")
     fun show(@Path("artista") artista: String,
              @Path("musica") musica: String) : Call<List<Musica>>
