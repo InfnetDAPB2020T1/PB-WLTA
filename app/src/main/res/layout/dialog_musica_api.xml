@@ -45,7 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Artista"
-                    android:textColor="#A00C56"
+                    android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nome da Música"
-                    android:textColor="#A00C56"
+                    android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Informação da duração da música"
-                    android:textColor="#A00C56"
+                    android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -114,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Album"
-                    android:textColor="#A00C56"
+                    android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -125,7 +125,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
-                android:background="#DC215C"
+                android:background="#CB4429"
                 android:text="voltar"
                 android:textColor="#FFF" />
 

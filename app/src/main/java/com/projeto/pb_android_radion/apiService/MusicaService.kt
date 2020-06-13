@@ -20,5 +20,5 @@ interface MusicaService {
 
 //    @GET("search?q=artist:'{artista}'track:'{musica}'")
 //    fun show(@Path("artista") artista: String,
-//             @Path("musica") musica: String) : Call<List<Musica>>
+//             @Path("musica") musica: String) : Call<MusicList>
 }
