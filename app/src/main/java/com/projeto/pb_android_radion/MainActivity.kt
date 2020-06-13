@@ -2,6 +2,7 @@ package com.projeto.pb_android_radion
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -56,6 +57,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+
+
         /*searchImg.setOnClickListener {
          //
             findViewById<View>(R.id.mobile_navigation)
@@ -116,5 +119,16 @@ class MainActivity : AppCompatActivity() {
         txtVwEmail.text = usuarioViewModel.usuarioLogado!!.email
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
+    }
+
+    override fun onOptionsItemSelected (item: MenuItem): Boolean {
+        when (item.itemId) {
+            // selecionou item com ID "info_item"
+            R.id.pesquisa -> {
+                findNavController(R.id.nav_host_fragment)
+                    .navigate(R.id.nav_search)
+            }
+        }
+        return false
     }
 }

@@ -59,6 +59,6 @@
     <string name="novo_apelido">Novo apelido</string>
     <string name="mudar_apelido">Editar apelido</string>
     <string name="editar_estado">Editar estado</string>
-    <string name="pesquisa_por_m_sica">Pesquisa por música</string>
+    <string name="pesquisa_por_musica">Pesquisa por música</string>
 
 </resources>

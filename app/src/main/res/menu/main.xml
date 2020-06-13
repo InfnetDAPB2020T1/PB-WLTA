@@ -4,5 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragment.SearchFragment">
 
+    <item
+        android:id="@+id/pesquisa"
+        android:icon="@drawable/ic_search"
+        android:title="@string/pesquisa_por_musica"
+        app:showAsAction="always" />
+
 
 </menu>

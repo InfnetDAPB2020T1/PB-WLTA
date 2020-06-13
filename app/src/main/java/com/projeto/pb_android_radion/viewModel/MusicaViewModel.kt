@@ -4,6 +4,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +18,7 @@ import com.google.firebase.storage.StorageReference
 import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.apiService.ApiClient
 import com.projeto.pb_android_radion.apiService.model.Musica_api
+import com.projeto.pb_android_radion.model.MusicList
 import kotlinx.android.synthetic.main.dialog_musica_api.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,7 +39,7 @@ class MusicaViewModel :  ViewModel() {
 
 
     fun setupRecycleView(
-        recycleView: RecyclerView, context: Context
+        recycleView: RecyclerView, context: Context, progressBar: ProgressBar
     ){
         firebaseFirestore = FirebaseFirestore.getInstance()
         //progressBar.visibility = View.VISIBLE
@@ -53,6 +56,7 @@ class MusicaViewModel :  ViewModel() {
                 val musicas = it.toObjects(Musica::class.java)
                 //Toast.makeText(context, musicas.size, Toast.LENGTH_LONG).show()
                 //alimentando a recycle
+                progressBar.visibility = View.GONE
                 recycleView.adapter = ListaMusicaAdapter(musicas, this::callbacListaMusicas)
                 recycleView.layoutManager = LinearLayoutManager(context)
 
@@ -79,17 +83,17 @@ class MusicaViewModel :  ViewModel() {
         //Depois preenche os textViews do AlertDialog
 
         ApiClient.getMusicasService()
-            .show(musica.artista.toString(), musica.nomeMusica.toString())
+            .show()
 //        musica.artista.toString(), musica.nomeMusica.toString()
-            .enqueue(object : Callback<List<Musica>> {
-                override fun onFailure(call: Call<List<Musica>>, t: Throwable) {
+            .enqueue(object : Callback<List<MusicList>> {
+                override fun onFailure(call: Call<List<MusicList>>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
                     Log.e("ERROAPI", t.message)
                 }
 
                 override fun onResponse(
-                    call: Call<List<Musica>>,
-                    response: Response<List<Musica>>
+                    call: Call<List<MusicList>>,
+                    response: Response<List<MusicList>>
                 ) {
                     val lista = response.body()
 

@@ -10,8 +10,8 @@ import java.io.Serializable
 
 class Musica(
 
-    @SerializedName("data")
-    var musics: MutableList<Musica>? = null,
+//    @SerializedName("data")
+    var musics: List<Musica>? = null,
 
     var track: Track? = null,
     var nomeMusica: String? = null,

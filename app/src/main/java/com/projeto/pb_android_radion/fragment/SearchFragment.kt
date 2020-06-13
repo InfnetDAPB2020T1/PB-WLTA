@@ -40,10 +40,10 @@ class SearchFragment : Fragment() {
         activity?.let {
             searchViewModel = ViewModelProviders.of(it).get(SearchViewModel::class.java)
         }
-        loadData()
-        val search2 = SearchAdapter(displayList)
-        recycleView.adapter = search2
-        recycleView.layoutManager = LinearLayoutManager(requireContext().applicationContext)
+//        loadData()
+//        val search2 = SearchAdapter(displayList)
+//        recycleView.adapter = search2
+//        recycleView.layoutManager = LinearLayoutManager(requireContext().applicationContext)
         /*recycleView.adapter = ListaMusicaAdapter(musica)*/
         /*recycleView.layoutManager = LinearLayoutManager(context)*/
 

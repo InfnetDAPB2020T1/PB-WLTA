@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-          musicaViewModel.setupRecycleView(ListaDeMusicasRecycle,this.requireContext())
+          musicaViewModel.setupRecycleView(ListaDeMusicasRecycle,this.requireContext(), progressBar)
     }
 
 }
