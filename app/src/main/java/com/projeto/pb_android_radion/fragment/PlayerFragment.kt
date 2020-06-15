@@ -34,9 +34,9 @@ class PlayerFragment : Fragment() {
     var listaUrl = listOf<String>(
         "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062",
         "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F(IT)%20Skank%20-%20Ainda%20Gosto%20Dela(1).mp3?alt=media&token=a64bf254-7022-437f-a33b-e1256883770d",
-        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062",
-        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062",
-        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F01%20-%20Guns%20N'%20Roses%20-%20Welcome%20to%20the%20Jungle.mp3?alt=media&token=4202bda8-f238-4f43-baff-86b5ea638062"
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2Fskank%20-%20amores%20imperfeitos(2)271236.mp3?alt=media&token=54f8b5a4-a156-4d57-bf98-064a3814be20",
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2FDetonautas%20-%20O%20Amanha.mp3?alt=media&token=2df81fb1-5419-40d6-9b06-d0cb9b520e09",
+        "https://firebasestorage.googleapis.com/v0/b/radion-23f62.appspot.com/o/Audio%2F04%20Awakening.mp3?alt=media&token=9453cf14-3868-4f94-a70f-3f964da8a58a"
     )
 
 
@@ -169,10 +169,10 @@ class PlayerFragment : Fragment() {
             //Progress bar value paramater
             positionBar.max = _totalTime
             //ESSE IF INICA O PLAYER SOZINHO
-           /* if (!mediaPlayer.isPlaying) {
+           if (!mediaPlayer.isPlaying) {
                 mediaPlayer.start()
                 playBtn.setBackgroundResource(R.drawable.ic_pause_black_24dp)
-            }*/
+            }
         })
 
         mediaPlayer.setOnCompletionListener {

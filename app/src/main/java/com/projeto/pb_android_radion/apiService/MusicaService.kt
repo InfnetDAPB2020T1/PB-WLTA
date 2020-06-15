@@ -1,10 +1,8 @@
 package com.projeto.pb_android_radion.apiService
 
-import com.google.gson.JsonObject
 import com.projeto.pb_android_radion.model.MusicList
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 

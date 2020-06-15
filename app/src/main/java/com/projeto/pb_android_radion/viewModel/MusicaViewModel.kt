@@ -79,7 +79,6 @@ class MusicaViewModel :  ViewModel() {
 
         ApiClient.getMusicasService()
             .show(artista_musica)
-//        musica.artista.toString(), musica.nomeMusica.toString()
             .enqueue(object : Callback<MusicList> {
                 override fun onFailure(call: Call<MusicList>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()

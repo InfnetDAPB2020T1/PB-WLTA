@@ -29,56 +29,31 @@ import retrofit2.Response
 
 class SearchViewModel : ViewModel(){
 
-    var search: Search? = null
-    val firebaseStore = FirebaseFirestore.getInstance()
     private lateinit var firebaseFirestore: FirebaseFirestore
-    lateinit var storageReference: StorageReference
-    lateinit var firebaseStorage: FirebaseStorage
-
-    fun setupRecycleView(
-        recycleView: RecyclerView, context: Context
-    ){
-        // progressBar.visibility = View.VISIBLE
-        val collection = firebaseStore.collection("listaMusicas")
-        collection.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-            if (firebaseFirestoreException != null){
-                Log.e("Firestore", firebaseFirestoreException.message)
-            } else {
-                if (querySnapshot != null){
-                    val listaMusicas = querySnapshot.toObjects(SearchViewModel::class.java)
-                 //   recycleView.adapter = SearchAdapter(listaMusicas)
-                    recycleView.layoutManager = LinearLayoutManager(context)
-
-                }
-            }
-        }
-    }
 
     fun searchMusica(recycleView: RecyclerView, context: Context, pesquisa: String){
         firebaseFirestore = FirebaseFirestore.getInstance()
-        //progressBar.visibility = View.VISIBLE
         val collection = firebaseFirestore.collection("music")
 
         val task = collection.get()
 
         task.addOnSuccessListener {
             if (it != null){
-                //pega resultado da consulta
+                //Pega resultado da consulta
                 val musicas = it.toObjects(Musica::class.java)
-                var searchMusica = mutableListOf<Musica>()
+                val searchMusica = mutableListOf<Musica>()
 
                 musicas.forEach {
                     if(it.nomeMusica?.toUpperCase() == pesquisa.toUpperCase()
                         ||
                         it.artista?.toUpperCase() == pesquisa.toUpperCase()){
 
-                        var musica = Musica(null,null, it.nomeMusica, it.artista)
+                        var musica = Musica(it.nomeMusica, it.artista)
                         searchMusica.add(musica)
                     }
                 }
-                //Toast.makeText(context, musicas.size, Toast.LENGTH_LONG).show()
-                //alimentando a recycle
-//                progressBar.visibility = View.GONE
+
+                //Alimentando a recycle
                 if(searchMusica.size == 0){
                     Toast.makeText(context, "Nenhum resultado foi encontrado!", Toast.LENGTH_LONG).show()
                 }
@@ -86,7 +61,7 @@ class SearchViewModel : ViewModel(){
                 recycleView.layoutManager = LinearLayoutManager(context)
 
             }else{
-                Toast.makeText(context, "Lista vazia", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Listagem vazia.", Toast.LENGTH_LONG).show()
             }
         }.addOnFailureListener{
             Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
@@ -104,7 +79,6 @@ class SearchViewModel : ViewModel(){
 
         ApiClient.getMusicasService()
             .show(artista_musica)
-//        musica.artista.toString(), musica.nomeMusica.toString()
             .enqueue(object : Callback<MusicList> {
                 override fun onFailure(call: Call<MusicList>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()

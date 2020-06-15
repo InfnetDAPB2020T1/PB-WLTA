@@ -1,9 +1,5 @@
 package com.projeto.pb_android_radion.model
 
-import com.google.gson.annotations.SerializedName
-import com.projeto.pb_android_radion.apiService.model.Album
-import com.projeto.pb_android_radion.apiService.model.Artist
-
 class MusicList(
     val data: List<Atributos>)
 {
