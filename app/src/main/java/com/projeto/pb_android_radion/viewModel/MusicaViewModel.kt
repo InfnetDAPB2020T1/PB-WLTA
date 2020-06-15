@@ -75,9 +75,11 @@ class MusicaViewModel :  ViewModel() {
             .setTitle("Informações Detalhadas")
 
         val myAlertDialog = myBuilder.show()
+        val artista_musica = "${musica.artista.toString()} ${musica.nomeMusica.toString()}"
 
         ApiClient.getMusicasService()
-            .show()
+            .show(artista_musica)
+//        musica.artista.toString(), musica.nomeMusica.toString()
             .enqueue(object : Callback<MusicList> {
                 override fun onFailure(call: Call<MusicList>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
@@ -89,15 +91,36 @@ class MusicaViewModel :  ViewModel() {
                     response: Response<MusicList>
                 ) {
                     val lista = response.body()
+                    var achou = false
 
-                    val imageView: ImageView = myDialogView.findViewById(R.id.imgViewFotoAlbum)
-                    val imageUrl = lista!!.data[0].album?.cover_medium
+                    lista!!.data.forEach {
+                        if(it.artist?.name?.toUpperCase().toString() == musica.artista?.toUpperCase().toString()
+                            && it.title?.toUpperCase().toString() == musica.nomeMusica?.toUpperCase().toString()){
 
-                    Picasso.get().load(imageUrl).into(imageView)
-                    myDialogView.textViewArtista.setText(lista!!.data[0].artist?.name)
-                    myDialogView.textViewMusica.setText(lista!!.data[0].title)
-                    myDialogView.textViewTempoTotal.setText(" ${lista!!.data[0].duration} segundos")
-                    myDialogView.textViewAlbum.setText(lista!!.data[0].album?.title)
+                            val imageView: ImageView = myDialogView.findViewById(R.id.imgViewFotoAlbum)
+                            val imageUrl = it.album?.cover_medium
+
+                            Picasso.get().load(imageUrl).into(imageView)
+                            myDialogView.textViewArtista.setText(it.artist?.name)
+                            myDialogView.textViewMusica.setText(it.title)
+                            myDialogView.textViewTempoTotal.setText(" ${it.duration} segundos")
+                            myDialogView.textViewAlbum.setText(it.album?.title)
+
+                            achou = true
+
+                            return
+                        }
+                    }
+                    if(!achou){
+                        val imageView: ImageView = myDialogView.findViewById(R.id.imgViewFotoAlbum)
+                        val imageUrl = lista!!.data[0].album?.cover_medium
+
+                        Picasso.get().load(imageUrl).into(imageView)
+                        myDialogView.textViewArtista.setText(lista!!.data[0].artist?.name)
+                        myDialogView.textViewMusica.setText(lista!!.data[0].title)
+                        myDialogView.textViewTempoTotal.setText("${lista!!.data[0].duration} segundos")
+                        myDialogView.textViewAlbum.setText(lista!!.data[0].album?.title)
+                    }
                 }
             })
 

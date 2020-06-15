@@ -44,7 +44,6 @@
                     android:id="@+id/textViewArtista"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Artista"
                     android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -67,7 +66,6 @@
                     android:id="@+id/textViewMusica"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nome da Música"
                     android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -90,7 +88,6 @@
                     android:id="@+id/textViewTempoTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Informação da duração da música"
                     android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -113,7 +110,6 @@
                     android:id="@+id/textViewAlbum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Album"
                     android:textColor="#CD2604"
                     android:textSize="18sp" />
             </LinearLayout>

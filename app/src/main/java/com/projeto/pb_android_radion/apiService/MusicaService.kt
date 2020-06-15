@@ -1,10 +1,12 @@
 package com.projeto.pb_android_radion.apiService
 
+import com.google.gson.JsonObject
 import com.projeto.pb_android_radion.model.MusicList
-import com.projeto.pb_android_radion.model.Musica
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
+
 
 interface MusicaService {
 
@@ -15,10 +17,10 @@ interface MusicaService {
     //@Query("search/track?order=RANKING&q=artist:{artista}track:{nomeMusica}")
 
     //Mocado
-    @GET("search?q=artist:'blink 182'track:'Always'")
-    fun show() : Call<MusicList>
+//    @GET("search?q=artist:'capital inicial' track:'fogo'")
+//    fun show() : Call<MusicList>
 
-//    @GET("search?q=artist:'{artista}'track:'{musica}'")
-//    fun show(@Path("artista") artista: String,
-//             @Path("musica") musica: String) : Call<MusicList>
+    @GET("search?q=")
+    fun show(@Query("q") artista_musica: String) : Call<MusicList>
+
 }
