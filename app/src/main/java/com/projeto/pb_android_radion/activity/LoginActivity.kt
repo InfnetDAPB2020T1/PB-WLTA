@@ -1,4 +1,4 @@
-package com.projeto.pb_android_radion
+package com.projeto.pb_android_radion.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.projeto.pb_android_radion.R
 
 class LoginActivity : AppCompatActivity() {
     lateinit var mAdView : AdView

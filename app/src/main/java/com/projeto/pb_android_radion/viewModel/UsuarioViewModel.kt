@@ -8,12 +8,12 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
-import com.projeto.pb_android_radion.MainActivity
+import com.projeto.pb_android_radion.activity.MainActivity
 import com.projeto.pb_android_radion.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.projeto.pb_android_radion.LoginActivity
+import com.projeto.pb_android_radion.activity.LoginActivity
 import kotlinx.android.synthetic.main.layout_cadastro.view.*
 
 class UsuarioViewModel: ViewModel() {

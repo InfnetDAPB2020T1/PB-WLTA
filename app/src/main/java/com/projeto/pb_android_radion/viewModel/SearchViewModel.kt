@@ -4,17 +4,12 @@ import android.app.AlertDialog
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.projeto.pb_android_radion.model.Search
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.adapter.ListaMusicaAdapter
 import com.projeto.pb_android_radion.apiService.ApiClient
@@ -44,9 +39,9 @@ class SearchViewModel : ViewModel(){
                 val searchMusica = mutableListOf<Musica>()
 
                 musicas.forEach {
-                    if(it.nomeMusica?.toUpperCase() == pesquisa.toUpperCase()
+                    if(it.nomeMusica?.toUpperCase()!!.contains(pesquisa.toUpperCase())
                         ||
-                        it.artista?.toUpperCase() == pesquisa.toUpperCase()){
+                        it.artista?.toUpperCase()!!.contains(pesquisa.toUpperCase())){
 
                         var musica = Musica(it.nomeMusica, it.artista)
                         searchMusica.add(musica)

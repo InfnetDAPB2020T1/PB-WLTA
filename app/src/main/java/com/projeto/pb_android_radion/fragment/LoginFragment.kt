@@ -9,14 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
 import com.projeto.pb_android_radion.R
 import com.projeto.pb_android_radion.viewModel.UsuarioViewModel
 import com.google.firebase.auth.FirebaseUser
-import com.projeto.pb_android_radion.MainActivity
+import com.projeto.pb_android_radion.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -32,9 +29,7 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,8 +46,6 @@ class LoginFragment : Fragment() {
             startActivity(intt)
         }
 
-
-
         textoCadastroLogin.setOnClickListener{
             findNavController().navigate(R.id.LoginToCadastrar)
         }
@@ -60,9 +53,6 @@ class LoginFragment : Fragment() {
         btnLogarLogin.setOnClickListener {
             usuarioViewModel.loginFirestore(requireContext().applicationContext,
                 boxEmailLogin.text.toString(), boxSenhaLogin.text.toString())
-//            if (usuarioViewModel.confirmaLogin()){
-//                startActivity(Intent(activity?.baseContext, MainActivity::class.java))
-//            }
         }
     }
 }

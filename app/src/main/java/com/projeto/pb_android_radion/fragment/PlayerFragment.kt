@@ -81,25 +81,26 @@ class PlayerFragment : Fragment() {
         initMusicPlayer(_positionTrack)
 
         // PROGRESS BAR
-        positionBar.setOnSeekBarChangeListener(
-            object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(
-                    seekBar: SeekBar?,
-                    progress: Int,
-                    fromUser: Boolean
-                ) {
-                    if (fromUser) {
-                        mediaPlayer.seekTo(progress)
-                    }
-                }
+//        positionBar.setOnSeekBarChangeListener(
+//            object : SeekBar.OnSeekBarChangeListener {
+//                override fun onProgressChanged(
+//                    seekBar: SeekBar?,
+//                    progress: Int,
+//                    fromUser: Boolean
+//                ) {
+//                    if (fromUser) {
+//                        mediaPlayer.seekTo(progress)
+//                    }
+//                }
+//
+//                override fun onStartTrackingTouch(p0: SeekBar?) {
+//                }
+//
+//                override fun onStopTrackingTouch(p0: SeekBar?) {
+//                }
+//            }
+//        )
 
-                override fun onStartTrackingTouch(p0: SeekBar?) {
-                }
-
-                override fun onStopTrackingTouch(p0: SeekBar?) {
-                }
-            }
-        )
         fun createTimeLabel(time: Int): String {
             var timeLabel = ""
             var min = time / 1000 / 60

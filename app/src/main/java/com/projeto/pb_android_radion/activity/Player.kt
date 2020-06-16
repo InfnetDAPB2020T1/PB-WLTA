@@ -1,17 +1,6 @@
-package com.projeto.pb_android_radion
+package com.projeto.pb_android_radion.activity
 
-import android.annotation.SuppressLint
-import android.media.AudioManager
-import android.media.MediaPlayer
-import android.os.Handler
-import android.os.Message
 import android.view.View
-import android.widget.SeekBar
-import com.projeto.pb_android_radion.viewModel.MusicaViewModel
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.fragment_player.*
 
 class Player(mediaPlayer: View, playBtn :View) {
 //    private lateinit var musicaViewModel: MusicaViewModel

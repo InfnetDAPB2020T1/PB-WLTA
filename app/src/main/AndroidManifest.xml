@@ -21,14 +21,14 @@
             android:value="ca-app-pub-3940256099942544~3347511713"/>
         <!--ID PADRAO ADMOB PARA TESTES...FAVOR TROCAR PARA O DE PRODUCAO-->
         <activity
-            android:name="com.projeto.pb_android_radion.MainActivity"
+            android:name="com.projeto.pb_android_radion.activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"
             android:noHistory="true"
             >
         </activity>
 
-        <activity android:name="com.projeto.pb_android_radion.LoginActivity">
+        <activity android:name="com.projeto.pb_android_radion.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
                     android:noHistory="true"/>

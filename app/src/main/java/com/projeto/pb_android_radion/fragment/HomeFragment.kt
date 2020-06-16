@@ -1,4 +1,4 @@
-package com.projeto.pb_android_radion.ui.home
+package com.projeto.pb_android_radion.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
