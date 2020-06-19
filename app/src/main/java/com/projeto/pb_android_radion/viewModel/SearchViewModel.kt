@@ -27,12 +27,17 @@ class SearchViewModel : ViewModel(){
     private lateinit var firebaseFirestore: FirebaseFirestore
 
     fun searchMusica(recycleView: RecyclerView, context: Context, pesquisa: String){
+        if(pesquisa.isBlank()){
+            Toast.makeText(context, "Preencha o campo de pesquisa", Toast.LENGTH_LONG).show()
+            return
+        }
         firebaseFirestore = FirebaseFirestore.getInstance()
         val collection = firebaseFirestore.collection("music")
 
         val task = collection.get()
 
         task.addOnSuccessListener {
+
             if (it != null){
                 //Pega resultado da consulta
                 val musicas = it.toObjects(Musica::class.java)
